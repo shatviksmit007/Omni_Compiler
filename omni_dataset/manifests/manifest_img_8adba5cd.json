@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_8adba5cd",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/88954214@N04/8109018571",
+    "direct_image_url": "https://live.staticflickr.com/8468/8109018571_3d826ace1b_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Petful.com",
+    "attribution_text": "'overweight pug, senior dog' by Petful.com, licensed under CC BY 2.0 (https://www.flickr.com/photos/88954214@N04/8109018571)",
+    "retrieved_at": "2026-10-25T03:46:26.717165+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_8adba5cd.jpg",
+    "raw_sha256": "9832799de2221d700aa9ec02d410adc5818d78ca72105febcfe0658322731ede",
+    "sha256": "8db14cff59dda413dbd8041482a3fd68e487cd19cb9eb9e6391799e56dc2c4e0",
+    "verification_status": "ACCEPTED"
+}

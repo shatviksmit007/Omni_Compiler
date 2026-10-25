@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_bcb4bf8a",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/131705628@N06/16120825474",
+    "direct_image_url": "https://live.staticflickr.com/8574/16120825474_ed11203dbb_b.jpg",
+    "license_label": "CC0 1.0",
+    "license_type": "cc0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "roman.schurte",
+    "attribution_text": "'lisa-the-dog' by roman.schurte, licensed under CC0 1.0 (https://www.flickr.com/photos/131705628@N06/16120825474)",
+    "retrieved_at": "2026-10-25T03:45:51.517063+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_bcb4bf8a.jpg",
+    "raw_sha256": "3e0d1fb3b4ace81d944d51bd8d68d7b8a96fadfbcfb86b07e722e9440489b995",
+    "sha256": "ab1cd4103d2a9240f58e871282d86b09aa6252effa40e7e7363e6999101396e5",
+    "verification_status": "ACCEPTED"
+}

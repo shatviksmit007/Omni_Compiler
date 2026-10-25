@@ -1,0 +1,6511 @@
+{
+  "generated_at": "2026-10-25T03:46:43.172431+00:00",
+  "config": {
+    "task": "Image Classification",
+    "dataset_query": "cats and dogs",
+    "model_path": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\ml_test.py",
+    "labels": [
+      "cats",
+      "dogs"
+    ]
+  },
+  "curation": {
+    "labels": [
+      "cats",
+      "dogs"
+    ],
+    "classes": [
+      "cats",
+      "dogs"
+    ],
+    "search_queries": {
+      "cats": "cats",
+      "dogs": "dogs"
+    },
+    "counts": {
+      "cats": {
+        "train": 60,
+        "val": 0
+      },
+      "dogs": {
+        "train": 80,
+        "val": 9
+      }
+    }
+  },
+  "triage_initial": {
+    "stage_label": "ROUND 1 (PRE-HEALING)",
+    "classes": [
+      "cats",
+      "dogs"
+    ],
+    "num_images": 149,
+    "surviving_after_z2": 134,
+    "folds": 5,
+    "epochs": 6,
+    "student_class": "CustomMobileNetV3",
+    "student_accuracy": 0.9552238583564758,
+    "student_per_class_accuracy": {
+      "cats": 0.9056603908538818,
+      "dogs": 0.9876543283462524
+    },
+    "teacher_accuracy": 1.0,
+    "teacher_per_class_accuracy": {
+      "cats": 1.0,
+      "dogs": 1.0
+    },
+    "z2_threshold": 708.654296875,
+    "z2_flagged": 15,
+    "temperature": 2.10225510597229,
+    "ece_before": 0.046822540788985345,
+    "ece_after": 0.018646832448645123,
+    "mean_jsd": 0.029030894860625267,
+    "jsd_threshold": 0.0499863475561142,
+    "jsd_flagged": 14,
+    "safe_count": 120,
+    "failed_count": 29,
+    "student_accuracy_safe": 1.0,
+    "student_accuracy_flagged": 0.5714285969734192,
+    "failed_records": [
+      {
+        "index": 0,
+        "original_path": "omni_dataset\\train\\cats\\train_img_8cc74a40.jpg",
+        "bin_file": "z2_fail_0_train_img_8cc74a40.jpg",
+        "bin_path": "failed_bin\\z2_fail_0_train_img_8cc74a40.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 1005.492919921875
+      },
+      {
+        "index": 59,
+        "original_path": "omni_dataset\\train\\cats\\train_img_cf2c68fa.jpg",
+        "bin_file": "z2_fail_59_train_img_cf2c68fa.jpg",
+        "bin_path": "failed_bin\\z2_fail_59_train_img_cf2c68fa.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 1003.7291259765625
+      },
+      {
+        "index": 12,
+        "original_path": "omni_dataset\\train\\cats\\train_img_7b3faf22.jpg",
+        "bin_file": "z2_fail_12_train_img_7b3faf22.jpg",
+        "bin_path": "failed_bin\\z2_fail_12_train_img_7b3faf22.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 942.8045654296875
+      },
+      {
+        "index": 131,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_e768a2b5.jpg",
+        "bin_file": "z2_fail_131_train_img_e768a2b5.jpg",
+        "bin_path": "failed_bin\\z2_fail_131_train_img_e768a2b5.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 920.170166015625
+      },
+      {
+        "index": 110,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_91bca3cb.jpg",
+        "bin_file": "z2_fail_110_train_img_91bca3cb.jpg",
+        "bin_path": "failed_bin\\z2_fail_110_train_img_91bca3cb.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 914.4561157226562
+      },
+      {
+        "index": 105,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_7f25d869.jpg",
+        "bin_file": "z2_fail_105_train_img_7f25d869.jpg",
+        "bin_path": "failed_bin\\z2_fail_105_train_img_7f25d869.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 875.2373046875
+      },
+      {
+        "index": 130,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_c9c93853.jpg",
+        "bin_file": "z2_fail_130_train_img_c9c93853.jpg",
+        "bin_path": "failed_bin\\z2_fail_130_train_img_c9c93853.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 854.4279174804688
+      },
+      {
+        "index": 102,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_a9c45a11.jpg",
+        "bin_file": "z2_fail_102_train_img_a9c45a11.jpg",
+        "bin_path": "failed_bin\\z2_fail_102_train_img_a9c45a11.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 850.5684814453125
+      },
+      {
+        "index": 56,
+        "original_path": "omni_dataset\\train\\cats\\train_img_5416c64e.jpg",
+        "bin_file": "z2_fail_56_train_img_5416c64e.jpg",
+        "bin_path": "failed_bin\\z2_fail_56_train_img_5416c64e.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 790.6854248046875
+      },
+      {
+        "index": 77,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_090dd279.jpg",
+        "bin_file": "z2_fail_77_train_img_090dd279.jpg",
+        "bin_path": "failed_bin\\z2_fail_77_train_img_090dd279.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 780.44140625
+      },
+      {
+        "index": 43,
+        "original_path": "omni_dataset\\train\\cats\\train_img_31083aa6.jpg",
+        "bin_file": "z2_fail_43_train_img_31083aa6.jpg",
+        "bin_path": "failed_bin\\z2_fail_43_train_img_31083aa6.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 760.8557739257812
+      },
+      {
+        "index": 84,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_b35dd679.jpg",
+        "bin_file": "z2_fail_84_train_img_b35dd679.jpg",
+        "bin_path": "failed_bin\\z2_fail_84_train_img_b35dd679.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 750.2022094726562
+      },
+      {
+        "index": 63,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_f96eb1f3.jpg",
+        "bin_file": "z2_fail_63_train_img_f96eb1f3.jpg",
+        "bin_path": "failed_bin\\z2_fail_63_train_img_f96eb1f3.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "z2_energy",
+        "score": 740.3778076171875
+      },
+      {
+        "index": 57,
+        "original_path": "omni_dataset\\train\\cats\\train_img_5c04555d.jpg",
+        "bin_file": "z2_fail_57_train_img_5c04555d.jpg",
+        "bin_path": "failed_bin\\z2_fail_57_train_img_5c04555d.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 727.5799560546875
+      },
+      {
+        "index": 16,
+        "original_path": "omni_dataset\\train\\cats\\train_img_6f52ffa2.jpg",
+        "bin_file": "z2_fail_16_train_img_6f52ffa2.jpg",
+        "bin_path": "failed_bin\\z2_fail_16_train_img_6f52ffa2.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "z2_energy",
+        "score": 726.8993530273438
+      },
+      {
+        "index": 8,
+        "original_path": "omni_dataset\\train\\cats\\train_img_a2fda99e.jpg",
+        "bin_file": "jsd_fail_8_train_img_a2fda99e.jpg",
+        "bin_path": "failed_bin\\jsd_fail_8_train_img_a2fda99e.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.09771449118852615
+      },
+      {
+        "index": 17,
+        "original_path": "omni_dataset\\train\\cats\\train_img_7359b7d6.jpg",
+        "bin_file": "jsd_fail_17_train_img_7359b7d6.jpg",
+        "bin_path": "failed_bin\\jsd_fail_17_train_img_7359b7d6.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.32490622997283936
+      },
+      {
+        "index": 22,
+        "original_path": "omni_dataset\\train\\cats\\train_img_abb648b1.jpg",
+        "bin_file": "jsd_fail_22_train_img_abb648b1.jpg",
+        "bin_path": "failed_bin\\jsd_fail_22_train_img_abb648b1.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.05482545867562294
+      },
+      {
+        "index": 23,
+        "original_path": "omni_dataset\\train\\cats\\train_img_eb5bd3f2.jpg",
+        "bin_file": "jsd_fail_23_train_img_eb5bd3f2.jpg",
+        "bin_path": "failed_bin\\jsd_fail_23_train_img_eb5bd3f2.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.5054463744163513
+      },
+      {
+        "index": 24,
+        "original_path": "omni_dataset\\train\\cats\\train_img_af1bc731.jpg",
+        "bin_file": "jsd_fail_24_train_img_af1bc731.jpg",
+        "bin_path": "failed_bin\\jsd_fail_24_train_img_af1bc731.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.11962873488664627
+      },
+      {
+        "index": 29,
+        "original_path": "omni_dataset\\train\\cats\\train_img_2019ff37.jpg",
+        "bin_file": "jsd_fail_29_train_img_2019ff37.jpg",
+        "bin_path": "failed_bin\\jsd_fail_29_train_img_2019ff37.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.553145170211792
+      },
+      {
+        "index": 31,
+        "original_path": "omni_dataset\\train\\cats\\train_img_b4c29139.jpg",
+        "bin_file": "jsd_fail_31_train_img_b4c29139.jpg",
+        "bin_path": "failed_bin\\jsd_fail_31_train_img_b4c29139.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.08906301856040955
+      },
+      {
+        "index": 33,
+        "original_path": "omni_dataset\\train\\cats\\train_img_2a7ca307.jpg",
+        "bin_file": "jsd_fail_33_train_img_2a7ca307.jpg",
+        "bin_path": "failed_bin\\jsd_fail_33_train_img_2a7ca307.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.39601200819015503
+      },
+      {
+        "index": 38,
+        "original_path": "omni_dataset\\train\\cats\\train_img_bead25b5.jpg",
+        "bin_file": "jsd_fail_38_train_img_bead25b5.jpg",
+        "bin_path": "failed_bin\\jsd_fail_38_train_img_bead25b5.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.14746589958667755
+      },
+      {
+        "index": 42,
+        "original_path": "omni_dataset\\train\\cats\\train_img_faa4bdab.jpg",
+        "bin_file": "jsd_fail_42_train_img_faa4bdab.jpg",
+        "bin_path": "failed_bin\\jsd_fail_42_train_img_faa4bdab.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.06949368119239807
+      },
+      {
+        "index": 46,
+        "original_path": "omni_dataset\\train\\cats\\train_img_995094cb.jpg",
+        "bin_file": "jsd_fail_46_train_img_995094cb.jpg",
+        "bin_path": "failed_bin\\jsd_fail_46_train_img_995094cb.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.2796059548854828
+      },
+      {
+        "index": 50,
+        "original_path": "omni_dataset\\train\\cats\\train_img_f4ac5a9d.jpg",
+        "bin_file": "jsd_fail_50_train_img_f4ac5a9d.jpg",
+        "bin_path": "failed_bin\\jsd_fail_50_train_img_f4ac5a9d.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.09841708838939667
+      },
+      {
+        "index": 52,
+        "original_path": "omni_dataset\\train\\cats\\train_img_8935f62c.jpg",
+        "bin_file": "jsd_fail_52_train_img_8935f62c.jpg",
+        "bin_path": "failed_bin\\jsd_fail_52_train_img_8935f62c.jpg",
+        "class": "cats",
+        "class_idx": 0,
+        "reason": "jsd_hallucination",
+        "score": 0.08663200587034225
+      },
+      {
+        "index": 76,
+        "original_path": "omni_dataset\\train\\dogs\\train_img_a01981dc.jpg",
+        "bin_file": "jsd_fail_76_train_img_a01981dc.jpg",
+        "bin_path": "failed_bin\\jsd_fail_76_train_img_a01981dc.jpg",
+        "class": "dogs",
+        "class_idx": 1,
+        "reason": "jsd_hallucination",
+        "score": 0.3407481908798218
+      }
+    ],
+    "safe_records": [
+      {
+        "index": 1,
+        "path": "omni_dataset\\train\\cats\\train_img_dbec2ba5.jpg",
+        "bin_path": "safe_bin\\safe_1_train_img_dbec2ba5.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 2,
+        "path": "omni_dataset\\train\\cats\\train_img_59d3b60f.jpg",
+        "bin_path": "safe_bin\\safe_2_train_img_59d3b60f.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 3,
+        "path": "omni_dataset\\train\\cats\\train_img_db6c65ac.jpg",
+        "bin_path": "safe_bin\\safe_3_train_img_db6c65ac.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 4,
+        "path": "omni_dataset\\train\\cats\\train_img_3aad6229.jpg",
+        "bin_path": "safe_bin\\safe_4_train_img_3aad6229.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 5,
+        "path": "omni_dataset\\train\\cats\\train_img_d84ea0b5.jpg",
+        "bin_path": "safe_bin\\safe_5_train_img_d84ea0b5.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 6,
+        "path": "omni_dataset\\train\\cats\\train_img_94174008.jpg",
+        "bin_path": "safe_bin\\safe_6_train_img_94174008.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 7,
+        "path": "omni_dataset\\train\\cats\\train_img_f453c13c.jpg",
+        "bin_path": "safe_bin\\safe_7_train_img_f453c13c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 9,
+        "path": "omni_dataset\\train\\cats\\train_img_20867d8c.jpg",
+        "bin_path": "safe_bin\\safe_9_train_img_20867d8c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 10,
+        "path": "omni_dataset\\train\\cats\\train_img_812cb5d8.jpg",
+        "bin_path": "safe_bin\\safe_10_train_img_812cb5d8.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 11,
+        "path": "omni_dataset\\train\\cats\\train_img_f6c88a00.jpg",
+        "bin_path": "safe_bin\\safe_11_train_img_f6c88a00.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 13,
+        "path": "omni_dataset\\train\\cats\\train_img_dcdccf1c.jpg",
+        "bin_path": "safe_bin\\safe_13_train_img_dcdccf1c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 14,
+        "path": "omni_dataset\\train\\cats\\train_img_886a2e2c.jpg",
+        "bin_path": "safe_bin\\safe_14_train_img_886a2e2c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 15,
+        "path": "omni_dataset\\train\\cats\\train_img_f51bb5f6.jpg",
+        "bin_path": "safe_bin\\safe_15_train_img_f51bb5f6.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 18,
+        "path": "omni_dataset\\train\\cats\\train_img_ecdd695c.jpg",
+        "bin_path": "safe_bin\\safe_18_train_img_ecdd695c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 19,
+        "path": "omni_dataset\\train\\cats\\train_img_3f20a53f.jpg",
+        "bin_path": "safe_bin\\safe_19_train_img_3f20a53f.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 20,
+        "path": "omni_dataset\\train\\cats\\train_img_21f70ba7.jpg",
+        "bin_path": "safe_bin\\safe_20_train_img_21f70ba7.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 21,
+        "path": "omni_dataset\\train\\cats\\train_img_9777d92b.jpg",
+        "bin_path": "safe_bin\\safe_21_train_img_9777d92b.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 25,
+        "path": "omni_dataset\\train\\cats\\train_img_f5754d10.jpg",
+        "bin_path": "safe_bin\\safe_25_train_img_f5754d10.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 26,
+        "path": "omni_dataset\\train\\cats\\train_img_e7db09a3.jpg",
+        "bin_path": "safe_bin\\safe_26_train_img_e7db09a3.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 27,
+        "path": "omni_dataset\\train\\cats\\train_img_9dc7d3dd.jpg",
+        "bin_path": "safe_bin\\safe_27_train_img_9dc7d3dd.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 28,
+        "path": "omni_dataset\\train\\cats\\train_img_3a767991.jpg",
+        "bin_path": "safe_bin\\safe_28_train_img_3a767991.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 30,
+        "path": "omni_dataset\\train\\cats\\train_img_1be21488.jpg",
+        "bin_path": "safe_bin\\safe_30_train_img_1be21488.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 32,
+        "path": "omni_dataset\\train\\cats\\train_img_24b10b7a.jpg",
+        "bin_path": "safe_bin\\safe_32_train_img_24b10b7a.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 34,
+        "path": "omni_dataset\\train\\cats\\train_img_82954ab2.jpg",
+        "bin_path": "safe_bin\\safe_34_train_img_82954ab2.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 35,
+        "path": "omni_dataset\\train\\cats\\train_img_1311233d.jpg",
+        "bin_path": "safe_bin\\safe_35_train_img_1311233d.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 36,
+        "path": "omni_dataset\\train\\cats\\train_img_0d6cf230.jpg",
+        "bin_path": "safe_bin\\safe_36_train_img_0d6cf230.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 37,
+        "path": "omni_dataset\\train\\cats\\train_img_3d0b9e4a.jpg",
+        "bin_path": "safe_bin\\safe_37_train_img_3d0b9e4a.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 39,
+        "path": "omni_dataset\\train\\cats\\train_img_86dbfb1c.jpg",
+        "bin_path": "safe_bin\\safe_39_train_img_86dbfb1c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 40,
+        "path": "omni_dataset\\train\\cats\\train_img_39bfd8d6.jpg",
+        "bin_path": "safe_bin\\safe_40_train_img_39bfd8d6.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 41,
+        "path": "omni_dataset\\train\\cats\\train_img_0fb71984.jpg",
+        "bin_path": "safe_bin\\safe_41_train_img_0fb71984.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 44,
+        "path": "omni_dataset\\train\\cats\\train_img_be6d60e8.jpg",
+        "bin_path": "safe_bin\\safe_44_train_img_be6d60e8.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 45,
+        "path": "omni_dataset\\train\\cats\\train_img_bfee90b8.jpg",
+        "bin_path": "safe_bin\\safe_45_train_img_bfee90b8.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 47,
+        "path": "omni_dataset\\train\\cats\\train_img_8bb10458.jpg",
+        "bin_path": "safe_bin\\safe_47_train_img_8bb10458.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 48,
+        "path": "omni_dataset\\train\\cats\\train_img_43a54ba8.jpg",
+        "bin_path": "safe_bin\\safe_48_train_img_43a54ba8.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 49,
+        "path": "omni_dataset\\train\\cats\\train_img_03f52c0c.jpg",
+        "bin_path": "safe_bin\\safe_49_train_img_03f52c0c.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 51,
+        "path": "omni_dataset\\train\\cats\\train_img_6400506e.jpg",
+        "bin_path": "safe_bin\\safe_51_train_img_6400506e.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 53,
+        "path": "omni_dataset\\train\\cats\\train_img_1d5b6f0f.jpg",
+        "bin_path": "safe_bin\\safe_53_train_img_1d5b6f0f.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 54,
+        "path": "omni_dataset\\train\\cats\\train_img_051d6284.jpg",
+        "bin_path": "safe_bin\\safe_54_train_img_051d6284.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 55,
+        "path": "omni_dataset\\train\\cats\\train_img_e26d8afd.jpg",
+        "bin_path": "safe_bin\\safe_55_train_img_e26d8afd.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 58,
+        "path": "omni_dataset\\train\\cats\\train_img_6d501e2f.jpg",
+        "bin_path": "safe_bin\\safe_58_train_img_6d501e2f.jpg",
+        "label": "cats",
+        "class_idx": 0,
+        "split": "train"
+      },
+      {
+        "index": 60,
+        "path": "omni_dataset\\train\\dogs\\train_img_8b2a78f4.jpg",
+        "bin_path": "safe_bin\\safe_60_train_img_8b2a78f4.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 61,
+        "path": "omni_dataset\\train\\dogs\\train_img_5115e088.jpg",
+        "bin_path": "safe_bin\\safe_61_train_img_5115e088.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 62,
+        "path": "omni_dataset\\train\\dogs\\train_img_128f79b0.jpg",
+        "bin_path": "safe_bin\\safe_62_train_img_128f79b0.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 64,
+        "path": "omni_dataset\\train\\dogs\\train_img_fbf1a499.jpg",
+        "bin_path": "safe_bin\\safe_64_train_img_fbf1a499.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 65,
+        "path": "omni_dataset\\train\\dogs\\train_img_c5849a67.jpg",
+        "bin_path": "safe_bin\\safe_65_train_img_c5849a67.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 66,
+        "path": "omni_dataset\\train\\dogs\\train_img_ce17ef8a.jpg",
+        "bin_path": "safe_bin\\safe_66_train_img_ce17ef8a.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 67,
+        "path": "omni_dataset\\train\\dogs\\train_img_93f814cb.jpg",
+        "bin_path": "safe_bin\\safe_67_train_img_93f814cb.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 68,
+        "path": "omni_dataset\\train\\dogs\\train_img_8a180f0d.jpg",
+        "bin_path": "safe_bin\\safe_68_train_img_8a180f0d.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 69,
+        "path": "omni_dataset\\train\\dogs\\train_img_a0b8d775.jpg",
+        "bin_path": "safe_bin\\safe_69_train_img_a0b8d775.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 70,
+        "path": "omni_dataset\\train\\dogs\\train_img_35e98376.jpg",
+        "bin_path": "safe_bin\\safe_70_train_img_35e98376.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 71,
+        "path": "omni_dataset\\train\\dogs\\train_img_99278fab.jpg",
+        "bin_path": "safe_bin\\safe_71_train_img_99278fab.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 72,
+        "path": "omni_dataset\\train\\dogs\\train_img_a55e6b52.jpg",
+        "bin_path": "safe_bin\\safe_72_train_img_a55e6b52.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 73,
+        "path": "omni_dataset\\train\\dogs\\train_img_de535490.jpg",
+        "bin_path": "safe_bin\\safe_73_train_img_de535490.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 74,
+        "path": "omni_dataset\\train\\dogs\\train_img_d6f76c70.jpg",
+        "bin_path": "safe_bin\\safe_74_train_img_d6f76c70.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 75,
+        "path": "omni_dataset\\train\\dogs\\train_img_1961f7d7.jpg",
+        "bin_path": "safe_bin\\safe_75_train_img_1961f7d7.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 78,
+        "path": "omni_dataset\\train\\dogs\\train_img_d61fd6fe.jpg",
+        "bin_path": "safe_bin\\safe_78_train_img_d61fd6fe.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 79,
+        "path": "omni_dataset\\train\\dogs\\train_img_bcb4bf8a.jpg",
+        "bin_path": "safe_bin\\safe_79_train_img_bcb4bf8a.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 80,
+        "path": "omni_dataset\\train\\dogs\\train_img_85d432dc.jpg",
+        "bin_path": "safe_bin\\safe_80_train_img_85d432dc.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 81,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cf0a218.jpg",
+        "bin_path": "safe_bin\\safe_81_train_img_1cf0a218.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 82,
+        "path": "omni_dataset\\train\\dogs\\train_img_16971b73.jpg",
+        "bin_path": "safe_bin\\safe_82_train_img_16971b73.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 83,
+        "path": "omni_dataset\\train\\dogs\\train_img_b60ed38d.jpg",
+        "bin_path": "safe_bin\\safe_83_train_img_b60ed38d.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 85,
+        "path": "omni_dataset\\train\\dogs\\train_img_0bc3d736.jpg",
+        "bin_path": "safe_bin\\safe_85_train_img_0bc3d736.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 86,
+        "path": "omni_dataset\\train\\dogs\\train_img_95cfe376.jpg",
+        "bin_path": "safe_bin\\safe_86_train_img_95cfe376.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 87,
+        "path": "omni_dataset\\train\\dogs\\train_img_5568ad62.jpg",
+        "bin_path": "safe_bin\\safe_87_train_img_5568ad62.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 88,
+        "path": "omni_dataset\\train\\dogs\\train_img_1836d649.jpg",
+        "bin_path": "safe_bin\\safe_88_train_img_1836d649.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 89,
+        "path": "omni_dataset\\train\\dogs\\train_img_8fdadc56.jpg",
+        "bin_path": "safe_bin\\safe_89_train_img_8fdadc56.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 90,
+        "path": "omni_dataset\\train\\dogs\\train_img_eb90f08c.jpg",
+        "bin_path": "safe_bin\\safe_90_train_img_eb90f08c.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 91,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fe5879e.jpg",
+        "bin_path": "safe_bin\\safe_91_train_img_2fe5879e.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 92,
+        "path": "omni_dataset\\train\\dogs\\train_img_ffc25e99.jpg",
+        "bin_path": "safe_bin\\safe_92_train_img_ffc25e99.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 93,
+        "path": "omni_dataset\\train\\dogs\\train_img_da95b01e.jpg",
+        "bin_path": "safe_bin\\safe_93_train_img_da95b01e.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 94,
+        "path": "omni_dataset\\train\\dogs\\train_img_64762da0.jpg",
+        "bin_path": "safe_bin\\safe_94_train_img_64762da0.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 95,
+        "path": "omni_dataset\\train\\dogs\\train_img_9b3fee79.jpg",
+        "bin_path": "safe_bin\\safe_95_train_img_9b3fee79.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 96,
+        "path": "omni_dataset\\train\\dogs\\train_img_7922a57c.jpg",
+        "bin_path": "safe_bin\\safe_96_train_img_7922a57c.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 97,
+        "path": "omni_dataset\\train\\dogs\\train_img_531e5225.jpg",
+        "bin_path": "safe_bin\\safe_97_train_img_531e5225.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 98,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cd10e54.jpg",
+        "bin_path": "safe_bin\\safe_98_train_img_1cd10e54.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 99,
+        "path": "omni_dataset\\train\\dogs\\train_img_70b2ea90.jpg",
+        "bin_path": "safe_bin\\safe_99_train_img_70b2ea90.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 100,
+        "path": "omni_dataset\\train\\dogs\\train_img_b1ce24b7.jpg",
+        "bin_path": "safe_bin\\safe_100_train_img_b1ce24b7.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 101,
+        "path": "omni_dataset\\train\\dogs\\train_img_ad5afa89.jpg",
+        "bin_path": "safe_bin\\safe_101_train_img_ad5afa89.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 103,
+        "path": "omni_dataset\\train\\dogs\\train_img_7bd51375.jpg",
+        "bin_path": "safe_bin\\safe_103_train_img_7bd51375.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 104,
+        "path": "omni_dataset\\train\\dogs\\train_img_0f77d2e4.jpg",
+        "bin_path": "safe_bin\\safe_104_train_img_0f77d2e4.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 106,
+        "path": "omni_dataset\\train\\dogs\\train_img_0b46f2b0.jpg",
+        "bin_path": "safe_bin\\safe_106_train_img_0b46f2b0.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 107,
+        "path": "omni_dataset\\train\\dogs\\train_img_1fe21e08.jpg",
+        "bin_path": "safe_bin\\safe_107_train_img_1fe21e08.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 108,
+        "path": "omni_dataset\\train\\dogs\\train_img_f9a3f6ed.jpg",
+        "bin_path": "safe_bin\\safe_108_train_img_f9a3f6ed.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 109,
+        "path": "omni_dataset\\train\\dogs\\train_img_a3ac3e11.jpg",
+        "bin_path": "safe_bin\\safe_109_train_img_a3ac3e11.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 111,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fc4a9a1.jpg",
+        "bin_path": "safe_bin\\safe_111_train_img_2fc4a9a1.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 112,
+        "path": "omni_dataset\\train\\dogs\\train_img_7179be31.jpg",
+        "bin_path": "safe_bin\\safe_112_train_img_7179be31.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 113,
+        "path": "omni_dataset\\train\\dogs\\train_img_7cf0a692.jpg",
+        "bin_path": "safe_bin\\safe_113_train_img_7cf0a692.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 114,
+        "path": "omni_dataset\\train\\dogs\\train_img_1a7a1108.jpg",
+        "bin_path": "safe_bin\\safe_114_train_img_1a7a1108.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 115,
+        "path": "omni_dataset\\train\\dogs\\train_img_b8efbf47.jpg",
+        "bin_path": "safe_bin\\safe_115_train_img_b8efbf47.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 116,
+        "path": "omni_dataset\\train\\dogs\\train_img_12c7517b.jpg",
+        "bin_path": "safe_bin\\safe_116_train_img_12c7517b.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 117,
+        "path": "omni_dataset\\train\\dogs\\train_img_66ab0868.jpg",
+        "bin_path": "safe_bin\\safe_117_train_img_66ab0868.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 118,
+        "path": "omni_dataset\\train\\dogs\\train_img_74e06f69.jpg",
+        "bin_path": "safe_bin\\safe_118_train_img_74e06f69.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 119,
+        "path": "omni_dataset\\train\\dogs\\train_img_b296e49c.jpg",
+        "bin_path": "safe_bin\\safe_119_train_img_b296e49c.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 120,
+        "path": "omni_dataset\\train\\dogs\\train_img_3e1b9681.jpg",
+        "bin_path": "safe_bin\\safe_120_train_img_3e1b9681.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 121,
+        "path": "omni_dataset\\train\\dogs\\train_img_4ff1db2c.jpg",
+        "bin_path": "safe_bin\\safe_121_train_img_4ff1db2c.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 122,
+        "path": "omni_dataset\\train\\dogs\\train_img_56a5a260.jpg",
+        "bin_path": "safe_bin\\safe_122_train_img_56a5a260.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 123,
+        "path": "omni_dataset\\train\\dogs\\train_img_4a9fc090.jpg",
+        "bin_path": "safe_bin\\safe_123_train_img_4a9fc090.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 124,
+        "path": "omni_dataset\\train\\dogs\\train_img_8adba5cd.jpg",
+        "bin_path": "safe_bin\\safe_124_train_img_8adba5cd.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 125,
+        "path": "omni_dataset\\train\\dogs\\train_img_2496215f.jpg",
+        "bin_path": "safe_bin\\safe_125_train_img_2496215f.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 126,
+        "path": "omni_dataset\\train\\dogs\\train_img_54e996af.jpg",
+        "bin_path": "safe_bin\\safe_126_train_img_54e996af.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 127,
+        "path": "omni_dataset\\train\\dogs\\train_img_1d3ffb91.jpg",
+        "bin_path": "safe_bin\\safe_127_train_img_1d3ffb91.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 128,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d482ee4.jpg",
+        "bin_path": "safe_bin\\safe_128_train_img_3d482ee4.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 129,
+        "path": "omni_dataset\\train\\dogs\\train_img_8773823c.jpg",
+        "bin_path": "safe_bin\\safe_129_train_img_8773823c.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 132,
+        "path": "omni_dataset\\train\\dogs\\train_img_dcf7a7a0.jpg",
+        "bin_path": "safe_bin\\safe_132_train_img_dcf7a7a0.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 133,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0fd120a.jpg",
+        "bin_path": "safe_bin\\safe_133_train_img_b0fd120a.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 134,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0eebc1f.jpg",
+        "bin_path": "safe_bin\\safe_134_train_img_b0eebc1f.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 135,
+        "path": "omni_dataset\\train\\dogs\\train_img_a11968d1.jpg",
+        "bin_path": "safe_bin\\safe_135_train_img_a11968d1.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 136,
+        "path": "omni_dataset\\train\\dogs\\train_img_9695f653.jpg",
+        "bin_path": "safe_bin\\safe_136_train_img_9695f653.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 137,
+        "path": "omni_dataset\\train\\dogs\\train_img_11b29c89.jpg",
+        "bin_path": "safe_bin\\safe_137_train_img_11b29c89.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 138,
+        "path": "omni_dataset\\train\\dogs\\train_img_c007275a.jpg",
+        "bin_path": "safe_bin\\safe_138_train_img_c007275a.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 139,
+        "path": "omni_dataset\\train\\dogs\\train_img_740a31ac.jpg",
+        "bin_path": "safe_bin\\safe_139_train_img_740a31ac.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "train"
+      },
+      {
+        "index": 140,
+        "path": "omni_dataset\\val\\images\\val_img_fd6435f8.jpg",
+        "bin_path": "safe_bin\\safe_140_val_img_fd6435f8.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 141,
+        "path": "omni_dataset\\val\\images\\val_img_60374d3e.jpg",
+        "bin_path": "safe_bin\\safe_141_val_img_60374d3e.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 142,
+        "path": "omni_dataset\\val\\images\\val_img_6a31d614.jpg",
+        "bin_path": "safe_bin\\safe_142_val_img_6a31d614.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 143,
+        "path": "omni_dataset\\val\\images\\val_img_cd9ccbc6.jpg",
+        "bin_path": "safe_bin\\safe_143_val_img_cd9ccbc6.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 144,
+        "path": "omni_dataset\\val\\images\\val_img_889edba8.jpg",
+        "bin_path": "safe_bin\\safe_144_val_img_889edba8.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 145,
+        "path": "omni_dataset\\val\\images\\val_img_3f466210.jpg",
+        "bin_path": "safe_bin\\safe_145_val_img_3f466210.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 146,
+        "path": "omni_dataset\\val\\images\\val_img_9bf2a554.jpg",
+        "bin_path": "safe_bin\\safe_146_val_img_9bf2a554.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 147,
+        "path": "omni_dataset\\val\\images\\val_img_3c00b3e5.jpg",
+        "bin_path": "safe_bin\\safe_147_val_img_3c00b3e5.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      },
+      {
+        "index": 148,
+        "path": "omni_dataset\\val\\images\\val_img_3cc1bcaa.jpg",
+        "bin_path": "safe_bin\\safe_148_val_img_3cc1bcaa.jpg",
+        "label": "dogs",
+        "class_idx": 1,
+        "split": "val"
+      }
+    ],
+    "failed_counts_per_class": {
+      "cats": 20,
+      "dogs": 9
+    },
+    "graphs": {
+      "z2": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\z_square_energy_distribution.png",
+      "calibration": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\calibration_curve.png"
+    },
+    "items": [
+      {
+        "index": 0,
+        "path": "omni_dataset\\train\\cats\\train_img_8cc74a40.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 1005.492919921875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 1,
+        "path": "omni_dataset\\train\\cats\\train_img_dbec2ba5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 369.9243469238281,
+        "jsd": 4.6442000893875957e-05,
+        "route": "safe"
+      },
+      {
+        "index": 2,
+        "path": "omni_dataset\\train\\cats\\train_img_59d3b60f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 501.08514404296875,
+        "jsd": 0.010751141235232353,
+        "route": "safe"
+      },
+      {
+        "index": 3,
+        "path": "omni_dataset\\train\\cats\\train_img_db6c65ac.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 478.9093933105469,
+        "jsd": 0.0011509174946695566,
+        "route": "safe"
+      },
+      {
+        "index": 4,
+        "path": "omni_dataset\\train\\cats\\train_img_3aad6229.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 476.92083740234375,
+        "jsd": 0.0016797436401247978,
+        "route": "safe"
+      },
+      {
+        "index": 5,
+        "path": "omni_dataset\\train\\cats\\train_img_d84ea0b5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 410.7361755371094,
+        "jsd": 0.021181216463446617,
+        "route": "safe"
+      },
+      {
+        "index": 6,
+        "path": "omni_dataset\\train\\cats\\train_img_94174008.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 374.9733581542969,
+        "jsd": 0.014981350861489773,
+        "route": "safe"
+      },
+      {
+        "index": 7,
+        "path": "omni_dataset\\train\\cats\\train_img_f453c13c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 486.25238037109375,
+        "jsd": 0.021017519757151604,
+        "route": "safe"
+      },
+      {
+        "index": 8,
+        "path": "omni_dataset\\train\\cats\\train_img_a2fda99e.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 495.07958984375,
+        "jsd": 0.09771449118852615,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 9,
+        "path": "omni_dataset\\train\\cats\\train_img_20867d8c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 350.692138671875,
+        "jsd": 0.02065271884202957,
+        "route": "safe"
+      },
+      {
+        "index": 10,
+        "path": "omni_dataset\\train\\cats\\train_img_812cb5d8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 368.722412109375,
+        "jsd": 0.03869524598121643,
+        "route": "safe"
+      },
+      {
+        "index": 11,
+        "path": "omni_dataset\\train\\cats\\train_img_f6c88a00.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 449.3358459472656,
+        "jsd": 0.011159878224134445,
+        "route": "safe"
+      },
+      {
+        "index": 12,
+        "path": "omni_dataset\\train\\cats\\train_img_7b3faf22.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 942.8045654296875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 13,
+        "path": "omni_dataset\\train\\cats\\train_img_dcdccf1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 297.08856201171875,
+        "jsd": 0.031428948044776917,
+        "route": "safe"
+      },
+      {
+        "index": 14,
+        "path": "omni_dataset\\train\\cats\\train_img_886a2e2c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 590.141845703125,
+        "jsd": 0.02083291858434677,
+        "route": "safe"
+      },
+      {
+        "index": 15,
+        "path": "omni_dataset\\train\\cats\\train_img_f51bb5f6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 345.931884765625,
+        "jsd": 0.0017849151045084,
+        "route": "safe"
+      },
+      {
+        "index": 16,
+        "path": "omni_dataset\\train\\cats\\train_img_6f52ffa2.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 726.8993530273438,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 17,
+        "path": "omni_dataset\\train\\cats\\train_img_7359b7d6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 447.1221618652344,
+        "jsd": 0.32490622997283936,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 18,
+        "path": "omni_dataset\\train\\cats\\train_img_ecdd695c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 527.53076171875,
+        "jsd": 0.0017575013916939497,
+        "route": "safe"
+      },
+      {
+        "index": 19,
+        "path": "omni_dataset\\train\\cats\\train_img_3f20a53f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 347.6639709472656,
+        "jsd": 0.007157495710998774,
+        "route": "safe"
+      },
+      {
+        "index": 20,
+        "path": "omni_dataset\\train\\cats\\train_img_21f70ba7.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 345.7397766113281,
+        "jsd": 0.024904631078243256,
+        "route": "safe"
+      },
+      {
+        "index": 21,
+        "path": "omni_dataset\\train\\cats\\train_img_9777d92b.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 396.4136047363281,
+        "jsd": 4.5478169340640306e-05,
+        "route": "safe"
+      },
+      {
+        "index": 22,
+        "path": "omni_dataset\\train\\cats\\train_img_abb648b1.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 509.74908447265625,
+        "jsd": 0.05482545867562294,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 23,
+        "path": "omni_dataset\\train\\cats\\train_img_eb5bd3f2.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 471.03936767578125,
+        "jsd": 0.5054463744163513,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 24,
+        "path": "omni_dataset\\train\\cats\\train_img_af1bc731.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 613.6046752929688,
+        "jsd": 0.11962873488664627,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 25,
+        "path": "omni_dataset\\train\\cats\\train_img_f5754d10.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 330.74468994140625,
+        "jsd": 0.022415583953261375,
+        "route": "safe"
+      },
+      {
+        "index": 26,
+        "path": "omni_dataset\\train\\cats\\train_img_e7db09a3.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 429.11297607421875,
+        "jsd": 0.000810820609331131,
+        "route": "safe"
+      },
+      {
+        "index": 27,
+        "path": "omni_dataset\\train\\cats\\train_img_9dc7d3dd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 349.492919921875,
+        "jsd": 0.013343814760446548,
+        "route": "safe"
+      },
+      {
+        "index": 28,
+        "path": "omni_dataset\\train\\cats\\train_img_3a767991.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 482.2977294921875,
+        "jsd": 0.003546090330928564,
+        "route": "safe"
+      },
+      {
+        "index": 29,
+        "path": "omni_dataset\\train\\cats\\train_img_2019ff37.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 384.3948059082031,
+        "jsd": 0.553145170211792,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 30,
+        "path": "omni_dataset\\train\\cats\\train_img_1be21488.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 463.5514831542969,
+        "jsd": 0.00021883624140173197,
+        "route": "safe"
+      },
+      {
+        "index": 31,
+        "path": "omni_dataset\\train\\cats\\train_img_b4c29139.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 577.9163208007812,
+        "jsd": 0.08906301856040955,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 32,
+        "path": "omni_dataset\\train\\cats\\train_img_24b10b7a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 601.320068359375,
+        "jsd": 0.011923745274543762,
+        "route": "safe"
+      },
+      {
+        "index": 33,
+        "path": "omni_dataset\\train\\cats\\train_img_2a7ca307.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 442.3259582519531,
+        "jsd": 0.39601200819015503,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 34,
+        "path": "omni_dataset\\train\\cats\\train_img_82954ab2.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 420.5967712402344,
+        "jsd": 0.015146979130804539,
+        "route": "safe"
+      },
+      {
+        "index": 35,
+        "path": "omni_dataset\\train\\cats\\train_img_1311233d.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 394.84075927734375,
+        "jsd": 0.03638617321848869,
+        "route": "safe"
+      },
+      {
+        "index": 36,
+        "path": "omni_dataset\\train\\cats\\train_img_0d6cf230.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 384.8976745605469,
+        "jsd": 0.006582018919289112,
+        "route": "safe"
+      },
+      {
+        "index": 37,
+        "path": "omni_dataset\\train\\cats\\train_img_3d0b9e4a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 673.4273681640625,
+        "jsd": 0.010592996142804623,
+        "route": "safe"
+      },
+      {
+        "index": 38,
+        "path": "omni_dataset\\train\\cats\\train_img_bead25b5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 587.1204223632812,
+        "jsd": 0.14746589958667755,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 39,
+        "path": "omni_dataset\\train\\cats\\train_img_86dbfb1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 480.91119384765625,
+        "jsd": 0.015575157478451729,
+        "route": "safe"
+      },
+      {
+        "index": 40,
+        "path": "omni_dataset\\train\\cats\\train_img_39bfd8d6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 444.1142272949219,
+        "jsd": 0.000863789115101099,
+        "route": "safe"
+      },
+      {
+        "index": 41,
+        "path": "omni_dataset\\train\\cats\\train_img_0fb71984.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 375.8132019042969,
+        "jsd": 0.015735600143671036,
+        "route": "safe"
+      },
+      {
+        "index": 42,
+        "path": "omni_dataset\\train\\cats\\train_img_faa4bdab.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 572.7152709960938,
+        "jsd": 0.06949368119239807,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 43,
+        "path": "omni_dataset\\train\\cats\\train_img_31083aa6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 760.8557739257812,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 44,
+        "path": "omni_dataset\\train\\cats\\train_img_be6d60e8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 470.8728332519531,
+        "jsd": 0.02644774131476879,
+        "route": "safe"
+      },
+      {
+        "index": 45,
+        "path": "omni_dataset\\train\\cats\\train_img_bfee90b8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 445.219482421875,
+        "jsd": 0.0009655472822487354,
+        "route": "safe"
+      },
+      {
+        "index": 46,
+        "path": "omni_dataset\\train\\cats\\train_img_995094cb.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 494.3639221191406,
+        "jsd": 0.2796059548854828,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 47,
+        "path": "omni_dataset\\train\\cats\\train_img_8bb10458.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 334.5762939453125,
+        "jsd": 0.011713460087776184,
+        "route": "safe"
+      },
+      {
+        "index": 48,
+        "path": "omni_dataset\\train\\cats\\train_img_43a54ba8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 357.00482177734375,
+        "jsd": 0.0009149935794994235,
+        "route": "safe"
+      },
+      {
+        "index": 49,
+        "path": "omni_dataset\\train\\cats\\train_img_03f52c0c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 441.8385925292969,
+        "jsd": 0.01858345977962017,
+        "route": "safe"
+      },
+      {
+        "index": 50,
+        "path": "omni_dataset\\train\\cats\\train_img_f4ac5a9d.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 510.32916259765625,
+        "jsd": 0.09841708838939667,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 51,
+        "path": "omni_dataset\\train\\cats\\train_img_6400506e.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 646.986572265625,
+        "jsd": 0.009974646382033825,
+        "route": "safe"
+      },
+      {
+        "index": 52,
+        "path": "omni_dataset\\train\\cats\\train_img_8935f62c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 628.8719482421875,
+        "jsd": 0.08663200587034225,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 53,
+        "path": "omni_dataset\\train\\cats\\train_img_1d5b6f0f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 491.8870849609375,
+        "jsd": 0.02554168738424778,
+        "route": "safe"
+      },
+      {
+        "index": 54,
+        "path": "omni_dataset\\train\\cats\\train_img_051d6284.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 458.1395568847656,
+        "jsd": 0.016622282564640045,
+        "route": "safe"
+      },
+      {
+        "index": 55,
+        "path": "omni_dataset\\train\\cats\\train_img_e26d8afd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 352.8271484375,
+        "jsd": 0.00018096785061061382,
+        "route": "safe"
+      },
+      {
+        "index": 56,
+        "path": "omni_dataset\\train\\cats\\train_img_5416c64e.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 790.6854248046875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 57,
+        "path": "omni_dataset\\train\\cats\\train_img_5c04555d.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 727.5799560546875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 58,
+        "path": "omni_dataset\\train\\cats\\train_img_6d501e2f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 563.3502197265625,
+        "jsd": 0.0038873767480254173,
+        "route": "safe"
+      },
+      {
+        "index": 59,
+        "path": "omni_dataset\\train\\cats\\train_img_cf2c68fa.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 1003.7291259765625,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 60,
+        "path": "omni_dataset\\train\\dogs\\train_img_8b2a78f4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 296.26446533203125,
+        "jsd": 0.0005409708246588707,
+        "route": "safe"
+      },
+      {
+        "index": 61,
+        "path": "omni_dataset\\train\\dogs\\train_img_5115e088.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 444.3715515136719,
+        "jsd": 0.0015359115786850452,
+        "route": "safe"
+      },
+      {
+        "index": 62,
+        "path": "omni_dataset\\train\\dogs\\train_img_128f79b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 605.9129028320312,
+        "jsd": 0.010575651191174984,
+        "route": "safe"
+      },
+      {
+        "index": 63,
+        "path": "omni_dataset\\train\\dogs\\train_img_f96eb1f3.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 740.3778076171875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 64,
+        "path": "omni_dataset\\train\\dogs\\train_img_fbf1a499.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 429.76556396484375,
+        "jsd": 0.0045471652410924435,
+        "route": "safe"
+      },
+      {
+        "index": 65,
+        "path": "omni_dataset\\train\\dogs\\train_img_c5849a67.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.42138671875,
+        "jsd": 0.0007774322293698788,
+        "route": "safe"
+      },
+      {
+        "index": 66,
+        "path": "omni_dataset\\train\\dogs\\train_img_ce17ef8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 303.4140625,
+        "jsd": 0.0018787216395139694,
+        "route": "safe"
+      },
+      {
+        "index": 67,
+        "path": "omni_dataset\\train\\dogs\\train_img_93f814cb.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 334.4626159667969,
+        "jsd": 0.001065468299202621,
+        "route": "safe"
+      },
+      {
+        "index": 68,
+        "path": "omni_dataset\\train\\dogs\\train_img_8a180f0d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 579.448486328125,
+        "jsd": 3.599059709813446e-05,
+        "route": "safe"
+      },
+      {
+        "index": 69,
+        "path": "omni_dataset\\train\\dogs\\train_img_a0b8d775.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 638.8905029296875,
+        "jsd": 0.0032519076485186815,
+        "route": "safe"
+      },
+      {
+        "index": 70,
+        "path": "omni_dataset\\train\\dogs\\train_img_35e98376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 446.20947265625,
+        "jsd": 0.001034885528497398,
+        "route": "safe"
+      },
+      {
+        "index": 71,
+        "path": "omni_dataset\\train\\dogs\\train_img_99278fab.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 565.8424682617188,
+        "jsd": 0.0020700450986623764,
+        "route": "safe"
+      },
+      {
+        "index": 72,
+        "path": "omni_dataset\\train\\dogs\\train_img_a55e6b52.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 397.7501220703125,
+        "jsd": 0.0018810420297086239,
+        "route": "safe"
+      },
+      {
+        "index": 73,
+        "path": "omni_dataset\\train\\dogs\\train_img_de535490.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 438.1793518066406,
+        "jsd": 0.002311386400833726,
+        "route": "safe"
+      },
+      {
+        "index": 74,
+        "path": "omni_dataset\\train\\dogs\\train_img_d6f76c70.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 620.787841796875,
+        "jsd": 0.0026092645712196827,
+        "route": "safe"
+      },
+      {
+        "index": 75,
+        "path": "omni_dataset\\train\\dogs\\train_img_1961f7d7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 453.7139892578125,
+        "jsd": 0.00031482207123190165,
+        "route": "safe"
+      },
+      {
+        "index": 76,
+        "path": "omni_dataset\\train\\dogs\\train_img_a01981dc.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "dogs",
+        "z2": 650.40380859375,
+        "jsd": 0.3407481908798218,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 77,
+        "path": "omni_dataset\\train\\dogs\\train_img_090dd279.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 780.44140625,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 78,
+        "path": "omni_dataset\\train\\dogs\\train_img_d61fd6fe.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 370.8186340332031,
+        "jsd": 0.0010307745542377234,
+        "route": "safe"
+      },
+      {
+        "index": 79,
+        "path": "omni_dataset\\train\\dogs\\train_img_bcb4bf8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 611.9014892578125,
+        "jsd": 0.002132364781573415,
+        "route": "safe"
+      },
+      {
+        "index": 80,
+        "path": "omni_dataset\\train\\dogs\\train_img_85d432dc.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 533.0645751953125,
+        "jsd": 0.0016371214296668768,
+        "route": "safe"
+      },
+      {
+        "index": 81,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cf0a218.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 681.3466186523438,
+        "jsd": 0.0017615731339901686,
+        "route": "safe"
+      },
+      {
+        "index": 82,
+        "path": "omni_dataset\\train\\dogs\\train_img_16971b73.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 588.6181030273438,
+        "jsd": 0.0006328767631202936,
+        "route": "safe"
+      },
+      {
+        "index": 83,
+        "path": "omni_dataset\\train\\dogs\\train_img_b60ed38d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 424.042236328125,
+        "jsd": 0.0011454776395112276,
+        "route": "safe"
+      },
+      {
+        "index": 84,
+        "path": "omni_dataset\\train\\dogs\\train_img_b35dd679.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 750.2022094726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 85,
+        "path": "omni_dataset\\train\\dogs\\train_img_0bc3d736.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 313.62750244140625,
+        "jsd": 0.00176162738353014,
+        "route": "safe"
+      },
+      {
+        "index": 86,
+        "path": "omni_dataset\\train\\dogs\\train_img_95cfe376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 601.3941650390625,
+        "jsd": 0.0008742245845496655,
+        "route": "safe"
+      },
+      {
+        "index": 87,
+        "path": "omni_dataset\\train\\dogs\\train_img_5568ad62.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 472.24493408203125,
+        "jsd": 0.0005177229177206755,
+        "route": "safe"
+      },
+      {
+        "index": 88,
+        "path": "omni_dataset\\train\\dogs\\train_img_1836d649.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 474.9457702636719,
+        "jsd": 0.0022402280010282993,
+        "route": "safe"
+      },
+      {
+        "index": 89,
+        "path": "omni_dataset\\train\\dogs\\train_img_8fdadc56.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 433.4813232421875,
+        "jsd": 0.0075037069618701935,
+        "route": "safe"
+      },
+      {
+        "index": 90,
+        "path": "omni_dataset\\train\\dogs\\train_img_eb90f08c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 603.9506225585938,
+        "jsd": 0.0007632449851371348,
+        "route": "safe"
+      },
+      {
+        "index": 91,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fe5879e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 498.7486267089844,
+        "jsd": 0.013790285214781761,
+        "route": "safe"
+      },
+      {
+        "index": 92,
+        "path": "omni_dataset\\train\\dogs\\train_img_ffc25e99.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 435.4713439941406,
+        "jsd": 0.004121650476008654,
+        "route": "safe"
+      },
+      {
+        "index": 93,
+        "path": "omni_dataset\\train\\dogs\\train_img_da95b01e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 547.2528076171875,
+        "jsd": 0.0006208405829966068,
+        "route": "safe"
+      },
+      {
+        "index": 94,
+        "path": "omni_dataset\\train\\dogs\\train_img_64762da0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 660.0526123046875,
+        "jsd": 0.004304984584450722,
+        "route": "safe"
+      },
+      {
+        "index": 95,
+        "path": "omni_dataset\\train\\dogs\\train_img_9b3fee79.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 448.8159484863281,
+        "jsd": 0.0018353844061493874,
+        "route": "safe"
+      },
+      {
+        "index": 96,
+        "path": "omni_dataset\\train\\dogs\\train_img_7922a57c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 403.2104187011719,
+        "jsd": 0.0005402239039540291,
+        "route": "safe"
+      },
+      {
+        "index": 97,
+        "path": "omni_dataset\\train\\dogs\\train_img_531e5225.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 338.7629089355469,
+        "jsd": 0.0008977408870123327,
+        "route": "safe"
+      },
+      {
+        "index": 98,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cd10e54.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 351.6515197753906,
+        "jsd": 0.004630515351891518,
+        "route": "safe"
+      },
+      {
+        "index": 99,
+        "path": "omni_dataset\\train\\dogs\\train_img_70b2ea90.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 457.2745361328125,
+        "jsd": 0.0026090163737535477,
+        "route": "safe"
+      },
+      {
+        "index": 100,
+        "path": "omni_dataset\\train\\dogs\\train_img_b1ce24b7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 507.3149719238281,
+        "jsd": 0.00029677030397579074,
+        "route": "safe"
+      },
+      {
+        "index": 101,
+        "path": "omni_dataset\\train\\dogs\\train_img_ad5afa89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 346.5757751464844,
+        "jsd": 0.002146791899576783,
+        "route": "safe"
+      },
+      {
+        "index": 102,
+        "path": "omni_dataset\\train\\dogs\\train_img_a9c45a11.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 850.5684814453125,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 103,
+        "path": "omni_dataset\\train\\dogs\\train_img_7bd51375.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 541.5159912109375,
+        "jsd": 9.049806976690888e-06,
+        "route": "safe"
+      },
+      {
+        "index": 104,
+        "path": "omni_dataset\\train\\dogs\\train_img_0f77d2e4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 565.1797485351562,
+        "jsd": 0.0003045215271413326,
+        "route": "safe"
+      },
+      {
+        "index": 105,
+        "path": "omni_dataset\\train\\dogs\\train_img_7f25d869.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 875.2373046875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 106,
+        "path": "omni_dataset\\train\\dogs\\train_img_0b46f2b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 347.606689453125,
+        "jsd": 0.006475358735769987,
+        "route": "safe"
+      },
+      {
+        "index": 107,
+        "path": "omni_dataset\\train\\dogs\\train_img_1fe21e08.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 588.810302734375,
+        "jsd": 0.007323720026761293,
+        "route": "safe"
+      },
+      {
+        "index": 108,
+        "path": "omni_dataset\\train\\dogs\\train_img_f9a3f6ed.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 650.9314575195312,
+        "jsd": 0.006814045365899801,
+        "route": "safe"
+      },
+      {
+        "index": 109,
+        "path": "omni_dataset\\train\\dogs\\train_img_a3ac3e11.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 704.0931396484375,
+        "jsd": 0.002152921399101615,
+        "route": "safe"
+      },
+      {
+        "index": 110,
+        "path": "omni_dataset\\train\\dogs\\train_img_91bca3cb.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 914.4561157226562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 111,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fc4a9a1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 548.468994140625,
+        "jsd": 0.002347152214497328,
+        "route": "safe"
+      },
+      {
+        "index": 112,
+        "path": "omni_dataset\\train\\dogs\\train_img_7179be31.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 346.6830139160156,
+        "jsd": 0.0032729741651564837,
+        "route": "safe"
+      },
+      {
+        "index": 113,
+        "path": "omni_dataset\\train\\dogs\\train_img_7cf0a692.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 349.98773193359375,
+        "jsd": 0.0007874175789766014,
+        "route": "safe"
+      },
+      {
+        "index": 114,
+        "path": "omni_dataset\\train\\dogs\\train_img_1a7a1108.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 315.67431640625,
+        "jsd": 0.0013026297092437744,
+        "route": "safe"
+      },
+      {
+        "index": 115,
+        "path": "omni_dataset\\train\\dogs\\train_img_b8efbf47.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 415.5710144042969,
+        "jsd": 0.006865454837679863,
+        "route": "safe"
+      },
+      {
+        "index": 116,
+        "path": "omni_dataset\\train\\dogs\\train_img_12c7517b.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 422.4341735839844,
+        "jsd": 0.003199621569365263,
+        "route": "safe"
+      },
+      {
+        "index": 117,
+        "path": "omni_dataset\\train\\dogs\\train_img_66ab0868.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 436.0372314453125,
+        "jsd": 0.0017641606973484159,
+        "route": "safe"
+      },
+      {
+        "index": 118,
+        "path": "omni_dataset\\train\\dogs\\train_img_74e06f69.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 302.9811706542969,
+        "jsd": 0.0017583305016160011,
+        "route": "safe"
+      },
+      {
+        "index": 119,
+        "path": "omni_dataset\\train\\dogs\\train_img_b296e49c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 603.8125,
+        "jsd": 0.00041670812061056495,
+        "route": "safe"
+      },
+      {
+        "index": 120,
+        "path": "omni_dataset\\train\\dogs\\train_img_3e1b9681.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 632.4332275390625,
+        "jsd": 1.3154829503037035e-05,
+        "route": "safe"
+      },
+      {
+        "index": 121,
+        "path": "omni_dataset\\train\\dogs\\train_img_4ff1db2c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 303.0247802734375,
+        "jsd": 0.0012899946887046099,
+        "route": "safe"
+      },
+      {
+        "index": 122,
+        "path": "omni_dataset\\train\\dogs\\train_img_56a5a260.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 387.17401123046875,
+        "jsd": 0.01747661456465721,
+        "route": "safe"
+      },
+      {
+        "index": 123,
+        "path": "omni_dataset\\train\\dogs\\train_img_4a9fc090.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.8274230957031,
+        "jsd": 0.00011606942280195653,
+        "route": "safe"
+      },
+      {
+        "index": 124,
+        "path": "omni_dataset\\train\\dogs\\train_img_8adba5cd.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 550.1737060546875,
+        "jsd": 0.004288522992283106,
+        "route": "safe"
+      },
+      {
+        "index": 125,
+        "path": "omni_dataset\\train\\dogs\\train_img_2496215f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 556.397705078125,
+        "jsd": 0.002037160564213991,
+        "route": "safe"
+      },
+      {
+        "index": 126,
+        "path": "omni_dataset\\train\\dogs\\train_img_54e996af.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 608.3809814453125,
+        "jsd": 0.007806508801877499,
+        "route": "safe"
+      },
+      {
+        "index": 127,
+        "path": "omni_dataset\\train\\dogs\\train_img_1d3ffb91.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 467.2082214355469,
+        "jsd": 0.00031689420575276017,
+        "route": "safe"
+      },
+      {
+        "index": 128,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d482ee4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 371.3544921875,
+        "jsd": 0.0017241672612726688,
+        "route": "safe"
+      },
+      {
+        "index": 129,
+        "path": "omni_dataset\\train\\dogs\\train_img_8773823c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 405.9563903808594,
+        "jsd": 0.00026477192295715213,
+        "route": "safe"
+      },
+      {
+        "index": 130,
+        "path": "omni_dataset\\train\\dogs\\train_img_c9c93853.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 854.4279174804688,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 131,
+        "path": "omni_dataset\\train\\dogs\\train_img_e768a2b5.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 920.170166015625,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 132,
+        "path": "omni_dataset\\train\\dogs\\train_img_dcf7a7a0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 449.1021423339844,
+        "jsd": 0.0021294821053743362,
+        "route": "safe"
+      },
+      {
+        "index": 133,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0fd120a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 545.9530639648438,
+        "jsd": 0.0022141861263662577,
+        "route": "safe"
+      },
+      {
+        "index": 134,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0eebc1f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 405.46441650390625,
+        "jsd": 0.0012444842141121626,
+        "route": "safe"
+      },
+      {
+        "index": 135,
+        "path": "omni_dataset\\train\\dogs\\train_img_a11968d1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 639.8883056640625,
+        "jsd": 0.005821927450597286,
+        "route": "safe"
+      },
+      {
+        "index": 136,
+        "path": "omni_dataset\\train\\dogs\\train_img_9695f653.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 438.33538818359375,
+        "jsd": 0.000667483895085752,
+        "route": "safe"
+      },
+      {
+        "index": 137,
+        "path": "omni_dataset\\train\\dogs\\train_img_11b29c89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 400.044677734375,
+        "jsd": 0.003226721426472068,
+        "route": "safe"
+      },
+      {
+        "index": 138,
+        "path": "omni_dataset\\train\\dogs\\train_img_c007275a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 317.21026611328125,
+        "jsd": 0.0015694352332502604,
+        "route": "safe"
+      },
+      {
+        "index": 139,
+        "path": "omni_dataset\\train\\dogs\\train_img_740a31ac.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 460.5664978027344,
+        "jsd": 0.0018724282272160053,
+        "route": "safe"
+      },
+      {
+        "index": 140,
+        "path": "omni_dataset\\val\\images\\val_img_fd6435f8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 432.0186767578125,
+        "jsd": 0.0024526517372578382,
+        "route": "safe"
+      },
+      {
+        "index": 141,
+        "path": "omni_dataset\\val\\images\\val_img_60374d3e.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 300.9174499511719,
+        "jsd": 7.906791870482266e-05,
+        "route": "safe"
+      },
+      {
+        "index": 142,
+        "path": "omni_dataset\\val\\images\\val_img_6a31d614.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 426.7730712890625,
+        "jsd": 0.0012647687690332532,
+        "route": "safe"
+      },
+      {
+        "index": 143,
+        "path": "omni_dataset\\val\\images\\val_img_cd9ccbc6.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 585.9581909179688,
+        "jsd": 0.00237957201898098,
+        "route": "safe"
+      },
+      {
+        "index": 144,
+        "path": "omni_dataset\\val\\images\\val_img_889edba8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 609.3067016601562,
+        "jsd": 0.0020393976010382175,
+        "route": "safe"
+      },
+      {
+        "index": 145,
+        "path": "omni_dataset\\val\\images\\val_img_3f466210.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 443.5489501953125,
+        "jsd": 0.021106906235218048,
+        "route": "safe"
+      },
+      {
+        "index": 146,
+        "path": "omni_dataset\\val\\images\\val_img_9bf2a554.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 458.1782531738281,
+        "jsd": 0.004947987385094166,
+        "route": "safe"
+      },
+      {
+        "index": 147,
+        "path": "omni_dataset\\val\\images\\val_img_3c00b3e5.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 447.5894470214844,
+        "jsd": 0.003161599626764655,
+        "route": "safe"
+      },
+      {
+        "index": 148,
+        "path": "omni_dataset\\val\\images\\val_img_3cc1bcaa.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 325.7275695800781,
+        "jsd": 0.001301882672123611,
+        "route": "safe"
+      }
+    ]
+  },
+  "triage": {
+    "stage_label": "ROUND 2 (POST-HEALING)",
+    "classes": [
+      "cats",
+      "dogs"
+    ],
+    "num_images": 122,
+    "surviving_after_z2": 109,
+    "folds": 5,
+    "epochs": 6,
+    "student_class": "CustomMobileNetV3",
+    "student_accuracy": 0.9449541568756104,
+    "student_per_class_accuracy": {
+      "cats": 0.8333333134651184,
+      "dogs": 1.0
+    },
+    "teacher_accuracy": 1.0,
+    "teacher_per_class_accuracy": {
+      "cats": 1.0,
+      "dogs": 1.0
+    },
+    "z2_threshold": 679.4478759765625,
+    "z2_flagged": 13,
+    "temperature": 1.590592622756958,
+    "ece_before": 0.04080238944114667,
+    "ece_after": 0.04301146619134322,
+    "mean_jsd": 0.02615821734070778,
+    "jsd_threshold": 0.04301469773054123,
+    "jsd_flagged": 11,
+    "safe_count": 98,
+    "failed_count": 24,
+    "student_accuracy_safe": 1.0,
+    "student_accuracy_flagged": 0.4545454680919647,
+    "failed_records": [],
+    "safe_records": [],
+    "failed_counts_per_class": {},
+    "graphs": {
+      "z2": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\z_square_energy_distribution.png",
+      "calibration": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\calibration_curve.png"
+    },
+    "items": [
+      {
+        "index": 0,
+        "path": "omni_dataset\\train\\cats\\train_img_dbec2ba5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 406.26171875,
+        "jsd": 0.0020782987121492624,
+        "route": "safe"
+      },
+      {
+        "index": 1,
+        "path": "omni_dataset\\train\\cats\\train_img_59d3b60f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 551.4982299804688,
+        "jsd": 0.03279319405555725,
+        "route": "safe"
+      },
+      {
+        "index": 2,
+        "path": "omni_dataset\\train\\cats\\train_img_db6c65ac.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 581.0213623046875,
+        "jsd": 0.002662758342921734,
+        "route": "safe"
+      },
+      {
+        "index": 3,
+        "path": "omni_dataset\\train\\cats\\train_img_3aad6229.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 521.6392822265625,
+        "jsd": 0.21411937475204468,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 4,
+        "path": "omni_dataset\\train\\cats\\train_img_d84ea0b5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 481.87164306640625,
+        "jsd": 0.000829738681204617,
+        "route": "safe"
+      },
+      {
+        "index": 5,
+        "path": "omni_dataset\\train\\cats\\train_img_94174008.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 416.9215393066406,
+        "jsd": 0.047263599932193756,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 6,
+        "path": "omni_dataset\\train\\cats\\train_img_f453c13c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 563.3218994140625,
+        "jsd": 6.559694884344935e-05,
+        "route": "safe"
+      },
+      {
+        "index": 7,
+        "path": "omni_dataset\\train\\cats\\train_img_20867d8c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 376.8157958984375,
+        "jsd": 0.007245564833283424,
+        "route": "safe"
+      },
+      {
+        "index": 8,
+        "path": "omni_dataset\\train\\cats\\train_img_812cb5d8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 437.3473205566406,
+        "jsd": 0.04195249453186989,
+        "route": "safe"
+      },
+      {
+        "index": 9,
+        "path": "omni_dataset\\train\\cats\\train_img_f6c88a00.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 504.8228759765625,
+        "jsd": 0.026563087478280067,
+        "route": "safe"
+      },
+      {
+        "index": 10,
+        "path": "omni_dataset\\train\\cats\\train_img_dcdccf1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 336.02569580078125,
+        "jsd": 0.00637973565608263,
+        "route": "safe"
+      },
+      {
+        "index": 11,
+        "path": "omni_dataset\\train\\cats\\train_img_886a2e2c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 695.8255004882812,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 12,
+        "path": "omni_dataset\\train\\cats\\train_img_f51bb5f6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 374.0806579589844,
+        "jsd": 0.032682158052921295,
+        "route": "safe"
+      },
+      {
+        "index": 13,
+        "path": "omni_dataset\\train\\cats\\train_img_ecdd695c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 560.0823364257812,
+        "jsd": 0.001486544031649828,
+        "route": "safe"
+      },
+      {
+        "index": 14,
+        "path": "omni_dataset\\train\\cats\\train_img_3f20a53f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 368.10015869140625,
+        "jsd": 0.03688622638583183,
+        "route": "safe"
+      },
+      {
+        "index": 15,
+        "path": "omni_dataset\\train\\cats\\train_img_21f70ba7.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 370.1243896484375,
+        "jsd": 0.5431210994720459,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 16,
+        "path": "omni_dataset\\train\\cats\\train_img_9777d92b.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 426.2113952636719,
+        "jsd": 0.0031897795852273703,
+        "route": "safe"
+      },
+      {
+        "index": 17,
+        "path": "omni_dataset\\train\\cats\\train_img_f5754d10.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 398.7130432128906,
+        "jsd": 8.867890574038029e-05,
+        "route": "safe"
+      },
+      {
+        "index": 18,
+        "path": "omni_dataset\\train\\cats\\train_img_e7db09a3.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 494.1459655761719,
+        "jsd": 0.010970301926136017,
+        "route": "safe"
+      },
+      {
+        "index": 19,
+        "path": "omni_dataset\\train\\cats\\train_img_9dc7d3dd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 378.7883605957031,
+        "jsd": 1.1043332051485777e-05,
+        "route": "safe"
+      },
+      {
+        "index": 20,
+        "path": "omni_dataset\\train\\cats\\train_img_3a767991.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 572.3660278320312,
+        "jsd": 0.07906731218099594,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 21,
+        "path": "omni_dataset\\train\\cats\\train_img_1be21488.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 543.923095703125,
+        "jsd": 0.004721855744719505,
+        "route": "safe"
+      },
+      {
+        "index": 22,
+        "path": "omni_dataset\\train\\cats\\train_img_24b10b7a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 772.2506103515625,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 23,
+        "path": "omni_dataset\\train\\cats\\train_img_82954ab2.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 503.66839599609375,
+        "jsd": 0.10154298692941666,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 24,
+        "path": "omni_dataset\\train\\cats\\train_img_1311233d.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 417.9529113769531,
+        "jsd": 0.21774381399154663,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 25,
+        "path": "omni_dataset\\train\\cats\\train_img_0d6cf230.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 419.3339538574219,
+        "jsd": 0.0025407583452761173,
+        "route": "safe"
+      },
+      {
+        "index": 26,
+        "path": "omni_dataset\\train\\cats\\train_img_3d0b9e4a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 772.7056274414062,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 27,
+        "path": "omni_dataset\\train\\cats\\train_img_86dbfb1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 557.1236572265625,
+        "jsd": 0.021184131503105164,
+        "route": "safe"
+      },
+      {
+        "index": 28,
+        "path": "omni_dataset\\train\\cats\\train_img_39bfd8d6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 528.5111083984375,
+        "jsd": 0.014811528846621513,
+        "route": "safe"
+      },
+      {
+        "index": 29,
+        "path": "omni_dataset\\train\\cats\\train_img_0fb71984.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 443.4945373535156,
+        "jsd": 0.02439381554722786,
+        "route": "safe"
+      },
+      {
+        "index": 30,
+        "path": "omni_dataset\\train\\cats\\train_img_be6d60e8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 558.01123046875,
+        "jsd": 0.2850953936576843,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 31,
+        "path": "omni_dataset\\train\\cats\\train_img_bfee90b8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 494.26641845703125,
+        "jsd": 0.0019441937329247594,
+        "route": "safe"
+      },
+      {
+        "index": 32,
+        "path": "omni_dataset\\train\\cats\\train_img_8bb10458.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 360.53546142578125,
+        "jsd": 0.0016883977223187685,
+        "route": "safe"
+      },
+      {
+        "index": 33,
+        "path": "omni_dataset\\train\\cats\\train_img_43a54ba8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 384.61138916015625,
+        "jsd": 0.0001143246772699058,
+        "route": "safe"
+      },
+      {
+        "index": 34,
+        "path": "omni_dataset\\train\\cats\\train_img_03f52c0c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 469.0870361328125,
+        "jsd": 0.3009810447692871,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 35,
+        "path": "omni_dataset\\train\\cats\\train_img_6400506e.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 759.3663940429688,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 36,
+        "path": "omni_dataset\\train\\cats\\train_img_1d5b6f0f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 511.47418212890625,
+        "jsd": 0.14853422343730927,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 37,
+        "path": "omni_dataset\\train\\cats\\train_img_051d6284.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 538.8626708984375,
+        "jsd": 0.38167181611061096,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 38,
+        "path": "omni_dataset\\train\\cats\\train_img_e26d8afd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 366.7580871582031,
+        "jsd": 3.621054929681122e-05,
+        "route": "safe"
+      },
+      {
+        "index": 39,
+        "path": "omni_dataset\\train\\cats\\train_img_6d501e2f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 682.8328857421875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 40,
+        "path": "omni_dataset\\train\\dogs\\train_img_8b2a78f4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 307.47052001953125,
+        "jsd": 0.0007311831577681005,
+        "route": "safe"
+      },
+      {
+        "index": 41,
+        "path": "omni_dataset\\train\\dogs\\train_img_5115e088.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 477.06695556640625,
+        "jsd": 0.0023097810335457325,
+        "route": "safe"
+      },
+      {
+        "index": 42,
+        "path": "omni_dataset\\train\\dogs\\train_img_128f79b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 650.359619140625,
+        "jsd": 0.009468458592891693,
+        "route": "safe"
+      },
+      {
+        "index": 43,
+        "path": "omni_dataset\\train\\dogs\\train_img_fbf1a499.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 455.7693786621094,
+        "jsd": 0.006848040968179703,
+        "route": "safe"
+      },
+      {
+        "index": 44,
+        "path": "omni_dataset\\train\\dogs\\train_img_c5849a67.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 505.64996337890625,
+        "jsd": 0.0009350794716738164,
+        "route": "safe"
+      },
+      {
+        "index": 45,
+        "path": "omni_dataset\\train\\dogs\\train_img_ce17ef8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 319.0695495605469,
+        "jsd": 0.002671371214091778,
+        "route": "safe"
+      },
+      {
+        "index": 46,
+        "path": "omni_dataset\\train\\dogs\\train_img_93f814cb.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 353.0820007324219,
+        "jsd": 0.001101651811040938,
+        "route": "safe"
+      },
+      {
+        "index": 47,
+        "path": "omni_dataset\\train\\dogs\\train_img_8a180f0d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 611.7369384765625,
+        "jsd": 0.0007172776386141777,
+        "route": "safe"
+      },
+      {
+        "index": 48,
+        "path": "omni_dataset\\train\\dogs\\train_img_a0b8d775.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 679.64892578125,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 49,
+        "path": "omni_dataset\\train\\dogs\\train_img_35e98376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.7135925292969,
+        "jsd": 0.0009882939048111439,
+        "route": "safe"
+      },
+      {
+        "index": 50,
+        "path": "omni_dataset\\train\\dogs\\train_img_99278fab.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 594.454345703125,
+        "jsd": 0.00186061579734087,
+        "route": "safe"
+      },
+      {
+        "index": 51,
+        "path": "omni_dataset\\train\\dogs\\train_img_a55e6b52.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 411.823486328125,
+        "jsd": 0.0021720947697758675,
+        "route": "safe"
+      },
+      {
+        "index": 52,
+        "path": "omni_dataset\\train\\dogs\\train_img_de535490.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 455.9074401855469,
+        "jsd": 0.002307943534106016,
+        "route": "safe"
+      },
+      {
+        "index": 53,
+        "path": "omni_dataset\\train\\dogs\\train_img_d6f76c70.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 652.8392944335938,
+        "jsd": 0.0036093348171561956,
+        "route": "safe"
+      },
+      {
+        "index": 54,
+        "path": "omni_dataset\\train\\dogs\\train_img_1961f7d7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.0965576171875,
+        "jsd": 0.0009465133771300316,
+        "route": "safe"
+      },
+      {
+        "index": 55,
+        "path": "omni_dataset\\train\\dogs\\train_img_d61fd6fe.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 393.510009765625,
+        "jsd": 0.0015905593754723668,
+        "route": "safe"
+      },
+      {
+        "index": 56,
+        "path": "omni_dataset\\train\\dogs\\train_img_bcb4bf8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 647.8770751953125,
+        "jsd": 0.0016437025042250752,
+        "route": "safe"
+      },
+      {
+        "index": 57,
+        "path": "omni_dataset\\train\\dogs\\train_img_85d432dc.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 569.4864501953125,
+        "jsd": 0.0064633372239768505,
+        "route": "safe"
+      },
+      {
+        "index": 58,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cf0a218.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 732.9278564453125,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 59,
+        "path": "omni_dataset\\train\\dogs\\train_img_16971b73.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 624.6715698242188,
+        "jsd": 0.00023908517323434353,
+        "route": "safe"
+      },
+      {
+        "index": 60,
+        "path": "omni_dataset\\train\\dogs\\train_img_b60ed38d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 452.5631103515625,
+        "jsd": 0.0021627105306833982,
+        "route": "safe"
+      },
+      {
+        "index": 61,
+        "path": "omni_dataset\\train\\dogs\\train_img_0bc3d736.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 326.79278564453125,
+        "jsd": 0.0020310264080762863,
+        "route": "safe"
+      },
+      {
+        "index": 62,
+        "path": "omni_dataset\\train\\dogs\\train_img_95cfe376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 638.5411376953125,
+        "jsd": 0.009370340034365654,
+        "route": "safe"
+      },
+      {
+        "index": 63,
+        "path": "omni_dataset\\train\\dogs\\train_img_5568ad62.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 504.69970703125,
+        "jsd": 0.00182349793612957,
+        "route": "safe"
+      },
+      {
+        "index": 64,
+        "path": "omni_dataset\\train\\dogs\\train_img_1836d649.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 508.78594970703125,
+        "jsd": 0.00229570921510458,
+        "route": "safe"
+      },
+      {
+        "index": 65,
+        "path": "omni_dataset\\train\\dogs\\train_img_8fdadc56.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 459.2259826660156,
+        "jsd": 0.006907226052135229,
+        "route": "safe"
+      },
+      {
+        "index": 66,
+        "path": "omni_dataset\\train\\dogs\\train_img_eb90f08c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 671.4573364257812,
+        "jsd": 0.0009183576330542564,
+        "route": "safe"
+      },
+      {
+        "index": 67,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fe5879e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 542.5140380859375,
+        "jsd": 0.012552505359053612,
+        "route": "safe"
+      },
+      {
+        "index": 68,
+        "path": "omni_dataset\\train\\dogs\\train_img_ffc25e99.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 465.49798583984375,
+        "jsd": 0.003800024511292577,
+        "route": "safe"
+      },
+      {
+        "index": 69,
+        "path": "omni_dataset\\train\\dogs\\train_img_da95b01e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 599.3676147460938,
+        "jsd": 0.0012867081677541137,
+        "route": "safe"
+      },
+      {
+        "index": 70,
+        "path": "omni_dataset\\train\\dogs\\train_img_64762da0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 709.6318969726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 71,
+        "path": "omni_dataset\\train\\dogs\\train_img_9b3fee79.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 491.734375,
+        "jsd": 0.0003005170146934688,
+        "route": "safe"
+      },
+      {
+        "index": 72,
+        "path": "omni_dataset\\train\\dogs\\train_img_7922a57c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 423.2552795410156,
+        "jsd": 0.0005038548843003809,
+        "route": "safe"
+      },
+      {
+        "index": 73,
+        "path": "omni_dataset\\train\\dogs\\train_img_531e5225.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 350.5844421386719,
+        "jsd": 0.0008962315041571856,
+        "route": "safe"
+      },
+      {
+        "index": 74,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cd10e54.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 374.88714599609375,
+        "jsd": 0.006356664467602968,
+        "route": "safe"
+      },
+      {
+        "index": 75,
+        "path": "omni_dataset\\train\\dogs\\train_img_70b2ea90.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 489.0772705078125,
+        "jsd": 0.002511780709028244,
+        "route": "safe"
+      },
+      {
+        "index": 76,
+        "path": "omni_dataset\\train\\dogs\\train_img_b1ce24b7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 538.6175537109375,
+        "jsd": 0.000947046501096338,
+        "route": "safe"
+      },
+      {
+        "index": 77,
+        "path": "omni_dataset\\train\\dogs\\train_img_ad5afa89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 371.2005615234375,
+        "jsd": 0.0018567846855148673,
+        "route": "safe"
+      },
+      {
+        "index": 78,
+        "path": "omni_dataset\\train\\dogs\\train_img_7bd51375.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 586.6092529296875,
+        "jsd": 0.004511439707130194,
+        "route": "safe"
+      },
+      {
+        "index": 79,
+        "path": "omni_dataset\\train\\dogs\\train_img_0f77d2e4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 604.9098510742188,
+        "jsd": 0.00015503616305068135,
+        "route": "safe"
+      },
+      {
+        "index": 80,
+        "path": "omni_dataset\\train\\dogs\\train_img_0b46f2b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 366.0341796875,
+        "jsd": 0.005576854571700096,
+        "route": "safe"
+      },
+      {
+        "index": 81,
+        "path": "omni_dataset\\train\\dogs\\train_img_1fe21e08.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 638.5324096679688,
+        "jsd": 0.006313104648143053,
+        "route": "safe"
+      },
+      {
+        "index": 82,
+        "path": "omni_dataset\\train\\dogs\\train_img_f9a3f6ed.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 706.7913208007812,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 83,
+        "path": "omni_dataset\\train\\dogs\\train_img_a3ac3e11.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 750.9678344726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 84,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fc4a9a1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 587.011474609375,
+        "jsd": 0.0017459464725106955,
+        "route": "safe"
+      },
+      {
+        "index": 85,
+        "path": "omni_dataset\\train\\dogs\\train_img_7179be31.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 369.1532287597656,
+        "jsd": 0.0030144883785396814,
+        "route": "safe"
+      },
+      {
+        "index": 86,
+        "path": "omni_dataset\\train\\dogs\\train_img_7cf0a692.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 373.55908203125,
+        "jsd": 0.00095354113727808,
+        "route": "safe"
+      },
+      {
+        "index": 87,
+        "path": "omni_dataset\\train\\dogs\\train_img_1a7a1108.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 337.08612060546875,
+        "jsd": 0.0011585024185478687,
+        "route": "safe"
+      },
+      {
+        "index": 88,
+        "path": "omni_dataset\\train\\dogs\\train_img_b8efbf47.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 435.6324768066406,
+        "jsd": 0.003434734418988228,
+        "route": "safe"
+      },
+      {
+        "index": 89,
+        "path": "omni_dataset\\train\\dogs\\train_img_12c7517b.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 446.9628601074219,
+        "jsd": 0.004574053920805454,
+        "route": "safe"
+      },
+      {
+        "index": 90,
+        "path": "omni_dataset\\train\\dogs\\train_img_66ab0868.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 464.0074157714844,
+        "jsd": 0.002807425567880273,
+        "route": "safe"
+      },
+      {
+        "index": 91,
+        "path": "omni_dataset\\train\\dogs\\train_img_74e06f69.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 317.2684020996094,
+        "jsd": 0.0019102753140032291,
+        "route": "safe"
+      },
+      {
+        "index": 92,
+        "path": "omni_dataset\\train\\dogs\\train_img_b296e49c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 641.8033447265625,
+        "jsd": 0.0021175516303628683,
+        "route": "safe"
+      },
+      {
+        "index": 93,
+        "path": "omni_dataset\\train\\dogs\\train_img_3e1b9681.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 694.1553344726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 94,
+        "path": "omni_dataset\\train\\dogs\\train_img_4ff1db2c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 330.2958984375,
+        "jsd": 0.0012407589238137007,
+        "route": "safe"
+      },
+      {
+        "index": 95,
+        "path": "omni_dataset\\train\\dogs\\train_img_56a5a260.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 407.73388671875,
+        "jsd": 0.001434299978427589,
+        "route": "safe"
+      },
+      {
+        "index": 96,
+        "path": "omni_dataset\\train\\dogs\\train_img_4a9fc090.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 493.8072204589844,
+        "jsd": 0.0003386803437024355,
+        "route": "safe"
+      },
+      {
+        "index": 97,
+        "path": "omni_dataset\\train\\dogs\\train_img_8adba5cd.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 589.2617797851562,
+        "jsd": 0.0037684522103518248,
+        "route": "safe"
+      },
+      {
+        "index": 98,
+        "path": "omni_dataset\\train\\dogs\\train_img_2496215f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 596.3138427734375,
+        "jsd": 0.0034321823623031378,
+        "route": "safe"
+      },
+      {
+        "index": 99,
+        "path": "omni_dataset\\train\\dogs\\train_img_54e996af.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 677.6387329101562,
+        "jsd": 0.0032468726858496666,
+        "route": "safe"
+      },
+      {
+        "index": 100,
+        "path": "omni_dataset\\train\\dogs\\train_img_1d3ffb91.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 492.3310546875,
+        "jsd": 0.0012892523081973195,
+        "route": "safe"
+      },
+      {
+        "index": 101,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d482ee4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 390.15606689453125,
+        "jsd": 0.001476423116400838,
+        "route": "safe"
+      },
+      {
+        "index": 102,
+        "path": "omni_dataset\\train\\dogs\\train_img_8773823c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 445.0703430175781,
+        "jsd": 0.0006096570286899805,
+        "route": "safe"
+      },
+      {
+        "index": 103,
+        "path": "omni_dataset\\train\\dogs\\train_img_dcf7a7a0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 478.24481201171875,
+        "jsd": 0.0005377493798732758,
+        "route": "safe"
+      },
+      {
+        "index": 104,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0fd120a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 585.1583862304688,
+        "jsd": 0.004630362614989281,
+        "route": "safe"
+      },
+      {
+        "index": 105,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0eebc1f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 427.7411193847656,
+        "jsd": 0.0010355319827795029,
+        "route": "safe"
+      },
+      {
+        "index": 106,
+        "path": "omni_dataset\\train\\dogs\\train_img_a11968d1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 679.6984252929688,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 107,
+        "path": "omni_dataset\\train\\dogs\\train_img_9695f653.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 463.8668518066406,
+        "jsd": 0.0009726466378197074,
+        "route": "safe"
+      },
+      {
+        "index": 108,
+        "path": "omni_dataset\\train\\dogs\\train_img_11b29c89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 423.9803771972656,
+        "jsd": 0.0029774249996989965,
+        "route": "safe"
+      },
+      {
+        "index": 109,
+        "path": "omni_dataset\\train\\dogs\\train_img_c007275a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 336.5782775878906,
+        "jsd": 0.0014783841324970126,
+        "route": "safe"
+      },
+      {
+        "index": 110,
+        "path": "omni_dataset\\train\\dogs\\train_img_740a31ac.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 485.86553955078125,
+        "jsd": 0.0014838039642199874,
+        "route": "safe"
+      },
+      {
+        "index": 111,
+        "path": "omni_dataset\\val\\images\\val_img_fd6435f8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 457.5796203613281,
+        "jsd": 0.00246996502391994,
+        "route": "safe"
+      },
+      {
+        "index": 112,
+        "path": "omni_dataset\\val\\images\\val_img_60374d3e.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 315.45941162109375,
+        "jsd": 0.0016927554970607162,
+        "route": "safe"
+      },
+      {
+        "index": 113,
+        "path": "omni_dataset\\val\\images\\val_img_6a31d614.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 449.0588684082031,
+        "jsd": 0.002586797345429659,
+        "route": "safe"
+      },
+      {
+        "index": 114,
+        "path": "omni_dataset\\val\\images\\val_img_cd9ccbc6.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 654.6714477539062,
+        "jsd": 0.0018791889306157827,
+        "route": "safe"
+      },
+      {
+        "index": 115,
+        "path": "omni_dataset\\val\\images\\val_img_889edba8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 667.3856201171875,
+        "jsd": 0.05437561497092247,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 116,
+        "path": "omni_dataset\\val\\images\\val_img_3f466210.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 479.16998291015625,
+        "jsd": 0.01849330961704254,
+        "route": "safe"
+      },
+      {
+        "index": 117,
+        "path": "omni_dataset\\val\\images\\val_img_9bf2a554.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 481.2778015136719,
+        "jsd": 2.7207715902477503e-07,
+        "route": "safe"
+      },
+      {
+        "index": 118,
+        "path": "omni_dataset\\val\\images\\val_img_3c00b3e5.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 483.709716796875,
+        "jsd": 0.0005188339855521917,
+        "route": "safe"
+      },
+      {
+        "index": 119,
+        "path": "omni_dataset\\val\\images\\val_img_3cc1bcaa.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 342.4530029296875,
+        "jsd": 0.0011486613657325506,
+        "route": "safe"
+      },
+      {
+        "index": 120,
+        "path": "omni_dataset\\train\\cats\\train_img_02c915d5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 576.724609375,
+        "jsd": 0.0002684719511307776,
+        "route": "safe"
+      },
+      {
+        "index": 121,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d611fe8.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 692.2578125,
+        "jsd": null,
+        "route": "failed_z2"
+      }
+    ]
+  },
+  "healing": {
+    "safe_captions": [
+      {
+        "file": "safe_100_train_img_b1ce24b7.jpg",
+        "caption": "a brown dog walking in the snow"
+      },
+      {
+        "file": "safe_101_train_img_ad5afa89.jpg",
+        "caption": "a dog standing in the grass with a red leash"
+      },
+      {
+        "file": "safe_103_train_img_7bd51375.jpg",
+        "caption": "a dog laying on the ground in front of a store"
+      },
+      {
+        "file": "safe_104_train_img_0f77d2e4.jpg",
+        "caption": "two dogs playing with a ball on a deck"
+      },
+      {
+        "file": "safe_106_train_img_0b46f2b0.jpg",
+        "caption": "a dog laying on the floor with a mouse in its mouth"
+      },
+      {
+        "file": "safe_107_train_img_1fe21e08.jpg",
+        "caption": "a dog in a cage looking out from behind the bars"
+      },
+      {
+        "file": "safe_108_train_img_f9a3f6ed.jpg",
+        "caption": "a dog is standing in a metal box"
+      },
+      {
+        "file": "safe_109_train_img_a3ac3e11.jpg",
+        "caption": "a dog laying on the beach looking at the camera"
+      },
+      {
+        "file": "safe_10_train_img_812cb5d8.jpg",
+        "caption": "a cat is laying on a scratching post"
+      },
+      {
+        "file": "safe_111_train_img_2fc4a9a1.jpg",
+        "caption": "two dogs on the beach"
+      },
+      {
+        "file": "safe_112_train_img_7179be31.jpg",
+        "caption": "a dog laying in the grass"
+      },
+      {
+        "file": "safe_113_train_img_7cf0a692.jpg",
+        "caption": "a dog with a pink tongue and a black nose"
+      },
+      {
+        "file": "safe_114_train_img_1a7a1108.jpg",
+        "caption": "a dog laying on the ground with its paws"
+      },
+      {
+        "file": "safe_115_train_img_b8efbf47.jpg",
+        "caption": "a dog standing in the grass with a frurd"
+      },
+      {
+        "file": "safe_116_train_img_12c7517b.jpg",
+        "caption": "a dog with a blue leash sitting in the grass"
+      },
+      {
+        "file": "safe_117_train_img_66ab0868.jpg",
+        "caption": "a dog with long hair and a sad look"
+      },
+      {
+        "file": "safe_118_train_img_74e06f69.jpg",
+        "caption": "a dog with a pink feather on its head"
+      },
+      {
+        "file": "safe_119_train_img_b296e49c.jpg",
+        "caption": "a dog sitting on a brick patio"
+      },
+      {
+        "file": "safe_11_train_img_f6c88a00.jpg",
+        "caption": "a black cat laying on the floor next to a scratching post"
+      },
+      {
+        "file": "safe_120_train_img_3e1b9681.jpg",
+        "caption": "a dog with a cone on its head"
+      },
+      {
+        "file": "safe_121_train_img_4ff1db2c.jpg",
+        "caption": "a dog standing on a sidewalk"
+      },
+      {
+        "file": "safe_122_train_img_56a5a260.jpg",
+        "caption": "a dog with its mouth open and tongue out"
+      },
+      {
+        "file": "safe_123_train_img_4a9fc090.jpg",
+        "caption": "a dog is running on the beach"
+      },
+      {
+        "file": "safe_124_train_img_8adba5cd.jpg",
+        "caption": "a pug dog sitting on the ground"
+      },
+      {
+        "file": "safe_125_train_img_2496215f.jpg",
+        "caption": "two small dogs sitting next to each other dogs"
+      },
+      {
+        "file": "safe_126_train_img_54e996af.jpg",
+        "caption": "a dog wearing sunglasses on its head"
+      },
+      {
+        "file": "safe_127_train_img_1d3ffb91.jpg",
+        "caption": "a dog is walking through the mud"
+      },
+      {
+        "file": "safe_128_train_img_3d482ee4.jpg",
+        "caption": "a dog standing in the grass next to a tree"
+      },
+      {
+        "file": "safe_129_train_img_8773823c.jpg",
+        "caption": "a dog looking up at the sky"
+      },
+      {
+        "file": "safe_132_train_img_dcf7a7a0.jpg",
+        "caption": "a black and white dog laying in the grass"
+      },
+      {
+        "file": "safe_133_train_img_b0fd120a.jpg",
+        "caption": "a small white dog is eating something on the ground"
+      },
+      {
+        "file": "safe_134_train_img_b0eebc1f.jpg",
+        "caption": "a dog looking out the window of a bus"
+      },
+      {
+        "file": "safe_135_train_img_a11968d1.jpg",
+        "caption": "a small dog sitting on top of a grass covered field"
+      },
+      {
+        "file": "safe_136_train_img_9695f653.jpg",
+        "caption": "a dog laying on the ground next to a trash can"
+      },
+      {
+        "file": "safe_137_train_img_11b29c89.jpg",
+        "caption": "a dog laying on the ground next to a plant"
+      },
+      {
+        "file": "safe_138_train_img_c007275a.jpg",
+        "caption": "a dog is being pet groomed by a woman"
+      },
+      {
+        "file": "safe_139_train_img_740a31ac.jpg",
+        "caption": "a dog standing on top of a pile of leaves"
+      },
+      {
+        "file": "safe_13_train_img_dcdccf1c.jpg",
+        "caption": "a woman holding a black and white cat"
+      },
+      {
+        "file": "safe_140_val_img_fd6435f8.jpg",
+        "caption": "a dog laying on the ground"
+      },
+      {
+        "file": "safe_141_val_img_60374d3e.jpg",
+        "caption": "a small white and brown dog standing on top of a grass covered field"
+      },
+      {
+        "file": "safe_142_val_img_6a31d614.jpg",
+        "caption": "a dog laying on top of a blanket"
+      },
+      {
+        "file": "safe_143_val_img_cd9ccbc6.jpg",
+        "caption": "a dog and a cat are playing on a bench"
+      },
+      {
+        "file": "safe_144_val_img_889edba8.jpg",
+        "caption": "a dog looks out from a window in the city of ahmedabad"
+      },
+      {
+        "file": "safe_145_val_img_3f466210.jpg",
+        "caption": "a small dog laying on the floor"
+      },
+      {
+        "file": "safe_146_val_img_9bf2a554.jpg",
+        "caption": "a dog laying on top of a blanket"
+      },
+      {
+        "file": "safe_147_val_img_3c00b3e5.jpg",
+        "caption": "a dog with a blue leash on a wooden deck"
+      },
+      {
+        "file": "safe_148_val_img_3cc1bcaa.jpg",
+        "caption": "a small dog standing on a sidewalk"
+      },
+      {
+        "file": "safe_14_train_img_886a2e2c.jpg",
+        "caption": "three kittens in a cage"
+      },
+      {
+        "file": "safe_15_train_img_f51bb5f6.jpg",
+        "caption": "a black cat sitting on a table"
+      },
+      {
+        "file": "safe_18_train_img_ecdd695c.jpg",
+        "caption": "a gray cat sitting in a cage with a green bag"
+      },
+      {
+        "file": "safe_19_train_img_3f20a53f.jpg",
+        "caption": "a black and white cat"
+      },
+      {
+        "file": "safe_1_train_img_dbec2ba5.jpg",
+        "caption": "a cat sitting on a table with a cat in the background"
+      },
+      {
+        "file": "safe_20_train_img_21f70ba7.jpg",
+        "caption": "a cat sitting in a sink next to a bowl"
+      },
+      {
+        "file": "safe_21_train_img_9777d92b.jpg",
+        "caption": "a black cat laying on a blanket"
+      },
+      {
+        "file": "safe_25_train_img_f5754d10.jpg",
+        "caption": "a black cat with white whised paws"
+      },
+      {
+        "file": "safe_26_train_img_e7db09a3.jpg",
+        "caption": "a woman holding a cat"
+      },
+      {
+        "file": "safe_27_train_img_9dc7d3dd.jpg",
+        "caption": "a black cat standing on top of a green table"
+      },
+      {
+        "file": "safe_28_train_img_3a767991.jpg",
+        "caption": "a cat laying on a blue blanket"
+      },
+      {
+        "file": "safe_2_train_img_59d3b60f.jpg",
+        "caption": "a cat with a long hair sitting on a table"
+      },
+      {
+        "file": "safe_30_train_img_1be21488.jpg",
+        "caption": "a cat standing on top of a bed"
+      },
+      {
+        "file": "safe_32_train_img_24b10b7a.jpg",
+        "caption": "two kittens are laying on a couch"
+      },
+      {
+        "file": "safe_34_train_img_82954ab2.jpg",
+        "caption": "a cat is curled on a quilt"
+      },
+      {
+        "file": "safe_35_train_img_1311233d.jpg",
+        "caption": "a cat sitting on a pillow in front of a window"
+      },
+      {
+        "file": "safe_36_train_img_0d6cf230.jpg",
+        "caption": "a cat sitting on top of a white shelf"
+      },
+      {
+        "file": "safe_37_train_img_3d0b9e4a.jpg",
+        "caption": "a woman holding a kitten in a cage"
+      },
+      {
+        "file": "safe_39_train_img_86dbfb1c.jpg",
+        "caption": "two cats in a box"
+      },
+      {
+        "file": "safe_3_train_img_db6c65ac.jpg",
+        "caption": "a small kitten is held in a person ' s hand"
+      },
+      {
+        "file": "safe_40_train_img_39bfd8d6.jpg",
+        "caption": "a cat sitting on top of a table"
+      },
+      {
+        "file": "safe_41_train_img_0fb71984.jpg",
+        "caption": "a black and white cat sitting on a scratching board"
+      },
+      {
+        "file": "safe_44_train_img_be6d60e8.jpg",
+        "caption": "a cat is laying on a couch"
+      },
+      {
+        "file": "safe_45_train_img_bfee90b8.jpg",
+        "caption": "a black and white kitten sitting in a cage"
+      },
+      {
+        "file": "safe_47_train_img_8bb10458.jpg",
+        "caption": "a cat sitting on top of a pink blanket"
+      },
+      {
+        "file": "safe_48_train_img_43a54ba8.jpg",
+        "caption": "a black and white cat laying on a white blanket"
+      },
+      {
+        "file": "safe_49_train_img_03f52c0c.jpg",
+        "caption": "a man holding a cat in his arms"
+      },
+      {
+        "file": "safe_4_train_img_3aad6229.jpg",
+        "caption": "two cats in a cage"
+      },
+      {
+        "file": "safe_51_train_img_6400506e.jpg",
+        "caption": "a cat is laying in a dog bed"
+      },
+      {
+        "file": "safe_53_train_img_1d5b6f0f.jpg",
+        "caption": "a siam cat is sitting on a table"
+      },
+      {
+        "file": "safe_54_train_img_051d6284.jpg",
+        "caption": "a couple of kittens sitting in a box"
+      },
+      {
+        "file": "safe_55_train_img_e26d8afd.jpg",
+        "caption": "a gray cat sitting on top of a white blanket"
+      },
+      {
+        "file": "safe_58_train_img_6d501e2f.jpg",
+        "caption": "a cat laying on a yellow blanket"
+      },
+      {
+        "file": "safe_5_train_img_d84ea0b5.jpg",
+        "caption": "a man holding a kitten"
+      },
+      {
+        "file": "safe_60_train_img_8b2a78f4.jpg",
+        "caption": "a black and white dog standing in the grass"
+      },
+      {
+        "file": "safe_61_train_img_5115e088.jpg",
+        "caption": "a small white dog standing on a gravel road"
+      },
+      {
+        "file": "safe_62_train_img_128f79b0.jpg",
+        "caption": "a dog laying on the floor"
+      },
+      {
+        "file": "safe_64_train_img_fbf1a499.jpg",
+        "caption": "a small black and brown dog standing in the grass"
+      },
+      {
+        "file": "safe_65_train_img_c5849a67.jpg",
+        "caption": "a small white dog with a black leash"
+      },
+      {
+        "file": "safe_66_train_img_ce17ef8a.jpg",
+        "caption": "a dog sitting on the grass in the park"
+      },
+      {
+        "file": "safe_67_train_img_93f814cb.jpg",
+        "caption": "a dog laying on top of a couch"
+      },
+      {
+        "file": "safe_68_train_img_8a180f0d.jpg",
+        "caption": "two dogs are walking in the snow"
+      },
+      {
+        "file": "safe_69_train_img_a0b8d775.jpg",
+        "caption": "a small dog standing on a tiled floor"
+      },
+      {
+        "file": "safe_6_train_img_94174008.jpg",
+        "caption": "a black and white cat sitting on top of a brown blanket"
+      },
+      {
+        "file": "safe_70_train_img_35e98376.jpg",
+        "caption": "a dog running in the grass with a ball in its mouth"
+      },
+      {
+        "file": "safe_71_train_img_99278fab.jpg",
+        "caption": "a small dog wearing a blue vest in the snow"
+      },
+      {
+        "file": "safe_72_train_img_a55e6b52.jpg",
+        "caption": "a dog laying on the ground outside"
+      },
+      {
+        "file": "safe_73_train_img_de535490.jpg",
+        "caption": "a small dog sitting on the floor in front of a door"
+      },
+      {
+        "file": "safe_74_train_img_d6f76c70.jpg",
+        "caption": "a black dog sitting in a field with a blue collar"
+      },
+      {
+        "file": "safe_75_train_img_1961f7d7.jpg",
+        "caption": "a dog sitting on the ground with a leash"
+      },
+      {
+        "file": "safe_78_train_img_d61fd6fe.jpg",
+        "caption": "a dog laying on the ground with its tongue out"
+      },
+      {
+        "file": "safe_79_train_img_bcb4bf8a.jpg",
+        "caption": "a dog is sitting in the grass"
+      },
+      {
+        "file": "safe_7_train_img_f453c13c.jpg",
+        "caption": "a cat is curled in a cat tree"
+      },
+      {
+        "file": "safe_80_train_img_85d432dc.jpg",
+        "caption": "a dog is laying on a blanket in a room"
+      },
+      {
+        "file": "safe_81_train_img_1cf0a218.jpg",
+        "caption": "a dog and a dog playing in the snow"
+      },
+      {
+        "file": "safe_82_train_img_16971b73.jpg",
+        "caption": "a small white dog sitting on the floor"
+      },
+      {
+        "file": "safe_83_train_img_b60ed38d.jpg",
+        "caption": "a dog playing in the snow"
+      },
+      {
+        "file": "safe_85_train_img_0bc3d736.jpg",
+        "caption": "a dog with a green tag on its ear"
+      },
+      {
+        "file": "safe_86_train_img_95cfe376.jpg",
+        "caption": "a dog laying on a blanket on the sidewalk"
+      },
+      {
+        "file": "safe_87_train_img_5568ad62.jpg",
+        "caption": "a dog walking on a leash on a leash"
+      },
+      {
+        "file": "safe_88_train_img_1836d649.jpg",
+        "caption": "a dog laying on a man ' s lap"
+      },
+      {
+        "file": "safe_89_train_img_8fdadc56.jpg",
+        "caption": "a dog laying on a chair"
+      },
+      {
+        "file": "safe_90_train_img_eb90f08c.jpg",
+        "caption": "two dogs sitting on the ground outside"
+      },
+      {
+        "file": "safe_91_train_img_2fe5879e.jpg",
+        "caption": "a small dog is sitting on a person ' s lap"
+      },
+      {
+        "file": "safe_92_train_img_ffc25e99.jpg",
+        "caption": "a white dog with a black collar"
+      },
+      {
+        "file": "safe_93_train_img_da95b01e.jpg",
+        "caption": "a dog is standing on the sidewalk with a toy"
+      },
+      {
+        "file": "safe_94_train_img_64762da0.jpg",
+        "caption": "a dog sitting on the ground"
+      },
+      {
+        "file": "safe_95_train_img_9b3fee79.jpg",
+        "caption": "a dog with its mouth open and it ' s mouth open"
+      },
+      {
+        "file": "safe_96_train_img_7922a57c.jpg",
+        "caption": "a dog standing in a field with its mouth open"
+      },
+      {
+        "file": "safe_97_train_img_531e5225.jpg",
+        "caption": "a dog with a black and white face"
+      },
+      {
+        "file": "safe_98_train_img_1cd10e54.jpg",
+        "caption": "a dog standing on a patio with a ball in its mouth"
+      },
+      {
+        "file": "safe_99_train_img_70b2ea90.jpg",
+        "caption": "a dog sitting on the sidewalk"
+      },
+      {
+        "file": "safe_9_train_img_20867d8c.jpg",
+        "caption": "a cat laying on top of a green pillow"
+      }
+    ],
+    "failed_captions": [
+      {
+        "file": "jsd_fail_17_train_img_7359b7d6.jpg",
+        "caption": "a cat sitting in a cage with a stuffed animal"
+      },
+      {
+        "file": "jsd_fail_22_train_img_abb648b1.jpg",
+        "caption": "a fluffy cat sitting on top of a table"
+      },
+      {
+        "file": "jsd_fail_23_train_img_eb5bd3f2.jpg",
+        "caption": "a man holding a cat in his arms"
+      },
+      {
+        "file": "jsd_fail_24_train_img_af1bc731.jpg",
+        "caption": "a cat laying on top of a table"
+      },
+      {
+        "file": "jsd_fail_29_train_img_2019ff37.jpg",
+        "caption": "a cat is sitting on a person ' s lap"
+      },
+      {
+        "file": "jsd_fail_31_train_img_b4c29139.jpg",
+        "caption": "a group of kittens"
+      },
+      {
+        "file": "jsd_fail_33_train_img_2a7ca307.jpg",
+        "caption": "a kitten with blue eyes sitting on the floor"
+      },
+      {
+        "file": "jsd_fail_38_train_img_bead25b5.jpg",
+        "caption": "a black and white cat"
+      },
+      {
+        "file": "jsd_fail_42_train_img_faa4bdab.jpg",
+        "caption": "a white cat in a cage"
+      },
+      {
+        "file": "jsd_fail_46_train_img_995094cb.jpg",
+        "caption": "a black cat standing on top of a metal container"
+      },
+      {
+        "file": "jsd_fail_50_train_img_f4ac5a9d.jpg",
+        "caption": "a cat is sitting in a cage"
+      },
+      {
+        "file": "jsd_fail_52_train_img_8935f62c.jpg",
+        "caption": "a cat with a green collar sitting on a table"
+      },
+      {
+        "file": "jsd_fail_76_train_img_a01981dc.jpg",
+        "caption": "a black dog sitting on a red carpet"
+      },
+      {
+        "file": "jsd_fail_8_train_img_a2fda99e.jpg",
+        "caption": "a cat laying on a quilt on a bed"
+      },
+      {
+        "file": "z2_fail_0_train_img_8cc74a40.jpg",
+        "caption": "a cat sitting in a fish bowl"
+      },
+      {
+        "file": "z2_fail_102_train_img_a9c45a11.jpg",
+        "caption": "a dog wearing glasses and a suit"
+      },
+      {
+        "file": "z2_fail_105_train_img_7f25d869.jpg",
+        "caption": "a dog sleeping on a pile of hay with a thought bubble above it"
+      },
+      {
+        "file": "z2_fail_110_train_img_91bca3cb.jpg",
+        "caption": "a young boy holding a small dog"
+      },
+      {
+        "file": "z2_fail_12_train_img_7b3faf22.jpg",
+        "caption": "a cat playing with a toy on a stove"
+      },
+      {
+        "file": "z2_fail_130_train_img_c9c93853.jpg",
+        "caption": "a little girl walking a dog on a leash"
+      },
+      {
+        "file": "z2_fail_131_train_img_e768a2b5.jpg",
+        "caption": "a man walking two dogs on a leash"
+      },
+      {
+        "file": "z2_fail_16_train_img_6f52ffa2.jpg",
+        "caption": "a cat standing on a carpet"
+      },
+      {
+        "file": "z2_fail_43_train_img_31083aa6.jpg",
+        "caption": "two cats laying on the floor"
+      },
+      {
+        "file": "z2_fail_56_train_img_5416c64e.jpg",
+        "caption": "a cat laying on top of a metal basket"
+      },
+      {
+        "file": "z2_fail_57_train_img_5c04555d.jpg",
+        "caption": "a group of kittens sitting on a table"
+      },
+      {
+        "file": "z2_fail_59_train_img_cf2c68fa.jpg",
+        "caption": "two cats sitting on a couch with a pink background"
+      },
+      {
+        "file": "z2_fail_63_train_img_f96eb1f3.jpg",
+        "caption": "a hyenl looking at the camera"
+      },
+      {
+        "file": "z2_fail_77_train_img_090dd279.jpg",
+        "caption": "a woman walking two dogs on a leash"
+      },
+      {
+        "file": "z2_fail_84_train_img_b35dd679.jpg",
+        "caption": "a cat and a dog are sitting on a laptop"
+      }
+    ],
+    "knn_neighbors": [
+      {
+        "anchor_file": "jsd_fail_17_train_img_7359b7d6.jpg",
+        "anchor_caption": "a cat sitting in a cage with a stuffed animal",
+        "neighbors": [
+          {
+            "file": "jsd_fail_50_train_img_f4ac5a9d.jpg",
+            "caption": "a cat is sitting in a cage",
+            "cosine_dist": 0.403
+          },
+          {
+            "file": "jsd_fail_42_train_img_faa4bdab.jpg",
+            "caption": "a white cat in a cage",
+            "cosine_dist": 0.627
+          }
+        ]
+      },
+      {
+        "anchor_file": "jsd_fail_22_train_img_abb648b1.jpg",
+        "anchor_caption": "a fluffy cat sitting on top of a table",
+        "neighbors": [
+          {
+            "file": "jsd_fail_24_train_img_af1bc731.jpg",
+            "caption": "a cat laying on top of a table",
+            "cosine_dist": 0.541
+          },
+          {
+            "file": "jsd_fail_52_train_img_8935f62c.jpg",
+            "caption": "a cat with a green collar sitting on a table",
+            "cosine_dist": 0.589
+          }
+        ]
+      },
+      {
+        "anchor_file": "jsd_fail_23_train_img_eb5bd3f2.jpg",
+        "anchor_caption": "a man holding a cat in his arms",
+        "neighbors": [
+          {
+            "file": "z2_fail_131_train_img_e768a2b5.jpg",
+            "caption": "a man walking two dogs on a leash",
+            "cosine_dist": 0.72
+          },
+          {
+            "file": "z2_fail_110_train_img_91bca3cb.jpg",
+            "caption": "a young boy holding a small dog",
+            "cosine_dist": 0.768
+          }
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "cluster": 1,
+        "size": 9,
+        "example_caption": "a man holding a cat in his arms",
+        "top_words": [
+          {
+            "word": "bubble",
+            "log_odds": 1.9121015385014983
+          },
+          {
+            "word": "hyenl",
+            "log_odds": 1.9121015385014983
+          },
+          {
+            "word": "young",
+            "log_odds": 1.9121015385014983
+          }
+        ],
+        "files": [
+          "jsd_fail_23_train_img_eb5bd3f2.jpg",
+          "z2_fail_102_train_img_a9c45a11.jpg",
+          "z2_fail_105_train_img_7f25d869.jpg",
+          "z2_fail_110_train_img_91bca3cb.jpg",
+          "z2_fail_130_train_img_c9c93853.jpg",
+          "z2_fail_131_train_img_e768a2b5.jpg",
+          "z2_fail_43_train_img_31083aa6.jpg",
+          "z2_fail_63_train_img_f96eb1f3.jpg",
+          "z2_fail_77_train_img_090dd279.jpg"
+        ]
+      },
+      {
+        "cluster": 2,
+        "size": 15,
+        "example_caption": "a cat sitting in a cage with a stuffed animal",
+        "top_words": [
+          {
+            "word": "carpet",
+            "log_odds": 2.221823736349587
+          },
+          {
+            "word": "laptop",
+            "log_odds": 1.8163586282414226
+          },
+          {
+            "word": "stuffed",
+            "log_odds": 1.8163586282414226
+          }
+        ],
+        "files": [
+          "jsd_fail_17_train_img_7359b7d6.jpg",
+          "jsd_fail_29_train_img_2019ff37.jpg",
+          "jsd_fail_33_train_img_2a7ca307.jpg",
+          "jsd_fail_38_train_img_bead25b5.jpg",
+          "jsd_fail_42_train_img_faa4bdab.jpg",
+          "jsd_fail_46_train_img_995094cb.jpg",
+          "jsd_fail_50_train_img_f4ac5a9d.jpg",
+          "jsd_fail_76_train_img_a01981dc.jpg",
+          "jsd_fail_8_train_img_a2fda99e.jpg",
+          "z2_fail_0_train_img_8cc74a40.jpg",
+          "z2_fail_12_train_img_7b3faf22.jpg",
+          "z2_fail_16_train_img_6f52ffa2.jpg",
+          "z2_fail_56_train_img_5416c64e.jpg",
+          "z2_fail_59_train_img_cf2c68fa.jpg",
+          "z2_fail_84_train_img_b35dd679.jpg"
+        ]
+      },
+      {
+        "cluster": 3,
+        "size": 5,
+        "example_caption": "a fluffy cat sitting on top of a table",
+        "top_words": [
+          {
+            "word": "group",
+            "log_odds": 2.4849066497880004
+          },
+          {
+            "word": "fluffy",
+            "log_odds": 2.079441541679836
+          },
+          {
+            "word": "kittens",
+            "log_odds": 1.0986122886681096
+          }
+        ],
+        "files": [
+          "jsd_fail_22_train_img_abb648b1.jpg",
+          "jsd_fail_24_train_img_af1bc731.jpg",
+          "jsd_fail_31_train_img_b4c29139.jpg",
+          "jsd_fail_52_train_img_8935f62c.jpg",
+          "z2_fail_57_train_img_5c04555d.jpg"
+        ]
+      }
+    ],
+    "healing_queries": {
+      "cats": "cat group",
+      "dogs": "dog bubble"
+    }
+  },
+  "curation_healed": {
+    "search_queries": {
+      "cats": "cat group",
+      "dogs": "dog bubble"
+    },
+    "new_samples_added": 2,
+    "total_healed_dataset_size": 122,
+    "counts": {
+      "cats": {
+        "train": 41,
+        "val": 0
+      },
+      "dogs": {
+        "train": 72,
+        "val": 9
+      }
+    }
+  },
+  "triage_post_healing": {
+    "stage_label": "ROUND 2 (POST-HEALING)",
+    "classes": [
+      "cats",
+      "dogs"
+    ],
+    "num_images": 122,
+    "surviving_after_z2": 109,
+    "folds": 5,
+    "epochs": 6,
+    "student_class": "CustomMobileNetV3",
+    "student_accuracy": 0.9449541568756104,
+    "student_per_class_accuracy": {
+      "cats": 0.8333333134651184,
+      "dogs": 1.0
+    },
+    "teacher_accuracy": 1.0,
+    "teacher_per_class_accuracy": {
+      "cats": 1.0,
+      "dogs": 1.0
+    },
+    "z2_threshold": 679.4478759765625,
+    "z2_flagged": 13,
+    "temperature": 1.590592622756958,
+    "ece_before": 0.04080238944114667,
+    "ece_after": 0.04301146619134322,
+    "mean_jsd": 0.02615821734070778,
+    "jsd_threshold": 0.04301469773054123,
+    "jsd_flagged": 11,
+    "safe_count": 98,
+    "failed_count": 24,
+    "student_accuracy_safe": 1.0,
+    "student_accuracy_flagged": 0.4545454680919647,
+    "failed_records": [],
+    "safe_records": [],
+    "failed_counts_per_class": {},
+    "graphs": {
+      "z2": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\z_square_energy_distribution.png",
+      "calibration": "C:\\Users\\Shatvik Smit\\Omni_Compiler\\calibration_curve.png"
+    },
+    "items": [
+      {
+        "index": 0,
+        "path": "omni_dataset\\train\\cats\\train_img_dbec2ba5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 406.26171875,
+        "jsd": 0.0020782987121492624,
+        "route": "safe"
+      },
+      {
+        "index": 1,
+        "path": "omni_dataset\\train\\cats\\train_img_59d3b60f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 551.4982299804688,
+        "jsd": 0.03279319405555725,
+        "route": "safe"
+      },
+      {
+        "index": 2,
+        "path": "omni_dataset\\train\\cats\\train_img_db6c65ac.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 581.0213623046875,
+        "jsd": 0.002662758342921734,
+        "route": "safe"
+      },
+      {
+        "index": 3,
+        "path": "omni_dataset\\train\\cats\\train_img_3aad6229.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 521.6392822265625,
+        "jsd": 0.21411937475204468,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 4,
+        "path": "omni_dataset\\train\\cats\\train_img_d84ea0b5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 481.87164306640625,
+        "jsd": 0.000829738681204617,
+        "route": "safe"
+      },
+      {
+        "index": 5,
+        "path": "omni_dataset\\train\\cats\\train_img_94174008.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 416.9215393066406,
+        "jsd": 0.047263599932193756,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 6,
+        "path": "omni_dataset\\train\\cats\\train_img_f453c13c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 563.3218994140625,
+        "jsd": 6.559694884344935e-05,
+        "route": "safe"
+      },
+      {
+        "index": 7,
+        "path": "omni_dataset\\train\\cats\\train_img_20867d8c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 376.8157958984375,
+        "jsd": 0.007245564833283424,
+        "route": "safe"
+      },
+      {
+        "index": 8,
+        "path": "omni_dataset\\train\\cats\\train_img_812cb5d8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 437.3473205566406,
+        "jsd": 0.04195249453186989,
+        "route": "safe"
+      },
+      {
+        "index": 9,
+        "path": "omni_dataset\\train\\cats\\train_img_f6c88a00.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 504.8228759765625,
+        "jsd": 0.026563087478280067,
+        "route": "safe"
+      },
+      {
+        "index": 10,
+        "path": "omni_dataset\\train\\cats\\train_img_dcdccf1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 336.02569580078125,
+        "jsd": 0.00637973565608263,
+        "route": "safe"
+      },
+      {
+        "index": 11,
+        "path": "omni_dataset\\train\\cats\\train_img_886a2e2c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 695.8255004882812,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 12,
+        "path": "omni_dataset\\train\\cats\\train_img_f51bb5f6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 374.0806579589844,
+        "jsd": 0.032682158052921295,
+        "route": "safe"
+      },
+      {
+        "index": 13,
+        "path": "omni_dataset\\train\\cats\\train_img_ecdd695c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 560.0823364257812,
+        "jsd": 0.001486544031649828,
+        "route": "safe"
+      },
+      {
+        "index": 14,
+        "path": "omni_dataset\\train\\cats\\train_img_3f20a53f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 368.10015869140625,
+        "jsd": 0.03688622638583183,
+        "route": "safe"
+      },
+      {
+        "index": 15,
+        "path": "omni_dataset\\train\\cats\\train_img_21f70ba7.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 370.1243896484375,
+        "jsd": 0.5431210994720459,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 16,
+        "path": "omni_dataset\\train\\cats\\train_img_9777d92b.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 426.2113952636719,
+        "jsd": 0.0031897795852273703,
+        "route": "safe"
+      },
+      {
+        "index": 17,
+        "path": "omni_dataset\\train\\cats\\train_img_f5754d10.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 398.7130432128906,
+        "jsd": 8.867890574038029e-05,
+        "route": "safe"
+      },
+      {
+        "index": 18,
+        "path": "omni_dataset\\train\\cats\\train_img_e7db09a3.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 494.1459655761719,
+        "jsd": 0.010970301926136017,
+        "route": "safe"
+      },
+      {
+        "index": 19,
+        "path": "omni_dataset\\train\\cats\\train_img_9dc7d3dd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 378.7883605957031,
+        "jsd": 1.1043332051485777e-05,
+        "route": "safe"
+      },
+      {
+        "index": 20,
+        "path": "omni_dataset\\train\\cats\\train_img_3a767991.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 572.3660278320312,
+        "jsd": 0.07906731218099594,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 21,
+        "path": "omni_dataset\\train\\cats\\train_img_1be21488.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 543.923095703125,
+        "jsd": 0.004721855744719505,
+        "route": "safe"
+      },
+      {
+        "index": 22,
+        "path": "omni_dataset\\train\\cats\\train_img_24b10b7a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 772.2506103515625,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 23,
+        "path": "omni_dataset\\train\\cats\\train_img_82954ab2.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 503.66839599609375,
+        "jsd": 0.10154298692941666,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 24,
+        "path": "omni_dataset\\train\\cats\\train_img_1311233d.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 417.9529113769531,
+        "jsd": 0.21774381399154663,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 25,
+        "path": "omni_dataset\\train\\cats\\train_img_0d6cf230.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 419.3339538574219,
+        "jsd": 0.0025407583452761173,
+        "route": "safe"
+      },
+      {
+        "index": 26,
+        "path": "omni_dataset\\train\\cats\\train_img_3d0b9e4a.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 772.7056274414062,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 27,
+        "path": "omni_dataset\\train\\cats\\train_img_86dbfb1c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 557.1236572265625,
+        "jsd": 0.021184131503105164,
+        "route": "safe"
+      },
+      {
+        "index": 28,
+        "path": "omni_dataset\\train\\cats\\train_img_39bfd8d6.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 528.5111083984375,
+        "jsd": 0.014811528846621513,
+        "route": "safe"
+      },
+      {
+        "index": 29,
+        "path": "omni_dataset\\train\\cats\\train_img_0fb71984.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 443.4945373535156,
+        "jsd": 0.02439381554722786,
+        "route": "safe"
+      },
+      {
+        "index": 30,
+        "path": "omni_dataset\\train\\cats\\train_img_be6d60e8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 558.01123046875,
+        "jsd": 0.2850953936576843,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 31,
+        "path": "omni_dataset\\train\\cats\\train_img_bfee90b8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 494.26641845703125,
+        "jsd": 0.0019441937329247594,
+        "route": "safe"
+      },
+      {
+        "index": 32,
+        "path": "omni_dataset\\train\\cats\\train_img_8bb10458.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 360.53546142578125,
+        "jsd": 0.0016883977223187685,
+        "route": "safe"
+      },
+      {
+        "index": 33,
+        "path": "omni_dataset\\train\\cats\\train_img_43a54ba8.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 384.61138916015625,
+        "jsd": 0.0001143246772699058,
+        "route": "safe"
+      },
+      {
+        "index": 34,
+        "path": "omni_dataset\\train\\cats\\train_img_03f52c0c.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 469.0870361328125,
+        "jsd": 0.3009810447692871,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 35,
+        "path": "omni_dataset\\train\\cats\\train_img_6400506e.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 759.3663940429688,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 36,
+        "path": "omni_dataset\\train\\cats\\train_img_1d5b6f0f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 511.47418212890625,
+        "jsd": 0.14853422343730927,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 37,
+        "path": "omni_dataset\\train\\cats\\train_img_051d6284.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "cats",
+        "z2": 538.8626708984375,
+        "jsd": 0.38167181611061096,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 38,
+        "path": "omni_dataset\\train\\cats\\train_img_e26d8afd.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 366.7580871582031,
+        "jsd": 3.621054929681122e-05,
+        "route": "safe"
+      },
+      {
+        "index": 39,
+        "path": "omni_dataset\\train\\cats\\train_img_6d501e2f.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 682.8328857421875,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 40,
+        "path": "omni_dataset\\train\\dogs\\train_img_8b2a78f4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 307.47052001953125,
+        "jsd": 0.0007311831577681005,
+        "route": "safe"
+      },
+      {
+        "index": 41,
+        "path": "omni_dataset\\train\\dogs\\train_img_5115e088.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 477.06695556640625,
+        "jsd": 0.0023097810335457325,
+        "route": "safe"
+      },
+      {
+        "index": 42,
+        "path": "omni_dataset\\train\\dogs\\train_img_128f79b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 650.359619140625,
+        "jsd": 0.009468458592891693,
+        "route": "safe"
+      },
+      {
+        "index": 43,
+        "path": "omni_dataset\\train\\dogs\\train_img_fbf1a499.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 455.7693786621094,
+        "jsd": 0.006848040968179703,
+        "route": "safe"
+      },
+      {
+        "index": 44,
+        "path": "omni_dataset\\train\\dogs\\train_img_c5849a67.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 505.64996337890625,
+        "jsd": 0.0009350794716738164,
+        "route": "safe"
+      },
+      {
+        "index": 45,
+        "path": "omni_dataset\\train\\dogs\\train_img_ce17ef8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 319.0695495605469,
+        "jsd": 0.002671371214091778,
+        "route": "safe"
+      },
+      {
+        "index": 46,
+        "path": "omni_dataset\\train\\dogs\\train_img_93f814cb.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 353.0820007324219,
+        "jsd": 0.001101651811040938,
+        "route": "safe"
+      },
+      {
+        "index": 47,
+        "path": "omni_dataset\\train\\dogs\\train_img_8a180f0d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 611.7369384765625,
+        "jsd": 0.0007172776386141777,
+        "route": "safe"
+      },
+      {
+        "index": 48,
+        "path": "omni_dataset\\train\\dogs\\train_img_a0b8d775.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 679.64892578125,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 49,
+        "path": "omni_dataset\\train\\dogs\\train_img_35e98376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.7135925292969,
+        "jsd": 0.0009882939048111439,
+        "route": "safe"
+      },
+      {
+        "index": 50,
+        "path": "omni_dataset\\train\\dogs\\train_img_99278fab.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 594.454345703125,
+        "jsd": 0.00186061579734087,
+        "route": "safe"
+      },
+      {
+        "index": 51,
+        "path": "omni_dataset\\train\\dogs\\train_img_a55e6b52.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 411.823486328125,
+        "jsd": 0.0021720947697758675,
+        "route": "safe"
+      },
+      {
+        "index": 52,
+        "path": "omni_dataset\\train\\dogs\\train_img_de535490.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 455.9074401855469,
+        "jsd": 0.002307943534106016,
+        "route": "safe"
+      },
+      {
+        "index": 53,
+        "path": "omni_dataset\\train\\dogs\\train_img_d6f76c70.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 652.8392944335938,
+        "jsd": 0.0036093348171561956,
+        "route": "safe"
+      },
+      {
+        "index": 54,
+        "path": "omni_dataset\\train\\dogs\\train_img_1961f7d7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 473.0965576171875,
+        "jsd": 0.0009465133771300316,
+        "route": "safe"
+      },
+      {
+        "index": 55,
+        "path": "omni_dataset\\train\\dogs\\train_img_d61fd6fe.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 393.510009765625,
+        "jsd": 0.0015905593754723668,
+        "route": "safe"
+      },
+      {
+        "index": 56,
+        "path": "omni_dataset\\train\\dogs\\train_img_bcb4bf8a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 647.8770751953125,
+        "jsd": 0.0016437025042250752,
+        "route": "safe"
+      },
+      {
+        "index": 57,
+        "path": "omni_dataset\\train\\dogs\\train_img_85d432dc.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 569.4864501953125,
+        "jsd": 0.0064633372239768505,
+        "route": "safe"
+      },
+      {
+        "index": 58,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cf0a218.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 732.9278564453125,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 59,
+        "path": "omni_dataset\\train\\dogs\\train_img_16971b73.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 624.6715698242188,
+        "jsd": 0.00023908517323434353,
+        "route": "safe"
+      },
+      {
+        "index": 60,
+        "path": "omni_dataset\\train\\dogs\\train_img_b60ed38d.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 452.5631103515625,
+        "jsd": 0.0021627105306833982,
+        "route": "safe"
+      },
+      {
+        "index": 61,
+        "path": "omni_dataset\\train\\dogs\\train_img_0bc3d736.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 326.79278564453125,
+        "jsd": 0.0020310264080762863,
+        "route": "safe"
+      },
+      {
+        "index": 62,
+        "path": "omni_dataset\\train\\dogs\\train_img_95cfe376.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 638.5411376953125,
+        "jsd": 0.009370340034365654,
+        "route": "safe"
+      },
+      {
+        "index": 63,
+        "path": "omni_dataset\\train\\dogs\\train_img_5568ad62.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 504.69970703125,
+        "jsd": 0.00182349793612957,
+        "route": "safe"
+      },
+      {
+        "index": 64,
+        "path": "omni_dataset\\train\\dogs\\train_img_1836d649.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 508.78594970703125,
+        "jsd": 0.00229570921510458,
+        "route": "safe"
+      },
+      {
+        "index": 65,
+        "path": "omni_dataset\\train\\dogs\\train_img_8fdadc56.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 459.2259826660156,
+        "jsd": 0.006907226052135229,
+        "route": "safe"
+      },
+      {
+        "index": 66,
+        "path": "omni_dataset\\train\\dogs\\train_img_eb90f08c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 671.4573364257812,
+        "jsd": 0.0009183576330542564,
+        "route": "safe"
+      },
+      {
+        "index": 67,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fe5879e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 542.5140380859375,
+        "jsd": 0.012552505359053612,
+        "route": "safe"
+      },
+      {
+        "index": 68,
+        "path": "omni_dataset\\train\\dogs\\train_img_ffc25e99.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 465.49798583984375,
+        "jsd": 0.003800024511292577,
+        "route": "safe"
+      },
+      {
+        "index": 69,
+        "path": "omni_dataset\\train\\dogs\\train_img_da95b01e.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 599.3676147460938,
+        "jsd": 0.0012867081677541137,
+        "route": "safe"
+      },
+      {
+        "index": 70,
+        "path": "omni_dataset\\train\\dogs\\train_img_64762da0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 709.6318969726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 71,
+        "path": "omni_dataset\\train\\dogs\\train_img_9b3fee79.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 491.734375,
+        "jsd": 0.0003005170146934688,
+        "route": "safe"
+      },
+      {
+        "index": 72,
+        "path": "omni_dataset\\train\\dogs\\train_img_7922a57c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 423.2552795410156,
+        "jsd": 0.0005038548843003809,
+        "route": "safe"
+      },
+      {
+        "index": 73,
+        "path": "omni_dataset\\train\\dogs\\train_img_531e5225.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 350.5844421386719,
+        "jsd": 0.0008962315041571856,
+        "route": "safe"
+      },
+      {
+        "index": 74,
+        "path": "omni_dataset\\train\\dogs\\train_img_1cd10e54.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 374.88714599609375,
+        "jsd": 0.006356664467602968,
+        "route": "safe"
+      },
+      {
+        "index": 75,
+        "path": "omni_dataset\\train\\dogs\\train_img_70b2ea90.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 489.0772705078125,
+        "jsd": 0.002511780709028244,
+        "route": "safe"
+      },
+      {
+        "index": 76,
+        "path": "omni_dataset\\train\\dogs\\train_img_b1ce24b7.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 538.6175537109375,
+        "jsd": 0.000947046501096338,
+        "route": "safe"
+      },
+      {
+        "index": 77,
+        "path": "omni_dataset\\train\\dogs\\train_img_ad5afa89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 371.2005615234375,
+        "jsd": 0.0018567846855148673,
+        "route": "safe"
+      },
+      {
+        "index": 78,
+        "path": "omni_dataset\\train\\dogs\\train_img_7bd51375.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 586.6092529296875,
+        "jsd": 0.004511439707130194,
+        "route": "safe"
+      },
+      {
+        "index": 79,
+        "path": "omni_dataset\\train\\dogs\\train_img_0f77d2e4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 604.9098510742188,
+        "jsd": 0.00015503616305068135,
+        "route": "safe"
+      },
+      {
+        "index": 80,
+        "path": "omni_dataset\\train\\dogs\\train_img_0b46f2b0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 366.0341796875,
+        "jsd": 0.005576854571700096,
+        "route": "safe"
+      },
+      {
+        "index": 81,
+        "path": "omni_dataset\\train\\dogs\\train_img_1fe21e08.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 638.5324096679688,
+        "jsd": 0.006313104648143053,
+        "route": "safe"
+      },
+      {
+        "index": 82,
+        "path": "omni_dataset\\train\\dogs\\train_img_f9a3f6ed.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 706.7913208007812,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 83,
+        "path": "omni_dataset\\train\\dogs\\train_img_a3ac3e11.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 750.9678344726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 84,
+        "path": "omni_dataset\\train\\dogs\\train_img_2fc4a9a1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 587.011474609375,
+        "jsd": 0.0017459464725106955,
+        "route": "safe"
+      },
+      {
+        "index": 85,
+        "path": "omni_dataset\\train\\dogs\\train_img_7179be31.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 369.1532287597656,
+        "jsd": 0.0030144883785396814,
+        "route": "safe"
+      },
+      {
+        "index": 86,
+        "path": "omni_dataset\\train\\dogs\\train_img_7cf0a692.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 373.55908203125,
+        "jsd": 0.00095354113727808,
+        "route": "safe"
+      },
+      {
+        "index": 87,
+        "path": "omni_dataset\\train\\dogs\\train_img_1a7a1108.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 337.08612060546875,
+        "jsd": 0.0011585024185478687,
+        "route": "safe"
+      },
+      {
+        "index": 88,
+        "path": "omni_dataset\\train\\dogs\\train_img_b8efbf47.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 435.6324768066406,
+        "jsd": 0.003434734418988228,
+        "route": "safe"
+      },
+      {
+        "index": 89,
+        "path": "omni_dataset\\train\\dogs\\train_img_12c7517b.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 446.9628601074219,
+        "jsd": 0.004574053920805454,
+        "route": "safe"
+      },
+      {
+        "index": 90,
+        "path": "omni_dataset\\train\\dogs\\train_img_66ab0868.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 464.0074157714844,
+        "jsd": 0.002807425567880273,
+        "route": "safe"
+      },
+      {
+        "index": 91,
+        "path": "omni_dataset\\train\\dogs\\train_img_74e06f69.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 317.2684020996094,
+        "jsd": 0.0019102753140032291,
+        "route": "safe"
+      },
+      {
+        "index": 92,
+        "path": "omni_dataset\\train\\dogs\\train_img_b296e49c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 641.8033447265625,
+        "jsd": 0.0021175516303628683,
+        "route": "safe"
+      },
+      {
+        "index": 93,
+        "path": "omni_dataset\\train\\dogs\\train_img_3e1b9681.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 694.1553344726562,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 94,
+        "path": "omni_dataset\\train\\dogs\\train_img_4ff1db2c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 330.2958984375,
+        "jsd": 0.0012407589238137007,
+        "route": "safe"
+      },
+      {
+        "index": 95,
+        "path": "omni_dataset\\train\\dogs\\train_img_56a5a260.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 407.73388671875,
+        "jsd": 0.001434299978427589,
+        "route": "safe"
+      },
+      {
+        "index": 96,
+        "path": "omni_dataset\\train\\dogs\\train_img_4a9fc090.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 493.8072204589844,
+        "jsd": 0.0003386803437024355,
+        "route": "safe"
+      },
+      {
+        "index": 97,
+        "path": "omni_dataset\\train\\dogs\\train_img_8adba5cd.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 589.2617797851562,
+        "jsd": 0.0037684522103518248,
+        "route": "safe"
+      },
+      {
+        "index": 98,
+        "path": "omni_dataset\\train\\dogs\\train_img_2496215f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 596.3138427734375,
+        "jsd": 0.0034321823623031378,
+        "route": "safe"
+      },
+      {
+        "index": 99,
+        "path": "omni_dataset\\train\\dogs\\train_img_54e996af.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 677.6387329101562,
+        "jsd": 0.0032468726858496666,
+        "route": "safe"
+      },
+      {
+        "index": 100,
+        "path": "omni_dataset\\train\\dogs\\train_img_1d3ffb91.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 492.3310546875,
+        "jsd": 0.0012892523081973195,
+        "route": "safe"
+      },
+      {
+        "index": 101,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d482ee4.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 390.15606689453125,
+        "jsd": 0.001476423116400838,
+        "route": "safe"
+      },
+      {
+        "index": 102,
+        "path": "omni_dataset\\train\\dogs\\train_img_8773823c.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 445.0703430175781,
+        "jsd": 0.0006096570286899805,
+        "route": "safe"
+      },
+      {
+        "index": 103,
+        "path": "omni_dataset\\train\\dogs\\train_img_dcf7a7a0.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 478.24481201171875,
+        "jsd": 0.0005377493798732758,
+        "route": "safe"
+      },
+      {
+        "index": 104,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0fd120a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 585.1583862304688,
+        "jsd": 0.004630362614989281,
+        "route": "safe"
+      },
+      {
+        "index": 105,
+        "path": "omni_dataset\\train\\dogs\\train_img_b0eebc1f.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 427.7411193847656,
+        "jsd": 0.0010355319827795029,
+        "route": "safe"
+      },
+      {
+        "index": 106,
+        "path": "omni_dataset\\train\\dogs\\train_img_a11968d1.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 679.6984252929688,
+        "jsd": null,
+        "route": "failed_z2"
+      },
+      {
+        "index": 107,
+        "path": "omni_dataset\\train\\dogs\\train_img_9695f653.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 463.8668518066406,
+        "jsd": 0.0009726466378197074,
+        "route": "safe"
+      },
+      {
+        "index": 108,
+        "path": "omni_dataset\\train\\dogs\\train_img_11b29c89.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 423.9803771972656,
+        "jsd": 0.0029774249996989965,
+        "route": "safe"
+      },
+      {
+        "index": 109,
+        "path": "omni_dataset\\train\\dogs\\train_img_c007275a.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 336.5782775878906,
+        "jsd": 0.0014783841324970126,
+        "route": "safe"
+      },
+      {
+        "index": 110,
+        "path": "omni_dataset\\train\\dogs\\train_img_740a31ac.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 485.86553955078125,
+        "jsd": 0.0014838039642199874,
+        "route": "safe"
+      },
+      {
+        "index": 111,
+        "path": "omni_dataset\\val\\images\\val_img_fd6435f8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 457.5796203613281,
+        "jsd": 0.00246996502391994,
+        "route": "safe"
+      },
+      {
+        "index": 112,
+        "path": "omni_dataset\\val\\images\\val_img_60374d3e.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 315.45941162109375,
+        "jsd": 0.0016927554970607162,
+        "route": "safe"
+      },
+      {
+        "index": 113,
+        "path": "omni_dataset\\val\\images\\val_img_6a31d614.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 449.0588684082031,
+        "jsd": 0.002586797345429659,
+        "route": "safe"
+      },
+      {
+        "index": 114,
+        "path": "omni_dataset\\val\\images\\val_img_cd9ccbc6.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 654.6714477539062,
+        "jsd": 0.0018791889306157827,
+        "route": "safe"
+      },
+      {
+        "index": 115,
+        "path": "omni_dataset\\val\\images\\val_img_889edba8.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 667.3856201171875,
+        "jsd": 0.05437561497092247,
+        "route": "failed_jsd"
+      },
+      {
+        "index": 116,
+        "path": "omni_dataset\\val\\images\\val_img_3f466210.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 479.16998291015625,
+        "jsd": 0.01849330961704254,
+        "route": "safe"
+      },
+      {
+        "index": 117,
+        "path": "omni_dataset\\val\\images\\val_img_9bf2a554.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 481.2778015136719,
+        "jsd": 2.7207715902477503e-07,
+        "route": "safe"
+      },
+      {
+        "index": 118,
+        "path": "omni_dataset\\val\\images\\val_img_3c00b3e5.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 483.709716796875,
+        "jsd": 0.0005188339855521917,
+        "route": "safe"
+      },
+      {
+        "index": 119,
+        "path": "omni_dataset\\val\\images\\val_img_3cc1bcaa.jpg",
+        "class": "dogs",
+        "split": "val",
+        "student_pred": "dogs",
+        "teacher_pred": "dogs",
+        "z2": 342.4530029296875,
+        "jsd": 0.0011486613657325506,
+        "route": "safe"
+      },
+      {
+        "index": 120,
+        "path": "omni_dataset\\train\\cats\\train_img_02c915d5.jpg",
+        "class": "cats",
+        "split": "train",
+        "student_pred": "cats",
+        "teacher_pred": "cats",
+        "z2": 576.724609375,
+        "jsd": 0.0002684719511307776,
+        "route": "safe"
+      },
+      {
+        "index": 121,
+        "path": "omni_dataset\\train\\dogs\\train_img_3d611fe8.jpg",
+        "class": "dogs",
+        "split": "train",
+        "student_pred": null,
+        "teacher_pred": null,
+        "z2": 692.2578125,
+        "jsd": null,
+        "route": "failed_z2"
+      }
+    ]
+  }
+}

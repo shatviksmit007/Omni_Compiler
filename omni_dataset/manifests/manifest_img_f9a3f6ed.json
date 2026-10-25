@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_f9a3f6ed",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/29792566@N08/5245317420",
+    "direct_image_url": "https://live.staticflickr.com/5082/5245317420_68e8427f40.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "spotreporting",
+    "attribution_text": "'Dog in a Shelter' by spotreporting, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/29792566@N08/5245317420)",
+    "retrieved_at": "2026-10-25T03:46:14.517110+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_f9a3f6ed.jpg",
+    "raw_sha256": "db6709d00f88447f1f4cbfbec7f55b567912eaf85ed87466228ce830b7cd721b",
+    "sha256": "b12f6ce4567876c94f1f73ecf2ba6c41cf10273c1e4cb752bec6ec3617a41b0a",
+    "verification_status": "ACCEPTED"
+}

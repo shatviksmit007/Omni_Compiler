@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_0f77d2e4",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/64528316@N00/11889679",
+    "direct_image_url": "https://live.staticflickr.com/7/11889679_bf703bde8c_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "jimthompson",
+    "attribution_text": "'Three Dog Fight' by jimthompson, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/64528316@N00/11889679)",
+    "retrieved_at": "2026-10-25T03:46:12.956499+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_0f77d2e4.jpg",
+    "raw_sha256": "93cd487ba6fc31ed854d7362883ab0751c3eac30e5cef94f1ede992e71a6e0c6",
+    "sha256": "c2583f2ddfabeadcfdb130983866b672d95bbf4d4fe0a75a1e519f67736ca45b",
+    "verification_status": "ACCEPTED"
+}

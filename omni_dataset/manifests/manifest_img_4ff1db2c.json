@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_4ff1db2c",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/80264890@N00/2203669161",
+    "direct_image_url": "https://live.staticflickr.com/2109/2203669161_da6400d66f_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "McPig",
+    "attribution_text": "'Dog is human's best friend' by McPig, licensed under CC BY 2.0 (https://www.flickr.com/photos/80264890@N00/2203669161)",
+    "retrieved_at": "2026-10-25T03:46:24.536060+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_4ff1db2c.jpg",
+    "raw_sha256": "aca0649bb1629a67eaff96cde2bc2b6dde9dfa4a50d8620d1932db29f2678e06",
+    "sha256": "eac091eb9335664d7d6b6870e4166a195893f1bd467103bee49880ebf330fbf8",
+    "verification_status": "ACCEPTED"
+}

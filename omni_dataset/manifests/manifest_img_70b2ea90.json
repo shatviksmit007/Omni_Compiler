@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_70b2ea90",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/7320302@N07/421056393",
+    "direct_image_url": "https://live.staticflickr.com/157/421056393_b48058ebfc_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Adam Greig",
+    "attribution_text": "'Smiling Dog' by Adam Greig, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/7320302@N07/421056393)",
+    "retrieved_at": "2026-10-25T03:46:10.942985+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_70b2ea90.jpg",
+    "raw_sha256": "223d70f6b3fadbaf064de8def521f54c593163eed40c4e48179a4ac67513649a",
+    "sha256": "e954d3cbad330dd34ef68423e1c423803be11837d3e28b8ab47cf2ef99520fdc",
+    "verification_status": "ACCEPTED"
+}

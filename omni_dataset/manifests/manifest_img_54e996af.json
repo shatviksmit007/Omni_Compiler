@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_54e996af",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/27304596@N00/35969916",
+    "direct_image_url": "https://live.staticflickr.com/32/35969916_db2cb2c308_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "skycaptaintwo",
+    "attribution_text": "'Dog Shades' by skycaptaintwo, licensed under CC BY 2.0 (https://www.flickr.com/photos/27304596@N00/35969916)",
+    "retrieved_at": "2026-10-25T03:46:27.941815+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_54e996af.jpg",
+    "raw_sha256": "83b68178677a1bdef443901ac7990ae0fe886b41312e38de853d6f8e1d77db76",
+    "sha256": "a168d6a93a3da1aaaa9a55fad7ad5dd3cd28502c5da8b1942dae4033188a803f",
+    "verification_status": "ACCEPTED"
+}

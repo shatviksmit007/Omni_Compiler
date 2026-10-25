@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_a9c45a11",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/29091377@N02/3079849093",
+    "direct_image_url": "https://live.staticflickr.com/3222/3079849093_4ed1806302.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "matt512",
+    "attribution_text": "'dog in suit' by matt512, licensed under CC BY 2.0 (https://www.flickr.com/photos/29091377@N02/3079849093)",
+    "retrieved_at": "2026-10-25T03:46:12.155093+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_a9c45a11.jpg",
+    "raw_sha256": "a596371909360afa0adbc25e51f6515873effb0f94009f6e3f7c4ebbde607106",
+    "sha256": "a9e8af2388f950098b49e1e8936b19eea93969caecc8f4233683d6b8f213474f",
+    "verification_status": "ACCEPTED"
+}

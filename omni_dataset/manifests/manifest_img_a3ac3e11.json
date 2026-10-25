@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_a3ac3e11",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/37922399@N05/31905345324",
+    "direct_image_url": "https://live.staticflickr.com/371/31905345324_d5dd230dfa_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "vastateparksstaff",
+    "attribution_text": "'Dogs in Virginia State Parks' by vastateparksstaff, licensed under CC BY 2.0 (https://www.flickr.com/photos/37922399@N05/31905345324)",
+    "retrieved_at": "2026-10-25T03:46:14.914650+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_a3ac3e11.jpg",
+    "raw_sha256": "056f2f1202181918b9601255695227d674c1cfe57a96fe716205978c97811e66",
+    "sha256": "91e06469c2e0f9bf8a742372fc56d4fdaaabe2ca960f7a26540ea9e09f3edb59",
+    "verification_status": "ACCEPTED"
+}

@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_9695f653",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/59979277@N00/4465657345",
+    "direct_image_url": "https://live.staticflickr.com/4042/4465657345_3fc2d9ea9d_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Hub☺",
+    "attribution_text": "'Sad Dog' by Hub☺, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/59979277@N00/4465657345)",
+    "retrieved_at": "2026-10-25T03:46:32.841534+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_9695f653.jpg",
+    "raw_sha256": "c19f936c56f4589072f9cc2d2f1fa349f5ef569ce0304dfb9b42a7cfd662964c",
+    "sha256": "f0467884563f65e5adfc77347b7ff7d4395bb6b866da2bd96bb231c2d044d2bb",
+    "verification_status": "ACCEPTED"
+}

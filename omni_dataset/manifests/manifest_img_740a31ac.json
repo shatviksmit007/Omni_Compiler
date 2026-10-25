@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_740a31ac",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/38867588@N05/5339243493",
+    "direct_image_url": "https://live.staticflickr.com/5166/5339243493_40b02ac0d8.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Magnus Bråth",
+    "attribution_text": "'Dog eating spaghetti' by Magnus Bråth, licensed under CC BY 2.0 (https://www.flickr.com/photos/38867588@N05/5339243493)",
+    "retrieved_at": "2026-10-25T03:46:38.976455+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_740a31ac.jpg",
+    "raw_sha256": "9b8a0cf5e26dbc900265aab70afc9c55df4fe4e3deef987d7d825f7e4ae0f610",
+    "sha256": "d05fa084e5a5a1ed3ccbe5cf19a17503fc1c0e682730c70157e71caeb0a17c28",
+    "verification_status": "ACCEPTED"
+}

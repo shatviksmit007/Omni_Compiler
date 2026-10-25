@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_ad5afa89",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/58606436@N00/537819971",
+    "direct_image_url": "https://live.staticflickr.com/1139/537819971_4a4aab6035_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Tonamel",
+    "attribution_text": "'Neighbor's dog' by Tonamel, licensed under CC BY 2.0 (https://www.flickr.com/photos/58606436@N00/537819971)",
+    "retrieved_at": "2026-10-25T03:46:11.762147+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_ad5afa89.jpg",
+    "raw_sha256": "2f01c39c67de2c42746500c732b10332d4eb92a4cb88b366e3566dad9a217938",
+    "sha256": "f32947d22276ee2f1f83f144c637d2c583a301824213ccd022865e7d02bf37e6",
+    "verification_status": "ACCEPTED"
+}

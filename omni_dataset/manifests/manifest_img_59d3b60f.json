@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_59d3b60f",
+    "policy_version": "2026.10-v2",
+    "source_name": "huggingface",
+    "retrieval_method": "hf_datasets_server",
+    "query": "cats",
+    "clip_target_prompt": "a photo of a cat, cats",
+    "source_page_url": "https://huggingface.co/datasets/Bingsu/Cat_and_Dog",
+    "direct_image_url": "https://datasets-server.huggingface.co/cached-assets/Bingsu/Cat_and_Dog/--/77396f1031920d1c116ec6d63ac397ff6aa492d3/--/default/train/1/image/image.jpg?Expires=1792903454&Signature=T3pXMPPYIk6oA1-j9VUjY2UzA7ZngMs3lM4WoHbWQizoRdm4CKtngx60dzwCy86wENEv9jHl0-aDywFYlOytCpfYAG~TJ8h1qszWaeLCxWG7dMmLrFGvcrhnwQt7JALJIVGxN36Epk-j3tv01F4X57DxAIzJxBSihn9EEStb54owp4X9Z9BiNHbSfbeINsN8Y5xZkQ5the4480BbKP226hVRn2a34v-ghAvaBejx1mBkepGCdcD2MdI5pIF2RLAEMq4CatDuZ~KOx04z7PfmgWzIBvOif78t5AnaS32Ejd~fwDLwB63rR2EeSUKwaS99cOgzo0mgjBRejdQBgq4mxw__&Key-Pair-Id=K3C0L9WB6U5DUC",
+    "license_label": "cc0-1.0",
+    "license_type": "cc0",
+    "license_url": "",
+    "license_evidence": "hf_card.license=cc0-1.0",
+    "creator": "Bingsu",
+    "attribution_text": "'Bingsu/Cat_and_Dog / cat' by Bingsu, licensed under cc0-1.0 (https://huggingface.co/datasets/Bingsu/Cat_and_Dog)",
+    "retrieved_at": "2026-10-25T03:44:18.995604+00:00",
+    "file_path": "omni_dataset\\train\\cats\\train_img_59d3b60f.jpg",
+    "raw_sha256": "cd73d507d3cc0738c63360988ce66e5c82679293d505c07fc69048412f5b2d17",
+    "sha256": "242a8b91b588abd213c4d5b514a50d5f6fbfbd3f6e65e5c8ca1d447ab66b014e",
+    "verification_status": "ACCEPTED"
+}

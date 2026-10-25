@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_3d611fe8",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dog bubble",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/43810158@N07/39203774295",
+    "direct_image_url": "https://live.staticflickr.com/4712/39203774295_c9bbda43a2_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "DaPuglet",
+    "attribution_text": "'Silly Boo Lefou Trying To Catch Snowflakes' by DaPuglet, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/43810158@N07/39203774295)",
+    "retrieved_at": "2026-10-25T03:58:29.535888+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_3d611fe8.jpg",
+    "raw_sha256": "132464f80c89025e52045627a5c22007d1f1d5e7bf078f2d656b46d426f8bddf",
+    "sha256": "b41cb4d04afb404e63a6331c80d1ebcbe53794b407c6a4b13b86e929fbf8fdb9",
+    "verification_status": "ACCEPTED"
+}

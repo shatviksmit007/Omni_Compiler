@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_9b3fee79",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/16638697@N00/4442330781",
+    "direct_image_url": "https://live.staticflickr.com/4012/4442330781_d1dbe1ef23_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "eschipul",
+    "attribution_text": "'dog+steak=awesome' by eschipul, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/16638697@N00/4442330781)",
+    "retrieved_at": "2026-10-25T03:46:05.103165+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_9b3fee79.jpg",
+    "raw_sha256": "bbf1a7f5ae92e46c576bd70daaec6c5747e59b9799360eaf2a0fd2535b64545f",
+    "sha256": "ae27bb81afce5e019d6be10d4586d5244328f6500c77872e109e2eeafa0eb87d",
+    "verification_status": "ACCEPTED"
+}

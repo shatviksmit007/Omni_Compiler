@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_531e5225",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/76253421@N04/14206861858",
+    "direct_image_url": "https://live.staticflickr.com/3897/14206861858_d58165e99a_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "JackPeasePhotography",
+    "attribution_text": "'Jessie the Dog' by JackPeasePhotography, licensed under CC BY 2.0 (https://www.flickr.com/photos/76253421@N04/14206861858)",
+    "retrieved_at": "2026-10-25T03:46:05.949148+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_531e5225.jpg",
+    "raw_sha256": "dce6ea6ede6bc214d8ec77ce4d9d297afd37f7ccaa07bece24619b7f9ec218d3",
+    "sha256": "d720780792df8f8c103e8d90e4d468dd4f4f283ae73cdac4949492dba5c0bb5c",
+    "verification_status": "ACCEPTED"
+}

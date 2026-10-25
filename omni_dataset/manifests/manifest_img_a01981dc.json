@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_a01981dc",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/58820009@N05/6216762636",
+    "direct_image_url": "https://live.staticflickr.com/6177/6216762636_16134f4034.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Eva Rinaldi Celebrity Photographer",
+    "attribution_text": "'Red Dog' by Eva Rinaldi Celebrity Photographer, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/58820009@N05/6216762636)",
+    "retrieved_at": "2026-10-25T03:45:49.003891+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_a01981dc.jpg",
+    "raw_sha256": "a6d2a8969dd12257dc1d76b8fcd20bdf6517bad5a66263b4305506c57c929c6f",
+    "sha256": "0f272f6e4f18eb6e538552fe26b48435ab74baa59d398c1c332dd6dfdf029a10",
+    "verification_status": "ACCEPTED"
+}

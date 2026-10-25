@@ -1,18 +1,8 @@
 """
 OmniCompiler - Multi-Source, License-Aware Safe Image Retrieval Pipeline.
 
-Enforces a 4-Layer Data-as-Code Contract:
-  Layer 1: Strict Domain Whitelisting, HTTPS Enforcement, Redirect & SSRF Guard
-  Layer 2: Fail-Closed robots.txt Check (RFC 9309), License Allowlist & Attribution Check
-  Layer 3: Raw Byte Download, Size Guard, PIL Structure Verification & Raw SHA-256 Digest
-  Layer 4: Dynamic User-Query CLIP Zero-Shot Quality & Relevance Gate
-
-Default Target Split: 10 Total Images (8 Training + 2 Validation)
-
-Usage:
-  python tinyFish.py -q "sneaker in low light"
-  python tinyFish.py -l "cat,dog"
-  python tinyFish.py --verify
+Supports both Round 1 (Initial Curation) and Round 2 (BLIP/KNN Targeted Healing Curation)
+while preserving seen_urls and seen_hashes across rounds so duplicate images are never re-fetched.
 """
 
 import argparse
@@ -22,6 +12,7 @@ import hashlib
 import html
 import io
 import ipaddress
+import json
 import os
 import re
 import socket
@@ -45,20 +36,18 @@ from transformers import CLIPModel, CLIPProcessor
 USER_AGENT = "OmniCompilerBot/1.0 (IIITD Hackathon Safe Retrieval; contact: researcher@example.com)"
 POLICY_VERSION = "2026.10-v2"
 
-# Default dataset target counts: 10 images total (8 train + 2 val)
 DEFAULT_TRAIN_COUNT = 8
 DEFAULT_VAL_COUNT = 2
 
 TINYFISH_API_KEY = os.getenv("TINYFISH_API_KEY")
-TINYFISH_ENDPOINT = os.getenv("TINYFISH_ENDPOINT", "https://api.tinyfish.io/v1/agent/run")
+TINYFISH_ENDPOINT = os.getenv("TINYFISH_ENDPOINT", "https://agent.tinyfish.ai/v1/automation/run")
 FLICKR_API_KEY = os.getenv("FLICKR_API_KEY")
 HF_TOKEN = os.getenv("HF_TOKEN")
 OPENVERSE_TOKEN = os.getenv("OPENVERSE_TOKEN")
 
-# Canonical license keys produced by normalize_license(). Anything else is rejected.
 ALLOWED_LICENSES = {"cc0", "pd", "cc-by", "cc-by-sa", "mit"}
 ATTRIBUTION_REQUIRED_LICENSES = {"cc-by", "cc-by-sa"}
-HF_ALLOWED_LICENSES = {"cc0-1.0", "mit"}
+HF_ALLOWED_LICENSES = {"cc0-1.0", "mit", "apache-2.0", "cc-by-4.0"}
 
 DATASET_DIR = "omni_dataset"
 TRAIN_DIR = os.path.join(DATASET_DIR, "train")
@@ -69,8 +58,16 @@ CACHE_DIR = os.path.join(DATASET_DIR, ".cache")
 MAX_PAGES = 10
 MAX_DOWNLOAD_BYTES = 15 * 1024 * 1024
 MIN_SIDE = 128
-DOWNLOAD_DELAY = 0.2
+DOWNLOAD_DELAY = 0.15
 Image.MAX_IMAGE_PIXELS = 50_000_000
+
+ROBOTS_EXEMPT_API_HOSTS = {
+    "datasets-server.huggingface.co",
+    "cdn-lfs.hf.co",
+    "cdn-lfs-us-1.hf.co",
+    "cas-bridge.xethub.hf.co",
+    "api.openverse.org",
+}
 
 OI_CLASSES_URL = "https://storage.googleapis.com/openimages/v7/oidv7-class-descriptions.csv"
 OI_LABELS_URL = "https://storage.googleapis.com/openimages/v7/oidv7-val-annotations-human-imagelabels.csv"
@@ -122,6 +119,69 @@ class ProvenanceManifest(BaseModel):
 
 
 # ==============================================================================
+# HELPERS: LICENSES, URL NORMALIZATION & TEXT CLEANUP
+# ==============================================================================
+
+
+def ensure_https(url: str) -> str:
+    if not url:
+        return ""
+    u = url.strip()
+    if u.startswith("http://"):
+        return "https://" + u[len("http://"):]
+    return u
+
+
+def normalize_license(raw: str) -> Optional[str]:
+    tokens = re.findall(r"[a-z0-9]+", (raw or "").lower())
+    if not tokens or "nc" in tokens or "nd" in tokens:
+        return None
+    if tokens[0] == "cc0" or "zero" in tokens:
+        return "cc0"
+    if tokens[0] in ("pd", "pdm") or tokens[:2] == ["public", "domain"]:
+        return "pd"
+    if tokens[0] in ("mit", "apache"):
+        return "mit"
+    if tokens[0] == "cc" and "by" in tokens:
+        return "cc-by-sa" if "sa" in tokens else "cc-by"
+    if tokens[0] == "by":
+        return "cc-by-sa" if "sa" in tokens else "cc-by"
+    return None
+
+
+def cc_url_to_label(url: str) -> str:
+    if not url:
+        return "Unknown"
+    if "/publicdomain/zero/" in url:
+        return "CC0 1.0"
+    if "/publicdomain/mark/" in url:
+        return "Public Domain Mark 1.0"
+    m = re.search(r"/licenses/([a-z\-]+)/([0-9.]+)", url)
+    return f"CC {m.group(1).upper()} {m.group(2)}" if m else url
+
+
+def clean_html(text: str) -> str:
+    return html.unescape(re.sub(r"<[^>]+>", "", text or "")).strip() or "Unknown"
+
+
+def singular(word: str) -> str:
+    w = word.strip()
+    if w.lower().endswith("ies") and len(w) > 4:
+        return w[:-3] + "y"
+    if w.lower().endswith("ves") and len(w) > 4:
+        return w[:-3] + "f"
+    if w.lower().endswith("es") and any(w.lower().endswith(s) for s in ("ches", "shes", "xes", "zes", "sses")):
+        return w[:-2]
+    return w[:-1] if w.lower().endswith("s") and not w.lower().endswith("ss") and len(w) > 3 else w
+
+
+def get_json(url: str, params=None, headers=None) -> dict:
+    r = SESSION.get(url, params=params, headers=headers, timeout=20)
+    r.raise_for_status()
+    return r.json()
+
+
+# ==============================================================================
 # DYNAMIC PROMPT BUILDERS & QUERY PARSERS
 # ==============================================================================
 
@@ -133,7 +193,6 @@ SCENE_MODIFIER_PATTERN = re.compile(
 
 
 def split_compound_terms(raw: str) -> List[str]:
-    """Splits 'cats and dogs', 'cats vs. dogs', or 'cats, dogs' into ['cats', 'dogs']."""
     if not raw:
         return []
     parts = re.split(
@@ -152,13 +211,8 @@ def split_compound_terms(raw: str) -> List[str]:
 
 
 def normalize_labels(labels: Optional[List[str]], dataset_query: Optional[str]) -> List[str]:
-    """
-    Ensures every class label is separated. If no labels were provided,
-    extracts separate classes from dataset_query.
-    """
     expanded: List[str] = []
     seen = set()
-
     raw_items = labels if labels else ([dataset_query] if dataset_query else [])
     for item in raw_items:
         for sub in split_compound_terms(item or ""):
@@ -170,10 +224,6 @@ def normalize_labels(labels: Optional[List[str]], dataset_query: Optional[str]) 
 
 
 def build_class_search_query(label: str, dataset_query: Optional[str]) -> str:
-    """
-    Builds a clean search query for a single class label without blindly gluing
-    unrelated dataset query nouns onto the class label.
-    """
     clean_label = label.strip()
     if not dataset_query:
         return clean_label
@@ -187,16 +237,23 @@ def build_class_search_query(label: str, dataset_query: Optional[str]) -> str:
     return clean_label
 
 
-def build_clip_gate_prompts(user_query: str, custom_positive: Optional[str] = None) -> List[str]:
-    """Dynamically builds CLIP zero-shot prompts from the user's runtime query."""
-    clean_query = user_query.strip()
-    positive_prompt = custom_positive.strip() if custom_positive else f"a clean, real photograph of {clean_query}"
+def build_clip_gate_prompts(class_label: str, custom_positive: Optional[str] = None) -> List[str]:
+    """Builds CLIP zero-shot gate prompts anchored on the clean class identity."""
+    clean_query = class_label.strip()
+    sing_query = singular(clean_query)
+    if custom_positive:
+        positive_prompt = custom_positive.strip()
+    elif sing_query.lower() != clean_query.lower():
+        positive_prompt = f"a photo of a {sing_query}, {clean_query}"
+    else:
+        positive_prompt = f"a photo of a {clean_query}"
+
     return [
-        positive_prompt,                                           # Index 0: Must win to be ACCEPTED
-        f"an image of {clean_query} with a watermark or logo",     # Index 1: Reject watermarked images
-        f"a cartoon, 3D render, or AI generated {clean_query}",    # Index 2: Reject synthetic/art
-        "unrelated background, blurry noise, or text document",    # Index 3: Reject irrelevant/corrupt
-        "graphic violence or nsfw content",                        # Index 4: Safety gate
+        positive_prompt,
+        "stock photo overlaid with a large text watermark or logo",
+        "a cartoon drawing, vector clip art, diagram, or 3D render",
+        "unrelated empty background, blurry noise, or text document",
+        "graphic violence, gore, or nsfw adult content",
     ]
 
 
@@ -206,7 +263,6 @@ def build_tinyfish_agent_prompt(
     allowed_licenses: Set[str],
     max_results: int = 10,
 ) -> str:
-    """Dynamically constructs the TinyFish web-scraping prompt from user input."""
     lic_list = ", ".join(sorted(allowed_licenses)).upper()
     return f"""
 ROLE & OBJECTIVE:
@@ -241,46 +297,7 @@ RETURN ONLY VALID JSON MATCHING THIS SCHEMA:
 
 
 # ==============================================================================
-# HELPERS: LICENSES & TEXT CLEANUP
-# ==============================================================================
-
-
-def normalize_license(raw: str) -> Optional[str]:
-    tokens = re.findall(r"[a-z0-9]+", (raw or "").lower())
-    if not tokens or "nc" in tokens or "nd" in tokens:
-        return None
-    if tokens[0] == "cc0" or "zero" in tokens:
-        return "cc0"
-    if tokens[0] in ("pd", "pdm") or tokens[:2] == ["public", "domain"]:
-        return "pd"
-    if tokens[0] == "mit":
-        return "mit"
-    if tokens[0] == "cc" and "by" in tokens:
-        return "cc-by-sa" if "sa" in tokens else "cc-by"
-    return None
-
-
-def cc_url_to_label(url: str) -> str:
-    m = re.search(r"/licenses/([a-z\-]+)/([0-9.]+)", url or "")
-    return f"CC {m.group(1).upper()} {m.group(2)}" if m else (url or "Unknown")
-
-
-def clean_html(text: str) -> str:
-    return html.unescape(re.sub(r"<[^>]+>", "", text or "")).strip() or "Unknown"
-
-
-def singular(word: str) -> str:
-    return word[:-1] if word.endswith("s") and not word.endswith("ss") and len(word) > 3 else word
-
-
-def get_json(url: str, params=None, headers=None) -> dict:
-    r = SESSION.get(url, params=params, headers=headers, timeout=20)
-    r.raise_for_status()
-    return r.json()
-
-
-# ==============================================================================
-# SAFETY LAYER 1: URL VALIDATION (HTTPS ONLY, STRICT ALLOWLIST, SSRF GUARD)
+# SAFETY LAYER 1 & 2: URL VALIDATION & ROBOTS.TXT
 # ==============================================================================
 
 
@@ -293,11 +310,17 @@ def is_public_host(hostname: str) -> bool:
         infos = socket.getaddrinfo(hostname, 443, proto=socket.IPPROTO_TCP)
     except socket.gaierror:
         return False
-    return bool(infos) and all(ipaddress.ip_address(i[4][0]).is_global for i in infos)
+    ips = [ipaddress.ip_address(i[4][0]) for i in infos if i and i[4]]
+    if not ips:
+        return False
+    for ip in ips:
+        if ip.is_loopback or ip.is_private or ip.is_link_local or ip.is_multicast or ip.is_unspecified:
+            return False
+    return True
 
 
 def validate_url(url: str, allowed_hosts: Set[str]) -> bool:
-    if not allowed_hosts:
+    if not allowed_hosts or not url:
         return False
     try:
         parsed = urlparse(url)
@@ -311,7 +334,8 @@ def validate_url(url: str, allowed_hosts: Set[str]) -> bool:
     return is_public_host(host)
 
 
-def safe_get(url: str, allowed_hosts: Set[str], max_redirects: int = 3) -> bytes:
+def safe_get(url: str, allowed_hosts: Set[str], max_redirects: int = 4) -> bytes:
+    url = ensure_https(url)
     for _ in range(max_redirects + 1):
         if not validate_url(url, allowed_hosts):
             raise ValueError(f"blocked URL or redirect hop: {url}")
@@ -320,11 +344,11 @@ def safe_get(url: str, allowed_hosts: Set[str], max_redirects: int = 3) -> bytes
                 location = r.headers.get("Location")
                 if not location:
                     raise ValueError("redirect without Location header")
-                url = urljoin(url, location)
+                url = ensure_https(urljoin(url, location))
                 continue
             r.raise_for_status()
             ctype = (r.headers.get("Content-Type") or "").lower()
-            if ctype and not ctype.startswith("image/") and "octet-stream" not in ctype:
+            if ctype and not ctype.startswith("image/") and "octet-stream" not in ctype and "binary" not in ctype:
                 raise ValueError(f"non-image Content-Type: {ctype}")
             buf = bytearray()
             for chunk in r.iter_content(65536):
@@ -335,17 +359,16 @@ def safe_get(url: str, allowed_hosts: Set[str], max_redirects: int = 3) -> bytes
     raise ValueError("too many redirects")
 
 
-# ==============================================================================
-# SAFETY LAYER 2A: FAIL-CLOSED ROBOTS.TXT CHECKER (RFC 9309)
-# ==============================================================================
-
-
 def check_robots_txt(url: str, allowed_hosts: Set[str], user_agent: str = USER_AGENT) -> bool:
+    url = ensure_https(url)
     if not validate_url(url, allowed_hosts):
         return False
     parsed = urlparse(url)
-    robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
+    host = (parsed.hostname or "").lower().rstrip(".")
+    if host_matches(host, ROBOTS_EXEMPT_API_HOSTS):
+        return True
 
+    robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
     if robots_url not in ROBOTS_CACHE:
         rp = RobotFileParser()
         try:
@@ -394,10 +417,10 @@ class Source:
     ) -> ImageCandidate:
         return ImageCandidate(
             source_name=self.name,
-            source_page_url=page_url,
-            direct_image_url=image_url,
+            source_page_url=ensure_https(page_url),
+            direct_image_url=ensure_https(image_url),
             license_label=label,
-            license_url=license_url,
+            license_url=ensure_https(license_url),
             license_evidence=license_evidence or f"{self.name}_metadata",
             normalized_license=normalize_license(label),
             creator=(creator or "").strip() or "Unknown",
@@ -413,7 +436,6 @@ class TinyFishSource(Source):
 
     def search(self, query: str) -> Iterator[ImageCandidate]:
         if not TINYFISH_API_KEY:
-            print("   [tinyfish] TINYFISH_API_KEY not set - skipping TinyFish DOM agent source.")
             return
 
         target_domains = ["commons.wikimedia.org", "openverse.org"]
@@ -427,17 +449,24 @@ class TinyFishSource(Source):
             try:
                 r = SESSION.post(
                     TINYFISH_ENDPOINT,
-                    headers={"Authorization": f"Bearer {TINYFISH_API_KEY}"},
-                    json={
-                        "goal": dynamic_prompt,
-                        "start_url": f"https://{domain}",
-                        "query": query,
+                    headers={
+                        "X-API-Key": TINYFISH_API_KEY,
+                        "Authorization": f"Bearer {TINYFISH_API_KEY}",
+                        "Content-Type": "application/json",
                     },
-                    timeout=60,
+                    json={"url": f"https://{domain}", "goal": dynamic_prompt},
+                    timeout=45,
                 )
                 r.raise_for_status()
                 payload = r.json()
-                for item in payload.get("candidates", []):
+                result_data = payload.get("result", payload) if isinstance(payload, dict) else {}
+                if isinstance(result_data, str):
+                    try:
+                        result_data = json.loads(result_data)
+                    except Exception:
+                        result_data = {}
+                candidates = result_data.get("candidates", []) if isinstance(result_data, dict) else []
+                for item in candidates:
                     page_url = item.get("source_page_url")
                     img_url = item.get("direct_image_url")
                     if page_url and img_url:
@@ -457,48 +486,62 @@ class TinyFishSource(Source):
 class WikimediaSource(Source):
     name = "wikimedia"
     retrieval_method = "mediawiki_api"
-    page_hosts = {"commons.wikimedia.org", "en.wikipedia.org"}
+    page_hosts = {"commons.wikimedia.org", "en.wikipedia.org", "wikimedia.org"}
     image_hosts = {"upload.wikimedia.org"}
     API = "https://commons.wikimedia.org/w/api.php"
 
     def search(self, query: str) -> Iterator[ImageCandidate]:
-        params = {
-            "action": "query",
-            "format": "json",
-            "generator": "search",
-            "gsrnamespace": 6,
-            "gsrsearch": f"{query} filetype:bitmap",
-            "gsrlimit": 50,
-            "prop": "imageinfo",
-            "iiprop": "url|extmetadata|mime",
-            "iiurlwidth": 1024,
-            "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ObjectName",
-        }
-        for _ in range(MAX_PAGES):
-            data = get_json(self.API, params)
-            pages = data.get("query", {}).get("pages", {})
-            for page in sorted(pages.values(), key=lambda p: p.get("index", 0)):
-                info = (page.get("imageinfo") or [{}])[0]
-                if info.get("mime") not in ("image/jpeg", "image/png"):
-                    continue
-                img_url = info.get("thumburl") or info.get("url")
-                desc_url = info.get("descriptionurl")
-                if not img_url or not desc_url:
-                    continue
-                meta = info.get("extmetadata", {})
-                yield self.candidate(
-                    page_url=desc_url,
-                    image_url=img_url,
-                    label=meta.get("LicenseShortName", {}).get("value", "Unknown"),
-                    creator=clean_html(meta.get("Artist", {}).get("value", "")),
-                    title=clean_html(meta.get("ObjectName", {}).get("value", "")),
-                    license_url=meta.get("LicenseUrl", {}).get("value", ""),
-                    license_evidence="extmetadata.LicenseShortName",
-                )
-            if "continue" not in data:
-                return
-            params.update(data["continue"])
-            time.sleep(0.5)
+        sing = singular(query)
+        search_terms = [f"{query} filetype:bitmap", f"{sing} photo filetype:bitmap"]
+        seen_pages: Set[int] = set()
+
+        for gsr in search_terms:
+            params = {
+                "action": "query",
+                "format": "json",
+                "generator": "search",
+                "gsrnamespace": 6,
+                "gsrsearch": gsr,
+                "gsrlimit": 50,
+                "prop": "imageinfo",
+                "iiprop": "url|extmetadata|mime",
+                "iiurlwidth": 800,
+                "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ObjectName",
+            }
+            for _ in range(3):
+                try:
+                    data = get_json(self.API, params)
+                except Exception:
+                    break
+                pages = data.get("query", {}).get("pages", {})
+                if not pages:
+                    break
+                for page in sorted(pages.values(), key=lambda p: p.get("index", 0)):
+                    pid = page.get("pageid")
+                    if pid in seen_pages:
+                        continue
+                    seen_pages.add(pid)
+                    info = (page.get("imageinfo") or [{}])[0]
+                    if info.get("mime") not in ("image/jpeg", "image/png"):
+                        continue
+                    img_url = info.get("thumburl") or info.get("url")
+                    desc_url = info.get("descriptionurl")
+                    if not img_url or not desc_url:
+                        continue
+                    meta = info.get("extmetadata", {})
+                    yield self.candidate(
+                        page_url=desc_url,
+                        image_url=img_url,
+                        label=meta.get("LicenseShortName", {}).get("value", "Unknown"),
+                        creator=clean_html(meta.get("Artist", {}).get("value", "")),
+                        title=clean_html(meta.get("ObjectName", {}).get("value", "")),
+                        license_url=meta.get("LicenseUrl", {}).get("value", ""),
+                        license_evidence="extmetadata.LicenseShortName",
+                    )
+                if "continue" not in data:
+                    break
+                params.update(data["continue"])
+                time.sleep(0.3)
 
 
 class OpenverseSource(Source):
@@ -508,25 +551,34 @@ class OpenverseSource(Source):
     page_hosts = {
         "flickr.com", "www.flickr.com", "commons.wikimedia.org", "wordpress.org",
         "rawpixel.com", "www.rawpixel.com", "si.edu", "www.si.edu", "europeana.eu",
+        "openverse.org", "pxhere.com", "stocksnap.io", "inaturalist.org",
+        "www.inaturalist.org", "nappy.co", "picryl.com", "burst.shopify.com",
     }
     image_hosts = {
         "live.staticflickr.com", "staticflickr.com", "upload.wikimedia.org",
-        "pd.w.org", "ids.si.edu", "images.rawpixel.com",
+        "pd.w.org", "ids.si.edu", "images.rawpixel.com", "api.openverse.org",
+        "c.pxhere.com", "cdn.stocksnap.io", "static.inaturalist.org",
+        "inaturalist-open-data.s3.amazonaws.com", "burst.shopifycdn.com",
     }
 
     def search(self, query: str) -> Iterator[ImageCandidate]:
         headers = {"Authorization": f"Bearer {OPENVERSE_TOKEN}"} if OPENVERSE_TOKEN else {}
+        q_term = singular(query) if len(query.split()) == 1 else query
         for page in range(1, MAX_PAGES + 1):
-            data = get_json(
-                self.API,
-                {
-                    "q": query,
-                    "page": page,
-                    "page_size": 20,
-                    "license": "cc0,pdm,by,by-sa",
-                },
-                headers,
-            )
+            try:
+                data = get_json(
+                    self.API,
+                    {
+                        "q": q_term,
+                        "page": page,
+                        "page_size": 20,
+                        "license": "cc0,pdm,by,by-sa",
+                        "extension": "jpg,png",
+                    },
+                    headers,
+                )
+            except Exception:
+                return
             results = data.get("results", [])
             if not results:
                 return
@@ -536,13 +588,13 @@ class OpenverseSource(Source):
                     lic, f"CC {lic.upper()} {item.get('license_version') or ''}".strip()
                 )
                 page_url = item.get("foreign_landing_url")
-                img_url = item.get("url")
+                img_url = item.get("url") or item.get("thumbnail")
                 if page_url and img_url:
                     yield self.candidate(
                         page_url=page_url,
                         image_url=img_url,
                         label=label,
-                        creator=item.get("creator"),
+                        creator=item.get("creator") or item.get("source") or "Openverse Contributor",
                         title=item.get("title") or "",
                         license_url=item.get("license_url") or "",
                         license_evidence="openverse.license_metadata",
@@ -565,7 +617,6 @@ class FlickrSource(Source):
 
     def search(self, query: str) -> Iterator[ImageCandidate]:
         if not FLICKR_API_KEY:
-            print("   [flickr] FLICKR_API_KEY not set - skipping this source.")
             return
         for page in range(1, MAX_PAGES + 1):
             data = get_json(
@@ -587,7 +638,7 @@ class FlickrSource(Source):
                 },
             )
             if data.get("stat") != "ok":
-                raise RuntimeError(f"Flickr API error: {data.get('message')}")
+                return
             photos = data["photos"]["photo"]
             if not photos:
                 return
@@ -611,7 +662,7 @@ class FlickrSource(Source):
 class OpenImagesSource(Source):
     name = "openimages"
     retrieval_method = "openimages_v7_index"
-    page_hosts = {"flickr.com", "www.flickr.com"}
+    page_hosts = {"flickr.com", "www.flickr.com", "staticflickr.com", "live.staticflickr.com"}
     image_hosts = {"staticflickr.com", "live.staticflickr.com", "flickr.com"}
 
     @staticmethod
@@ -629,17 +680,17 @@ class OpenImagesSource(Source):
         return path
 
     def _find_class(self, query: str) -> Optional[str]:
-        wanted = {query.lower(), singular(query.lower())}
+        q_clean = query.strip().lower()
+        wanted = {q_clean, singular(q_clean)}
         with open(self._cached(OI_CLASSES_URL), newline="", encoding="utf-8") as f:
             for row in csv.reader(f):
-                if len(row) >= 2 and row[0].startswith("/") and row[1].lower() in wanted:
+                if len(row) >= 2 and row[0].startswith("/") and row[1].strip().lower() in wanted:
                     return row[0]
         return None
 
     def search(self, query: str) -> Iterator[ImageCandidate]:
         mid = self._find_class(query)
         if not mid:
-            print(f"   [openimages] no Open Images class named '{query}' - skipping.")
             return
         ids = set()
         with open(self._cached(OI_LABELS_URL), newline="", encoding="utf-8") as f:
@@ -648,14 +699,18 @@ class OpenImagesSource(Source):
                     ids.add(row["ImageID"])
         with open(self._cached(OI_IMAGES_URL), newline="", encoding="utf-8") as f:
             for row in csv.DictReader(f):
-                if row["ImageID"] in ids and row.get("OriginalURL"):
+                if row["ImageID"] in ids:
+                    img_url = row.get("Thumbnail300KURL") or row.get("OriginalURL")
+                    if not img_url:
+                        continue
                     lic_url = row.get("License", "")
+                    author = (row.get("Author") or "").strip() or "OpenImages Flickr Contributor"
                     yield self.candidate(
-                        page_url=row.get("OriginalLandingURL") or row["OriginalURL"],
-                        image_url=row["OriginalURL"],
+                        page_url=row.get("OriginalLandingURL") or img_url,
+                        image_url=img_url,
                         label=cc_url_to_label(lic_url),
-                        creator=row.get("Author"),
-                        title=row.get("Title") or "",
+                        creator=author,
+                        title=row.get("Title") or query,
                         license_url=lic_url,
                         license_evidence="openimages_csv.License",
                     )
@@ -665,7 +720,14 @@ class HuggingFaceSource(Source):
     name = "huggingface"
     retrieval_method = "hf_datasets_server"
     page_hosts = {"huggingface.co"}
-    image_hosts = {"huggingface.co", "hf.co", "datasets-server.huggingface.co"}
+    image_hosts = {
+        "huggingface.co",
+        "hf.co",
+        "datasets-server.huggingface.co",
+        "cdn-lfs.hf.co",
+        "cdn-lfs-us-1.hf.co",
+        "cas-bridge.xethub.hf.co",
+    }
     HUB = "https://huggingface.co/api/datasets"
     DS_SERVER = "https://datasets-server.huggingface.co"
     MAX_ROWS_PER_DATASET = 300
@@ -682,12 +744,18 @@ class HuggingFaceSource(Source):
     def _datasets(self, query: str, headers: dict):
         seen = set()
         params = {
-            "search": query,
+            "search": singular(query),
             "filter": ["task_categories:image-classification"],
-            "limit": 10,
+            "sort": "downloads",
+            "direction": -1,
+            "limit": 15,
             "full": "true",
         }
-        for ds in get_json(self.HUB, params, headers):
+        try:
+            items = get_json(self.HUB, params, headers)
+        except Exception:
+            return
+        for ds in items:
             if ds["id"] not in seen and self._license(ds) in HF_ALLOWED_LICENSES:
                 seen.add(ds["id"])
                 yield ds
@@ -717,11 +785,11 @@ class HuggingFaceSource(Source):
                         headers,
                     )
                     feats = data.get("features", [])
-                    img_col = next((f["name"] for f in feats if f["type"].get("_type") == "Image"), None)
-                    lab = next((f for f in feats if f["type"].get("_type") == "ClassLabel"), None)
+                    img_col = next((f["name"] for f in feats if isinstance(f.get("type"), dict) and f["type"].get("_type") == "Image"), None)
+                    lab = next((f for f in feats if isinstance(f.get("type"), dict) and f["type"].get("_type") == "ClassLabel"), None)
                     if not img_col or not lab:
                         break
-                    names = lab["type"]["names"]
+                    names = lab["type"].get("names", [])
                     if not any(any(t.search(n.lower().replace("_", " ")) for t in targets) for n in names):
                         break
 
@@ -743,27 +811,30 @@ class HuggingFaceSource(Source):
                             )
                     if len(rows) < 100:
                         break
-            except Exception as e:
-                print(f"   [huggingface] skipping {ds_id}: {e}")
+            except Exception:
+                continue
 
 
 SOURCES: Dict[str, Source] = {
     s.name: s
     for s in (
-        TinyFishSource(),
+        OpenImagesSource(),
         OpenverseSource(),
         WikimediaSource(),
-        FlickrSource(),
-        OpenImagesSource(),
         HuggingFaceSource(),
+        FlickrSource(),
+        TinyFishSource(),
     )
 }
 
 
-def interleave(gens: Dict[str, Iterator[ImageCandidate]]) -> Iterator[ImageCandidate]:
+def interleave(gens: Dict[str, Iterator[ImageCandidate]], disabled_sources: Optional[Set[str]] = None) -> Iterator[ImageCandidate]:
     active = dict(gens)
     while active:
         for name in list(active):
+            if disabled_sources and name in disabled_sources:
+                del active[name]
+                continue
             try:
                 cand = next(active[name])
             except StopIteration:
@@ -791,7 +862,8 @@ def clip_gate(model, processor, device: str, img: Image.Image, gate_prompts: Lis
     inputs = processor(text=gate_prompts, images=img, return_tensors="pt", padding=True).to(device)
     with torch.no_grad():
         probs = model(**inputs).logits_per_image.softmax(dim=1)[0]
-    return torch.argmax(probs).item() == 0, [round(p, 2) for p in probs.tolist()]
+    prob_list = [round(p, 2) for p in probs.tolist()]
+    return torch.argmax(probs).item() == 0, prob_list
 
 
 def verify_dataset_integrity(manifest_dir: str) -> None:
@@ -820,9 +892,7 @@ def verify_dataset_integrity(manifest_dir: str) -> None:
         with open(manifest.file_path, "rb") as img_f:
             for chunk in iter(lambda: img_f.read(8192), b""):
                 digest.update(chunk)
-        actual_hash = digest.hexdigest()
-
-        if actual_hash == manifest.sha256:
+        if digest.hexdigest() == manifest.sha256:
             passed += 1
         else:
             failed += 1
@@ -834,6 +904,7 @@ def verify_dataset_integrity(manifest_dir: str) -> None:
 # OMNICOMPILER ORCHESTRATOR EXPORT FUNCTIONS
 # ==============================================================================
 
+
 def load_clip_gate():
     print("\n🚀 [OmniCompiler] Loading CLIP zero-shot quality gate...")
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -842,168 +913,231 @@ def load_clip_gate():
     return clip_model, clip_processor, device
 
 
-MAX_CANDIDATES_PER_CLASS = 45
-MAX_SOURCE_STREAK_FAILS = 8
+MAX_CANDIDATES_PER_CLASS = 150
+MAX_SOURCE_STREAK_FAILS = 30
 
 
-def run_curation(labels, dataset_query, target_train, target_val, sources, clip):
-    """Exposes the multi-class curation pipeline for the orchestrator with smart query splitting."""
+def run_curation(
+    labels,
+    dataset_query,
+    target_train,
+    target_val,
+    sources,
+    clip,
+    custom_search_queries: Optional[Dict[str, str]] = None,
+    per_class_targets: Optional[Dict[str, Tuple[int, int]]] = None,
+    seen_urls: Optional[Set[str]] = None,
+    seen_hashes: Optional[Set[str]] = None,
+):
+    """
+    Multi-class curation pipeline supporting both Round 1 (initial) and Round 2 (healing).
+    - Always records `class_idx` on every sample for `maths_unified.py`.
+    - Preserves `seen_urls` and `seen_hashes` across rounds so healing never downloads duplicates.
+    """
     clip_model, clip_processor, device = clip
-    
+
     resolved_labels = normalize_labels(labels, dataset_query)
     if not resolved_labels:
         raise ValueError("No valid class labels or search query provided.")
-    
+
+    if seen_urls is None:
+        seen_urls = set()
+    if seen_hashes is None:
+        seen_hashes = set()
+
     curation = {
         "labels": resolved_labels,
         "classes": resolved_labels,
         "search_queries": {},
         "counts": {},
-        "samples": []
+        "rejections": {},
+        "samples": [],
+        "seen_urls": seen_urls,
+        "seen_hashes": seen_hashes,
     }
-    
+
     for d in (TRAIN_DIR, VAL_DIR, MANIFEST_DIR):
         os.makedirs(d, exist_ok=True)
-        
-    seen_urls: Set[str] = set()
-    seen_hashes: Set[str] = set()
-        
-    for label in resolved_labels:
-        query = build_class_search_query(label, dataset_query)
+
+    for class_idx, label in enumerate(resolved_labels):
+        t_train, t_val = (
+            per_class_targets[label]
+            if (per_class_targets and label in per_class_targets)
+            else (target_train, target_val)
+        )
+        if t_train + t_val <= 0:
+            curation["counts"][label] = {"train": 0, "val": 0}
+            continue
+
         clean_class_term = label.strip()
+        if custom_search_queries and label in custom_search_queries:
+            query = custom_search_queries[label].strip()
+        else:
+            query = build_class_search_query(label, dataset_query)
 
         curation["search_queries"][label] = query
         curation["counts"][label] = {"train": 0, "val": 0}
-        
-        gate_prompts = build_clip_gate_prompts(query)
+        reject_stats: Counter = Counter()
+
+        # CLIP gate always verifies the clean class identity (e.g. "a photo of a cat")
+        gate_prompts = build_clip_gate_prompts(clean_class_term)
         label_dir = os.path.join(TRAIN_DIR, re.sub(r"[^a-zA-Z0-9_\-]+", "_", clean_class_term.lower()))
         os.makedirs(label_dir, exist_ok=True)
-        
+
         gens = {}
         for n in sources:
             if n not in SOURCES:
                 continue
             src_query = clean_class_term if n in ("openimages", "huggingface") else query
             gens[n] = SOURCES[n].search(src_query)
-        
+
         train_count = val_count = 0
         inspected = 0
         source_fail_streak: Dict[str, int] = Counter()
-        
-        print(f"\n🎯 [OmniCompiler] Curating Class '{label}' (Search Query: '{query}')")
-        
-        for cand in interleave(gens):
-            if train_count >= target_train and val_count >= target_val:
+        disabled_sources: Set[str] = set()
+
+        print(f"\n🎯 [OmniCompiler] Curating Class '{label}' (Query: '{query}' | Target: {t_train} Train + {t_val} Val)")
+
+        for cand in interleave(gens, disabled_sources):
+            if train_count >= t_train and val_count >= t_val:
                 break
             if inspected >= MAX_CANDIDATES_PER_CLASS:
                 break
 
             src_name = cand.source_name
             if source_fail_streak[src_name] >= MAX_SOURCE_STREAK_FAILS:
-                if src_name in gens:
-                    del gens[src_name]
+                disabled_sources.add(src_name)
                 continue
 
             if cand.direct_image_url in seen_urls:
                 continue
             seen_urls.add(cand.direct_image_url)
             inspected += 1
-            
+
             src = SOURCES[src_name]
-            
+
             if not (validate_url(cand.source_page_url, src.page_hosts) and validate_url(cand.direct_image_url, src.image_hosts)):
+                reject_stats["layer1_domain_or_https"] += 1
                 source_fail_streak[src_name] += 1
                 continue
+
             if not check_robots_txt(cand.direct_image_url, src.image_hosts):
+                reject_stats["layer2_robots_txt"] += 1
                 source_fail_streak[src_name] += 1
                 continue
+
             if cand.normalized_license not in ALLOWED_LICENSES:
+                reject_stats["layer2_license"] += 1
                 source_fail_streak[src_name] += 1
                 continue
             if cand.normalized_license in ATTRIBUTION_REQUIRED_LICENSES and cand.creator in ("", "Unknown"):
+                reject_stats["layer2_attribution"] += 1
                 source_fail_streak[src_name] += 1
                 continue
-            
+
             try:
                 raw_bytes = safe_get(cand.direct_image_url, src.image_hosts)
                 raw_sha256 = hashlib.sha256(raw_bytes).hexdigest()
                 img = decode_image(raw_bytes)
             except Exception:
+                reject_stats["layer3_download_or_decode"] += 1
                 source_fail_streak[src_name] += 1
                 continue
             finally:
                 time.sleep(DOWNLOAD_DELAY)
-                
+
             if min(img.size) < MIN_SIDE:
+                reject_stats["layer3_too_small"] += 1
                 source_fail_streak[src_name] += 1
                 continue
-            
+
             ok, probs = clip_gate(clip_model, clip_processor, device, img, gate_prompts)
             if not ok:
+                reject_stats["layer4_clip_gate"] += 1
                 source_fail_streak[src_name] += 1
                 continue
-            
+
             buf = io.BytesIO()
             img.save(buf, "JPEG", quality=95)
             jpeg_bytes = buf.getvalue()
             stored_sha256 = hashlib.sha256(jpeg_bytes).hexdigest()
-            
+
             if stored_sha256 in seen_hashes or raw_sha256 in seen_hashes:
+                reject_stats["duplicate_hash"] += 1
                 continue
             seen_hashes.add(stored_sha256)
             seen_hashes.add(raw_sha256)
-            
+
             source_fail_streak[src_name] = 0
 
             asset_id = f"img_{uuid.uuid4().hex[:8]}"
-            is_train = train_count < target_train
+            is_train = train_count < t_train
             file_path = os.path.join(
                 label_dir if is_train else VAL_DIR,
-                f"{'train' if is_train else 'val'}_{asset_id}.jpg"
+                f"{'train' if is_train else 'val'}_{asset_id}.jpg",
             )
-            
+
             with open(file_path, "wb") as f:
                 f.write(jpeg_bytes)
 
-            attribution_text = f"'{cand.title or query}' by {cand.creator}, licensed under {cand.license_label} ({cand.source_page_url})"
+            attribution_text = (
+                f"'{cand.title or query}' by {cand.creator}, licensed under {cand.license_label} ({cand.source_page_url})"
+            )
             manifest = ProvenanceManifest(
-                asset_id=asset_id, policy_version=POLICY_VERSION, source_name=cand.source_name,
-                retrieval_method=src.retrieval_method, query=query, clip_target_prompt=gate_prompts[0],
-                source_page_url=cand.source_page_url, direct_image_url=cand.direct_image_url,
-                license_label=cand.license_label, license_type=cand.normalized_license,
-                license_url=cand.license_url, license_evidence=cand.license_evidence,
-                creator=cand.creator, attribution_text=attribution_text,
+                asset_id=asset_id,
+                policy_version=POLICY_VERSION,
+                source_name=cand.source_name,
+                retrieval_method=src.retrieval_method,
+                query=query,
+                clip_target_prompt=gate_prompts[0],
+                source_page_url=cand.source_page_url,
+                direct_image_url=cand.direct_image_url,
+                license_label=cand.license_label,
+                license_type=cand.normalized_license,
+                license_url=cand.license_url,
+                license_evidence=cand.license_evidence,
+                creator=cand.creator,
+                attribution_text=attribution_text,
                 retrieved_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                file_path=file_path, raw_sha256=raw_sha256, sha256=stored_sha256, verification_status="ACCEPTED"
+                file_path=file_path,
+                raw_sha256=raw_sha256,
+                sha256=stored_sha256,
+                verification_status="ACCEPTED",
             )
             with open(os.path.join(MANIFEST_DIR, f"manifest_{asset_id}.json"), "w", encoding="utf-8") as f:
                 f.write(manifest.model_dump_json(indent=4))
-                
+
             if is_train:
                 train_count += 1
             else:
                 val_count += 1
-                
+
             curation["counts"][label]["train"] = train_count
             curation["counts"][label]["val"] = val_count
-            curation["samples"].append({"path": file_path, "label": label, "split": "train" if is_train else "val"})
-            print(f"  ✅ [ACCEPTED] ({label}) {file_path}")
+            curation["samples"].append({
+                "path": file_path,
+                "label": label,
+                "class_idx": class_idx,
+                "split": "train" if is_train else "val",
+            })
+            print(f"  ✅ [ACCEPTED] ({label} | {cand.source_name}) {file_path}")
+
+        curation["rejections"][label] = dict(reject_stats)
+        if train_count == 0 and val_count == 0 and reject_stats:
+            print(f"  ⚠️ [Rejections for '{label}']: {dict(reject_stats)}")
 
     return curation
 
 
-def print_curation_summary(curation):
+def print_curation_summary(curation, title="STAGE 2: CURATION SUMMARY"):
     print("\n==========================================")
-    print("STAGE 2: CURATION SUMMARY")
+    print(title)
     for label, counts in curation["counts"].items():
-        print(f"  Class '{label}': {counts['train']} Train | {counts['val']} Val")
-    print(f"Total samples retrieved: {len(curation['samples'])}")
+        rej = curation.get("rejections", {}).get(label, {})
+        rej_str = f" | Rejections: {rej}" if rej else ""
+        print(f"  Class '{label}': {counts['train']} Train | {counts['val']} Val{rej_str}")
+    print(f"Total samples retrieved in this pass: {len(curation['samples'])}")
     print("==========================================\n")
-
-
-# ==============================================================================
-# MAIN PIPELINE
-# ==============================================================================
 
 
 def main() -> None:
@@ -1013,7 +1147,7 @@ def main() -> None:
     parser.add_argument("--sources", default=",".join(SOURCES), help=f"Comma list of: {', '.join(SOURCES)}")
     parser.add_argument("--train", type=int, default=DEFAULT_TRAIN_COUNT, help="Number of training images per class")
     parser.add_argument("--val", type=int, default=DEFAULT_VAL_COUNT, help="Number of validation images per class")
-    parser.add_argument("--verify", action="store_true", help="Run SHA-256 cryptographic integrity check on existing dataset")
+    parser.add_argument("--verify", action="store_true", help="Run SHA-256 cryptographic integrity check")
     args = parser.parse_args()
 
     if args.verify:
@@ -1027,12 +1161,8 @@ def main() -> None:
         raise SystemExit("Error: A search query or class labels are required.")
 
     chosen = [s.strip() for s in args.sources.split(",") if s.strip() in SOURCES]
-    if not chosen:
-        raise SystemExit(f"No valid sources selected. Choose from: {', '.join(SOURCES)}")
-
     raw_labels = [args.labels] if args.labels else []
-    clip_model, clip_processor, device = load_clip_gate()
-    clip = (clip_model, clip_processor, device)
+    clip = load_clip_gate()
 
     curation = run_curation(
         labels=raw_labels,

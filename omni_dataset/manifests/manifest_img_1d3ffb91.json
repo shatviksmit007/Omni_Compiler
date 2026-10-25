@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_1d3ffb91",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/60359963@N00/356868692",
+    "direct_image_url": "https://live.staticflickr.com/128/356868692_8184cfd37f_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Laenulfean",
+    "attribution_text": "'walking dog' by Laenulfean, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/60359963@N00/356868692)",
+    "retrieved_at": "2026-10-25T03:46:28.409203+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_1d3ffb91.jpg",
+    "raw_sha256": "b5390d9ae689bac9209feca35f6435ffe970228abd4d47f47f2ba6a35d9e0ae5",
+    "sha256": "9828e5772cd669d70b568b9f7c622e5cab0f636988c6d13b21d886e877959103",
+    "verification_status": "ACCEPTED"
+}

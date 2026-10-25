@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_9bf2a554",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/45383134@N00/1807024507",
+    "direct_image_url": "https://live.staticflickr.com/2101/1807024507_66b83709f6_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "j.reed",
+    "attribution_text": "'Gray dog hair cut' by j.reed, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/45383134@N00/1807024507)",
+    "retrieved_at": "2026-10-25T03:46:42.269697+00:00",
+    "file_path": "omni_dataset\\val\\images\\val_img_9bf2a554.jpg",
+    "raw_sha256": "6015f4f939408ede824b61f2b83b3835b49ebb2a006e21fcbc093cbf96965344",
+    "sha256": "c880fb266bdbd4a48395c52f1e0c3576800fece86aa80f2fcaf0d461ae5fe746",
+    "verification_status": "ACCEPTED"
+}

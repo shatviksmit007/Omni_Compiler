@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_93f814cb",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/25722571@N08/6090548367",
+    "direct_image_url": "https://live.staticflickr.com/6191/6090548367_5491b87c28_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "JaseCurtis",
+    "attribution_text": "'Soppy Dog' by JaseCurtis, licensed under CC BY 2.0 (https://www.flickr.com/photos/25722571@N08/6090548367)",
+    "retrieved_at": "2026-10-25T03:45:42.150724+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_93f814cb.jpg",
+    "raw_sha256": "a8595ce9c13b112c9ae0ba2fa32f1023059e05befb3a09079ffe4a3c33f348c5",
+    "sha256": "68089ef7d6c4c60ff3b48fa48849b40fe5459d084dd2d9ce23af494ab32e8abd",
+    "verification_status": "ACCEPTED"
+}

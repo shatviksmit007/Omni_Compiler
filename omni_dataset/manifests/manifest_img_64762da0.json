@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_64762da0",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/99287245@N00/167998408",
+    "direct_image_url": "https://live.staticflickr.com/63/167998408_fa768b16a2_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Todd Huffman",
+    "attribution_text": "'Cutest Dog Evar' by Todd Huffman, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/99287245@N00/167998408)",
+    "retrieved_at": "2026-10-25T03:46:04.701470+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_64762da0.jpg",
+    "raw_sha256": "99a2c64ec083bb83cec7a47d9c630ed975c228b0c08d35e5a97ca894a9cab692",
+    "sha256": "dcbb16594c5ff0d1b6dba02e94f0624afcee95e4afd29488df8821562e21c5ee",
+    "verification_status": "ACCEPTED"
+}

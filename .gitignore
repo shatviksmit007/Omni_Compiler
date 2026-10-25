@@ -1,2 +1,6 @@
 /data
 /__pycache__
+/omni_dataset 
+/safe_bin
+/failed_bin
+clip_probe_shoes.pth

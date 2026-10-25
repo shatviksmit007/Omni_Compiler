@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_12c7517b",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/25182329@N02/8691660734",
+    "direct_image_url": "https://live.staticflickr.com/7049/8691660734_ca62134d11_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "tedmurphy",
+    "attribution_text": "'Happy Dog' by tedmurphy, licensed under CC BY 2.0 (https://www.flickr.com/photos/25182329@N02/8691660734)",
+    "retrieved_at": "2026-10-25T03:46:17.702775+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_12c7517b.jpg",
+    "raw_sha256": "73aee797107dd5137ccafc9cb62a8c49b380b2652d819104486aceeab4df02f9",
+    "sha256": "78391c684b68fa9f6547359ac29b502e084ffa81ceb66940d4f140c89e1aebf8",
+    "verification_status": "ACCEPTED"
+}

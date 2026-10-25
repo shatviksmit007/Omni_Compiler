@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_4a9fc090",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/96964826@N05/9178299324",
+    "direct_image_url": "https://live.staticflickr.com/3790/9178299324_d12a3582e0_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "sonstroem",
+    "attribution_text": "'Beach Dog' by sonstroem, licensed under CC BY 2.0 (https://www.flickr.com/photos/96964826@N05/9178299324)",
+    "retrieved_at": "2026-10-25T03:46:25.353476+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_4a9fc090.jpg",
+    "raw_sha256": "ad1e55bca638c03b9a717ba1f25c4574b7d0207b1ea09e559d134a1cd26bd32b",
+    "sha256": "55e56aeb1af9e09b5e306c24464317fa6e5ac453a90b842ee9def270b128cbf0",
+    "verification_status": "ACCEPTED"
+}

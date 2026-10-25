@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_2fc4a9a1",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/84391558@N00/261837578",
+    "direct_image_url": "https://live.staticflickr.com/85/261837578_ff763798c1_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "fruitbody1",
+    "attribution_text": "'dogs' by fruitbody1, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/84391558@N00/261837578)",
+    "retrieved_at": "2026-10-25T03:46:15.692306+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_2fc4a9a1.jpg",
+    "raw_sha256": "5aaa27580c8ed0477e93bf89339dfb58a7c5c91af634c4309abee3e72ffb6afe",
+    "sha256": "8636244e078829d39cca6ba74289436ff33d32f8a968df6bac7aa1cfe9e0a187",
+    "verification_status": "ACCEPTED"
+}

@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_b0eebc1f",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/17235062@N00/174085592",
+    "direct_image_url": "https://live.staticflickr.com/71/174085592_c0b7e5076f_b.jpg",
+    "license_label": "CC BY 2.0",
+    "license_type": "cc-by",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "One From RM",
+    "attribution_text": "'The rainbow dog' by One From RM, licensed under CC BY 2.0 (https://www.flickr.com/photos/17235062@N00/174085592)",
+    "retrieved_at": "2026-10-25T03:46:31.723782+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_b0eebc1f.jpg",
+    "raw_sha256": "420e9169e7fc1441c4868bb67177e9967281ddea57122afc8aa4bcfd89f59c1e",
+    "sha256": "fb33823f69eb8fb9b67422e5cb5685dc33b3db92038d4b9635fe2fd9ccfdd84f",
+    "verification_status": "ACCEPTED"
+}

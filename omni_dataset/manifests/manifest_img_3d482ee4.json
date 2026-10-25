@@ -1,0 +1,21 @@
+{
+    "asset_id": "img_3d482ee4",
+    "policy_version": "2026.10-v2",
+    "source_name": "openverse",
+    "retrieval_method": "openverse_api",
+    "query": "dogs",
+    "clip_target_prompt": "a photo of a dog, dogs",
+    "source_page_url": "https://www.flickr.com/photos/58820009@N05/6719107007",
+    "direct_image_url": "https://live.staticflickr.com/7006/6719107007_4abd133386_b.jpg",
+    "license_label": "CC BY-SA 2.0",
+    "license_type": "cc-by-sa",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "license_evidence": "openverse.license_metadata",
+    "creator": "Eva Rinaldi Celebrity Photographer",
+    "attribution_text": "'Sausage Dog' by Eva Rinaldi Celebrity Photographer, licensed under CC BY-SA 2.0 (https://www.flickr.com/photos/58820009@N05/6719107007)",
+    "retrieved_at": "2026-10-25T03:46:28.843862+00:00",
+    "file_path": "omni_dataset\\train\\dogs\\train_img_3d482ee4.jpg",
+    "raw_sha256": "72f503ebb8425adef7a9dfb75240ac7d230671db3d4bce365e482d009030c4ed",
+    "sha256": "221b6a98cd22be93947860052a6252bbe93c08f41688a431e8ff4604de36ac8d",
+    "verification_status": "ACCEPTED"
+}
