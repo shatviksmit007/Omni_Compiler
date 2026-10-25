@@ -415,7 +415,7 @@ Two diagnostic plots are generated automatically with Matplotlib. The examples b
 ### Z² Energy Distribution
 
 <div align="center">
-<img src="assets/z_square_energy_distribution.png" alt="Z² energy distribution, Round 2 post-healing, with 90% threshold" width="720"/>
+<img src="z_square_energy_distribution.png" alt="Z² energy distribution, Round 2 post-healing, with 90% threshold" width="720"/>
 </div>
 
 Histogram of Z² energy scores across the dataset. The dashed red line marks the **90th-percentile threshold (≈ 680)**. Images to the right of it are treated as structural outliers and routed to `failed_bin/`; everything to the left continues to the student and teacher evaluation.
@@ -423,7 +423,7 @@ Histogram of Z² energy scores across the dataset. The dashed red line marks the
 ### L-BFGS Temperature Scaling
 
 <div align="center">
-<img src="assets/calibration_curve.png" alt="L-BFGS temperature scaling curve, Round 2 post-healing, optimal T = 1.59" width="720"/>
+<img src="calibration_curve.png" alt="L-BFGS temperature scaling curve, Round 2 post-healing, optimal T = 1.59" width="720"/>
 </div>
 
 Negative log-likelihood (NLL) plotted against temperature $T$. The dashed green line marks the **optimal $T = 1.59$** found by L-BFGS, where NLL reaches its minimum (≈ 0.11). Since $T > 1$, the raw student was **overconfident**, and scaling softens its probabilities.
